@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 Route::get('/about','PageController@about');
 Route::get('/contact', 'PageController@contact');
-Route::post('/contact', 'PageController@submitContact')
+Route::post('/contact', 'PageController@submitContact');
