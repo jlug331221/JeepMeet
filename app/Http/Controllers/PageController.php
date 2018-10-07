@@ -13,4 +13,9 @@ class PageController extends Controller
     {
         return "Contact Page";
     }
+
+    public function submitContact()
+    {
+        return "Submitted Contact";
+    }
 }
