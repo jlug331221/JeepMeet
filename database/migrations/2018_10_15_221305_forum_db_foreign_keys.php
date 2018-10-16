@@ -19,13 +19,16 @@ class ForumDbForeignKeys extends Migration
 
         Schema::table('posts', function(Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
-
             $table->foreign('thread_id')->references('id')->on('threads');
+        });
+
+        Schema::table('comments', function(Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('post_id')->references('id')->on('posts');
         });
 
         Schema::table('notifications', function(Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
-
             $table->foreign('thread_id')->references('id')->on('threads');
         });
     }
