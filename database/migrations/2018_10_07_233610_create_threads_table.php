@@ -15,10 +15,8 @@ class CreateThreadsTable extends Migration
     {
         Schema::create('threads', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('slug');
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('channel_id');
+            $table->string('subject_title', 140);
+            $table->unsignedInteger('user_id'); // FK
             $table->softDeletes();
             $table->timestamps();
         });
