@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Forum_Models\Comment;
+
 class CommentTableSeeder extends Seeder
 {
     /**
@@ -11,6 +13,6 @@ class CommentTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Comment::class, 10)->create();
+        factory(Comment::class, 10)->create();
     }
 }

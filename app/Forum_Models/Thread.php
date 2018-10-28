@@ -7,7 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Thread extends Model
 {
     /**
+     * Get the user who created the thread.
+     * 
+     * @return App\User_Models\User
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User_Models\User');
+    }
+
+    /**
     * Get the posts for a particular thread.
+    *
+    * @return App\Forum_Models\Post
     */
     public function posts()
     {

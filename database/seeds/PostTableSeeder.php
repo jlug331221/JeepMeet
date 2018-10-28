@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Forum_Models\Post;
+
 class PostTableSeeder extends Seeder
 {
     /**
@@ -11,6 +13,6 @@ class PostTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Post::class, 10)->create();
+        factory(Post::class, 10)->create();
     }
 }

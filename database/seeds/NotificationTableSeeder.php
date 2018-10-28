@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Forum_Models\Notification;
+
 class NotificationTableSeeder extends Seeder
 {
     /**
@@ -11,6 +13,6 @@ class NotificationTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Notification::class, 10)->create();
+        factory(Notification::class, 10)->create();
     }
 }
