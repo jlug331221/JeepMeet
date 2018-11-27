@@ -24,12 +24,60 @@
     <body>
         <div id="app">
             <header>
-                <nav></nav>
+                <nav class="navbar" role="navigation" aria-label="main navigation">
+                    <div class="navbar-brand">
+                      <a class="navbar-item" href="/">
+                        <img src="{{ asset('storage/images/jeepup-brand-icon.png') }}">
+                        <h1 class="brand-name">JeepUp</h1>
+                      </a>
+                  
+                      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                      </a>
+                    </div>
+                  
+                    <div id="navbarBasicExample" class="navbar-menu">
+                      <div class="navbar-start">
+                        <a class="navbar-item" href="">
+                          Home
+                        </a>
+                  
+                        <a class="navbar-item" href="">
+                          Forums
+                        </a>
+
+                        <a class="navbar-item" href="">
+                            About
+                        </a>
+
+                        <a class="navbar-item" href="">
+                            Contact
+                        </a>
+                      </div>
+                  
+                      <div class="navbar-end">
+                        <div class="navbar-item">
+                          <div class="buttons">
+                            <a class="button">
+                              <strong>Sign up</strong>
+                            </a>
+                            <a class="button">
+                              Log in
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
             </header>
             
             <main>
                 @yield('main-content')
             </main>
+
+            <hr>
 
             <footer>
                 This is the footer.

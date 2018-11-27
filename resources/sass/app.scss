@@ -1,19 +1,20 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway:400,600');
 
-// Variables
-@import 'variables';
-
 // Bulma CSS Framework
 @import '~bulma/bulma.sass';
 
+// Variables
+@import 'variables';
+@import 'navbar';
+
 body {
   margin: 0;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.9rem;
+  font-family: $font-family-raleway-sans-serif;
+  font-size: $font-size-base;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: $line-height-base;
   color: #212529;
   text-align: center;
-  background-color: #f8fafc;
+  background-color: $body-bg;
 }
