@@ -24,21 +24,23 @@
     <body>
         <div id="app">
             <header>
-                <nav class="navbar" role="navigation" aria-label="main navigation">
+                <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
                     <div class="navbar-brand">
-                      <a class="navbar-item" href="/">
+                      <a class="navbar-item jeepup-brand-icon" href="/">
                         <img src="{{ asset('storage/images/jeepup-brand-icon.png') }}">
-                        <h1 class="brand-name">JeepUp</h1>
+                        {{-- <h1 class="brand-name">JeepUp</h1> --}}
                       </a>
+
+                      <h1 class="brand-name navbar-item">JeepUp</h1>
                   
-                      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                      <a role="button" class="navbar-burger burger is-active" aria-label="menu" aria-expanded="false" data-target="jeepup-navbar">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                       </a>
                     </div>
                   
-                    <div id="navbarBasicExample" class="navbar-menu">
+                    <div id="jeepup-navbar" class="navbar-menu is-active">
                       <div class="navbar-start">
                         <a class="navbar-item" href="">
                           Home
