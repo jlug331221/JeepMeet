@@ -25,11 +25,11 @@
         <div id="app">
             <header>
                 <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+                  <div class="container is-fluid"> 
                     <div class="navbar-brand">
-                      <a class="navbar-item jeepup-brand-icon" href="/">
+                      {{-- <a class="navbar-item jeepup-brand-icon" href="/">
                         <img src="{{ asset('storage/images/jeepup-brand-icon.png') }}">
-                        {{-- <h1 class="brand-name">JeepUp</h1> --}}
-                      </a>
+                      </a> --}}
 
                       <h1 class="brand-name navbar-item">JeepUp</h1>
                   
@@ -42,20 +42,20 @@
                   
                     <div id="jeepup-navbar" class="navbar-menu is-active">
                       <div class="navbar-start">
-                        <a class="navbar-item" href="">
-                          Home
+                        <a class="navbar-item" href="{{ url('/home') }}">
+                          <strong>Home</strong>
                         </a>
                   
                         <a class="navbar-item" href="">
-                          Forums
+                          <strong>Forums</strong>
                         </a>
 
-                        <a class="navbar-item" href="">
-                            About
+                      <a class="navbar-item" href="{{ url('/about') }}">
+                            <strong>About</strong>
                         </a>
 
-                        <a class="navbar-item" href="">
-                            Contact
+                        <a class="navbar-item" href="{{ url('/contact') }}">
+                            <strong>Contact</strong>
                         </a>
                       </div>
                   
@@ -72,7 +72,8 @@
                         </div>
                       </div>
                     </div>
-                  </nav>
+                  </div>
+                </nav>
             </header>
             
             <main>

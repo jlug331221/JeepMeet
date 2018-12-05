@@ -1,6 +1,9 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway:400,600');
 
+// Brand Font
+@import url('https://fonts.googleapis.com/css?family=Faster+One');
+
 // Bulma CSS Framework
 @import '~bulma/bulma.sass';
 
@@ -9,6 +12,10 @@
 
 // Components
 @import 'navbar';
+
+// Pages
+@import 'contact';
+@import 'about';
 
 body {
   margin: 0;

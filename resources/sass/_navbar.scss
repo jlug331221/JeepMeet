@@ -4,7 +4,18 @@
 }
 
 .brand-name {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+    font-family: $font-family-faster-one-cursive;
+    color: $secondary-site-color;
+    // padding-left: 2rem;
+}
+
+#jeepup-navbar .navbar-item {
+    color: whitesmoke;
+}
+
+.navbar {
+    background-color: $main-site-color;
 }
 
 nav .navbar-end .buttons {
@@ -15,3 +26,4 @@ nav .navbar-end .buttons {
     }
     
 }
+
