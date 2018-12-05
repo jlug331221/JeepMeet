@@ -25,54 +25,50 @@
         <div id="app">
             <header>
                 <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
-                  <div class="container is-fluid"> 
-                    <div class="navbar-brand">
-                      {{-- <a class="navbar-item jeepup-brand-icon" href="/">
-                        <img src="{{ asset('storage/images/jeepup-brand-icon.png') }}">
-                      </a> --}}
+                    <div class="container is-fluid"> 
+                        <div class="navbar-brand">
+                            {{-- <a class="navbar-item jeepup-brand-icon" href="/">
+                                <img src="{{ asset('storage/images/jeepup-brand-icon.png') }}">
+                            </a> --}}
 
-                      <h1 class="brand-name navbar-item">JeepUp</h1>
-                  
-                      <a role="button" class="navbar-burger burger is-active" aria-label="menu" aria-expanded="false" data-target="jeepup-navbar">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                      </a>
-                    </div>
-                  
-                    <div id="jeepup-navbar" class="navbar-menu is-active">
-                      <div class="navbar-start">
-                        <a class="navbar-item" href="{{ url('/home') }}">
-                          <strong>Home</strong>
-                        </a>
-                  
-                        <a class="navbar-item" href="">
-                          <strong>Forums</strong>
-                        </a>
-
-                      <a class="navbar-item" href="{{ url('/about') }}">
-                            <strong>About</strong>
-                        </a>
-
-                        <a class="navbar-item" href="{{ url('/contact') }}">
-                            <strong>Contact</strong>
-                        </a>
-                      </div>
-                  
-                      <div class="navbar-end">
-                        <div class="navbar-item">
-                          <div class="buttons">
-                            <a class="button">
-                              <strong>Sign up</strong>
+                            <h1 class="brand-name navbar-item">JeepUp</h1>
+                        
+                            <a role="button" class="navbar-burger burger is-active" aria-label="menu" aria-expanded="false" data-target="jeepup-navbar">
+                                <span aria-hidden="true"></span>
+                                <span aria-hidden="true"></span>
+                                <span aria-hidden="true"></span>
                             </a>
-                            <a class="button">
-                              Log in
-                            </a>
-                          </div>
                         </div>
-                      </div>
+                    
+                        <div id="jeepup-navbar" class="navbar-menu is-active">
+                            <div class="navbar-start">
+                                <a class="navbar-item" href="{{ url('/home') }}">
+                                    <strong>Home</strong>
+                                </a>
+                        
+                                <a class="navbar-item" href="">
+                                    <strong>Forums</strong>
+                                </a>
+
+                                <a class="navbar-item" href="{{ url('/about') }}">
+                                    <strong>About</strong>
+                                </a>
+
+                                <a class="navbar-item" href="{{ url('/contact') }}">
+                                    <strong>Contact</strong>
+                                </a>
+                            </div>
+                        
+                            <div class="navbar-end">
+                                <div class="navbar-item">
+                                    <div class="buttons">
+                                        <a class="button"><strong>Sign up</strong></a>
+                                        <a class="button">Log in</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </nav>
             </header>
             
@@ -80,10 +76,14 @@
                 @yield('main-content')
             </main>
 
-            <hr>
-
-            <footer>
-                This is the footer.
+            <footer>  
+                <div class="columns is-mobile">
+                    <div class="column is-half is-offset-one-quarter">
+                        <p><span class="footer-brand">JeepUp</span>&nbsp;<small>&copy;</small>&nbsp;{{ date('Y') }}</p>
+                        <p>Privacy Statement</p>
+                        <a href="mailto:thejeepup@gmail.com">thejeepup@gmail.com</a>
+                    </div>
+                </div>
             </footer>
         </div> <!-- End of Vue application div tag -->
     </body>

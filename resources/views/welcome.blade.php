@@ -3,5 +3,7 @@
 @section('title', 'Welcome')
 
 @section('main-content')
-Welcome Page
+
+{{-- Welcome Page --}}
+
 @endsection

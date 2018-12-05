@@ -4,8 +4,6 @@
 
 @section('main-content')
 
-
-
 <div class="about">
   <h1 class="about-header">About JeepUp</h1>
 </div>

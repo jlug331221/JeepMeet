@@ -3,12 +3,6 @@
 @section('title', 'Contact')
 
 @section('main-content')
-   
-<div>
-  <h1>
-  
-  </h1>
-</div>
 
 <div class="contact">
     <div class="contact-form">
@@ -24,7 +18,5 @@
         </form>
       </div>
 </div>
-
-
    
 @endsection

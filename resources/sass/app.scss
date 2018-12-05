@@ -1,29 +1,30 @@
-// Fonts
+// Site Fonts
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway:400,600');
 
 // Brand Font
 @import url('https://fonts.googleapis.com/css?family=Faster+One');
 
-// Bulma CSS Framework
-@import '~bulma/bulma.sass';
-
 // Variables
 @import 'variables';
 
+// Bulma CSS Framework
+@import '~bulma/bulma.sass';
+
+body {
+    margin: 0;
+    font-family: $font-family-raleway-sans-serif;
+    font-size: $font-size-base;
+    font-weight: 400;
+    line-height: $line-height-base;
+    color: #212529;
+    background-color: $body-bg;
+}
+
 // Components
 @import 'navbar';
+@import 'main';
+@import 'footer';
 
 // Pages
 @import 'contact';
 @import 'about';
-
-body {
-  margin: 0;
-  font-family: $font-family-raleway-sans-serif;
-  font-size: $font-size-base;
-  font-weight: 400;
-  line-height: $line-height-base;
-  color: #212529;
-  text-align: center;
-  background-color: $body-bg;
-}

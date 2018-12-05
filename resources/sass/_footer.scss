@@ -1,0 +1,20 @@
+$footer-bg-color: #33363D;
+
+footer {
+    background-color: $footer-bg-color;
+    color: white;
+    min-height: 10vh;
+    font-size: .95rem;
+    text-align: center;
+    margin: 0;
+}
+
+footer a {
+    color: white;
+}
+
+.footer-brand {
+    font-family: $font-family-faster-one-cursive;
+    color: $secondary-site-color;
+    font-size: 1.1rem;
+}

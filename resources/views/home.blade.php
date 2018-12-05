@@ -3,5 +3,7 @@
 @section('title', 'Home')
 
 @section('main-content')
+
 {{-- Home Page --}}
+
 @endsection
