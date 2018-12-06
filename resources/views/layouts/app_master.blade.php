@@ -45,9 +45,13 @@
                                 <a class="navbar-item" href="{{ url('/home') }}">
                                     <strong>Home</strong>
                                 </a>
-                        
-                                <a class="navbar-item" href="">
-                                    <strong>Forums</strong>
+
+                                <a class="navbar-item" href="{{ url('/forum') }}">
+                                    <strong>Forum</strong>
+                                </a>
+
+                                <a class="navbar-item" href="{{ url('/news') }}">
+                                    <strong>News</strong>
                                 </a>
 
                                 <a class="navbar-item" href="{{ url('/about') }}">
@@ -62,8 +66,8 @@
                             <div class="navbar-end">
                                 <div class="navbar-item">
                                     <div class="buttons">
-                                        <a class="button"><strong>Sign up</strong></a>
-                                        <a class="button">Log in</a>
+                                        <a class="button is-rounded"><strong>Sign Up Free</strong></a>
+                                        <a class="button is-rounded"><strong>Login</strong></a>
                                     </div>
                                 </div>
                             </div>

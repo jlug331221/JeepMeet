@@ -1,9 +1,9 @@
 @extends('layouts.app_master')
 
-@section('title', 'About')
+@section('title', 'Forum')
 
 @section('main-content')
 
-{{-- About Page --}}
+{{-- Forum Page --}}
 
 @endsection
