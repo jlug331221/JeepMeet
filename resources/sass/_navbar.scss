@@ -2,15 +2,18 @@ nav {
     text-align: center;
 }
 
-.jeepup-brand-icon {
-    min-width: 2.5rem;
-    padding-right: .1rem;
-}
-
 .brand-name {
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-family: $font-family-faster-one-cursive;
     color: $secondary-site-color;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 1.4rem;
+    }
+
+    @media only screen and (min-width: 1088px) {
+        font-size: 1.6rem;
+    }
 }
 
 a.navbar-item, a.navbar-link {
@@ -27,6 +30,10 @@ a.navbar-item:hover, a.navbar-link:hover {
 
 .navbar {
     background-color: $main-site-color;
+}
+
+.navbar-burger span.small-burger {
+    max-width: 20%;
 }
 
 nav .navbar-end .buttons {

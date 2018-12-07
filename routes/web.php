@@ -17,7 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::view('/register', '/auth/register');
+Route::view('/login', '/auth/login');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::view('/forum', 'forum');
 Route::view('/news', 'news');
 Route::view('/about', 'about');

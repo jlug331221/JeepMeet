@@ -27,15 +27,11 @@
                 <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
                     <div class="container is-fluid"> 
                         <div class="navbar-brand">
-                            {{-- <a class="navbar-item jeepup-brand-icon" href="/">
-                                <img src="{{ asset('storage/images/jeepup-brand-icon.png') }}">
-                            </a> --}}
-
-                            <h1 class="brand-name navbar-item">JeepUp</h1>
+                            <a href="/"><h1 class="brand-name navbar-item">JeepUp</h1></a>
                         
                             <a role="button" class="navbar-burger burger is-active" aria-label="menu" aria-expanded="false" data-target="jeepup-navbar">
                                 <span aria-hidden="true"></span>
-                                <span aria-hidden="true"></span>
+                                <span class="small-burger" aria-hidden="true"></span>
                                 <span aria-hidden="true"></span>
                             </a>
                         </div>
@@ -66,8 +62,8 @@
                             <div class="navbar-end">
                                 <div class="navbar-item">
                                     <div class="buttons">
-                                        <a class="button is-rounded"><strong>Sign Up Free</strong></a>
-                                        <a class="button is-rounded"><strong>Login</strong></a>
+                                    <a class="button is-rounded" href="{{ url('/register') }}"><strong>Sign Up</strong></a>
+                                        <a class="button is-rounded" href="{{ url('/login') }}"><strong>Login</strong></a>
                                     </div>
                                 </div>
                             </div>
@@ -81,13 +77,13 @@
             </main>
 
             <footer>  
-                <div class="columns is-mobile">
+                <section class="columns is-mobile">
                     <div class="column is-half is-offset-one-quarter">
                         <p><span class="footer-brand">JeepUp</span>&nbsp;<small>&copy;</small>&nbsp;{{ date('Y') }}</p>
                         <p>Privacy Statement</p>
                         <a href="mailto:thejeepup@gmail.com">thejeepup@gmail.com</a>
                     </div>
-                </div>
+                </section>
             </footer>
         </div> <!-- End of Vue application div tag -->
     </body>
