@@ -1,0 +1,11 @@
+.button {
+    text-transform: uppercase;
+    border-color: $secondary-site-color;
+    border-width: 2px;
+    background-color: transparent;
+    color: black;
+}
+
+.button:hover {
+    border-color: $main-site-color;
+}

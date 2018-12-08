@@ -34,11 +34,14 @@ body {
 }
 
 // Components
-@import 'navbar';
-@import 'main';
-@import 'footer';
+@import './Components/navbar';
+@import './Components/main';
+@import './Components/footer';
+@import './Components/button';
+@import './Components/icon';
+@import './Components/ahref';
 
 // Pages
-@import 'contact';
-@import 'about';
-@import 'login';
+@import './Pages/contact';
+@import './Pages/about';
+@import './Pages/login';

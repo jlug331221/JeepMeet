@@ -5,9 +5,39 @@
 @section('main-content')
 
 <div class="columns is-mobile is-centered">
-    <div class="column is-half">
-        <section class="section is-medium has-text-centered login">
-            <h2 class="title">Login</h2>
+    <div class="column is-three-quarters-mobile is-half-tablet is-half-desktop">
+        <section class="section is-medium has-text-left login">
+            <h2 class="title is-2">Login</h2>
+            
+            <form action="">
+                <div class="field">
+                    <div class="control has-icons-left">
+                        <input type="text" class="input" placeholder="Username">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control has-icons-left">
+                        <input type="password" class="input" placeholder="Password">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <a class="has-text-left" href="#">Forgot Credentials</a>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-rounded">Submit</button>
+                    </div>
+                </div>
+            </form>
         </section>
     </div>
 </div>
