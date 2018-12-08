@@ -1,14 +1,11 @@
-$footer-bg-color: #33363D;
-
 footer {
-    background-color: $footer-bg-color;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
     border-top: 3px solid $secondary-site-color;
     color: white;
-    min-height: 10vh;
     font-size: .55rem;
-    text-align: center;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
 
     @media only screen and (min-width: 768px) {
         font-size: .65rem;
@@ -19,8 +16,16 @@ footer {
     }
 }
 
+.footer {
+    padding: 3rem 1.5rem 3rem 1.5rem;
+}
+
 footer a {
     color: white;
+}
+
+footer .content p:not(:last-child) {
+    margin-bottom: .15rem;
 }
 
 .footer-brand {

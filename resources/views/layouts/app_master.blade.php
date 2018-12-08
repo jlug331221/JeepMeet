@@ -25,7 +25,7 @@
         <div id="app">
             <header>
                 <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
-                    <div class="container is-fluid"> 
+                    <div class="container"> 
                         <div class="navbar-brand">
                             <a href="/"><h1 class="brand-name navbar-item">JeepUp</h1></a>
                         
@@ -72,18 +72,16 @@
                 </nav>
             </header>
             
-            <main>
+            <main class="main-wrapper">
                 @yield('main-content')
             </main>
 
-            <footer>  
-                <section class="columns is-mobile">
-                    <div class="column is-half is-offset-one-quarter">
-                        <p><span class="footer-brand">JeepUp</span>&nbsp;<small>&copy;</small>&nbsp;{{ date('Y') }}</p>
-                        <p>Privacy Statement</p>
-                        <a href="mailto:thejeepup@gmail.com">thejeepup@gmail.com</a>
-                    </div>
-                </section>
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p><span class="footer-brand">JeepUp</span>&nbsp;<small>&copy;</small>&nbsp;{{ date('Y') }}</p>
+                    <p>Privacy Statement</p>
+                    <a href="mailto:thejeepup@gmail.com">thejeepup@gmail.com</a>
+                </div>
             </footer>
         </div> <!-- End of Vue application div tag -->
     </body>
