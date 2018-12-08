@@ -1,9 +1,5 @@
 @extends('layouts.app_master')
 
-@section('title', 'Welcome')
-
 @section('main-content')
-
-{{-- Welcome Page --}}
-
+{{-- Email Page --}}
 @endsection

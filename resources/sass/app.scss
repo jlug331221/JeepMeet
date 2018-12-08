@@ -1,14 +1,30 @@
+// Site Fonts
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway:400,600');
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// Brand Font
+@import url('https://fonts.googleapis.com/css?family=Faster+One');
 
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Bulma CSS Framework
+@import '~bulma/bulma.sass';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+body {
+    margin: 0;
+    font-family: $font-family-raleway-sans-serif;
+    font-size: $font-size-base;
+    font-weight: 400;
+    line-height: $line-height-base;
+    color: #212529;
+    background-color: $body-bg;
 }
+
+// Components
+@import 'navbar';
+@import 'main';
+@import 'footer';
+
+// Pages
+@import 'contact';
+@import 'about';

@@ -1,0 +1,34 @@
+$footer-bg-color: #33363D;
+
+footer {
+    background-color: $footer-bg-color;
+    border-top: 3px solid $secondary-site-color;
+    color: white;
+    min-height: 10vh;
+    font-size: .55rem;
+    text-align: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    @media only screen and (min-width: 768px) {
+        font-size: .65rem;
+    }
+
+    @media only screen and (min-width: 1088px) {
+        font-size: .75rem;
+    }
+}
+
+footer a {
+    color: white;
+}
+
+.footer-brand {
+    font-family: $font-family-faster-one-cursive;
+    color: $secondary-site-color;
+    font-size: .75rem;
+
+    @media only screen and (min-width: 1088px) {
+        font-size: .9rem;
+    }
+}
