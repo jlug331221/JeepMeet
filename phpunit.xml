@@ -16,6 +16,10 @@
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
+
+        <testsuite name="Factory">
+            <directory suffix="Test.php">./tests/Factory</directory>
+        </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
@@ -29,5 +33,7 @@
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="MAIL_DRIVER" value="array"/>
+
+        <env name="DB_CONNECTION" value="mysql_testing"/>
     </php>
 </phpunit>
