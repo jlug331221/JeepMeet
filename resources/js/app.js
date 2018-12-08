@@ -7,6 +7,12 @@
 
 require('./bootstrap');
 
+/**
+ * Load the JQuery Component code.
+ */
+
+require('./components/jquery/navbar');
+
 window.Vue = require('vue');
 
 /**

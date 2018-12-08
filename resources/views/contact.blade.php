@@ -1,9 +1,9 @@
 @extends('layouts.app_master')
 
-@section('title', 'Home')
+@section('title', 'Contact')
 
 @section('main-content')
 
-{{-- Home Page --}}
-
+{{-- Contact Page --}}
+   
 @endsection

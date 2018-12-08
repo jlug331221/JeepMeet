@@ -1,25 +1,30 @@
-
-// Fonts
+// Site Fonts
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway:400,600');
+
+// Brand Font
+@import url('https://fonts.googleapis.com/css?family=Faster+One');
 
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+// Bulma CSS Framework
+@import '~bulma/bulma.sass';
 
 body {
-  margin: 0;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #212529;
-  text-align: left;
-  background-color: #f8fafc;
+    margin: 0;
+    font-family: $font-family-raleway-sans-serif;
+    font-size: $font-size-base;
+    font-weight: 400;
+    line-height: $line-height-base;
+    color: #212529;
+    background-color: $body-bg;
 }
+
+// Components
+@import 'navbar';
+@import 'main';
+@import 'footer';
+
+// Pages
+@import 'contact';
+@import 'about';

@@ -1,9 +1,9 @@
 @extends('layouts.app_master')
 
-@section('title', 'Home')
+@section('title', 'News')
 
 @section('main-content')
 
-{{-- Home Page --}}
+{{-- News Page --}}
 
 @endsection

@@ -1,0 +1,65 @@
+nav { 
+    text-align: center;
+}
+
+.brand-name {
+    font-size: 1.3rem;
+    font-family: $font-family-faster-one-cursive;
+    color: $secondary-site-color;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 1.4rem;
+    }
+
+    @media only screen and (min-width: 1088px) {
+        font-size: 1.6rem;
+    }
+}
+
+a.navbar-item, a.navbar-link {
+    color: black;
+
+    @media only screen and (min-width: 1088px) {
+        color: white;
+    }
+}
+
+a.navbar-item:hover, a.navbar-link:hover {
+    color: $secondary-site-color;
+}
+
+.navbar {
+    background-color: $main-site-color;
+}
+
+.navbar-burger span.small-burger {
+    max-width: 20%;
+}
+
+nav .navbar-end .buttons {
+    justify-content: center;
+
+    @media only screen and (min-width: 1088px) {
+        justify-content: flex-start;
+    }
+}
+
+.button {
+    text-transform: uppercase;
+    border-color: $secondary-site-color;
+    border-width: 2px;
+    background-color: transparent;
+    color:  black;
+    //filter: invert(100%);
+
+    @media only screen and (min-width: 1088px) {
+        color: $secondary-site-color;
+    }
+}
+
+.button:hover {
+    @media only screen and (min-width: 1088px) {
+        color: #47DED6;
+        border-color: #47DED6;
+    }
+}
