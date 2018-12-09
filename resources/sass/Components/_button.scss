@@ -1,4 +1,4 @@
-.button {
+.button-filled {
     text-transform: uppercase;
     border-color: $secondary-site-color;
     border-width: 2px;
@@ -6,8 +6,28 @@
     color: white;
 }
 
-.button:hover {
+.button-filled:hover {
     border-color: $secondary-site-color;
     background-color: transparent;
     color: black;
+}
+
+.button-empty {
+    text-transform: uppercase;
+    border-color: $secondary-site-color;
+    border-width: 2px;
+    background-color: transparent;
+    color: black;
+
+    @media only screen and (min-width: 1088px) {
+        color: $secondary-site-color;
+    }
+}
+
+.button-empty:hover {
+    border-color: $main-site-color;
+
+    @media only screen and (min-width: 1088px) {
+        color: $white;
+    }
 }

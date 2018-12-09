@@ -1,30 +1,4 @@
-.login {
-    background-color: whitesmoke;
-    border-right: 3px solid $secondary-site-color;
-    margin: 4rem 0;
-}
-
-.login.section {
-    padding-left: 2rem;
-    padding-right: 2rem;
-
-    @media only screen and (min-width: 425px) {
-        padding-left: 3rem;
-        padding-right: 3rem;
-    }
-
-    @media only screen and (min-width: 768px) {
-        padding-left: 4rem;
-        padding-right: 4rem;
-    }
-
-    @media only screen and (min-width: 1088px) {
-        padding-left: 6rem;
-        padding-right: 6rem;
-    }
-}
-
-.login a {
+.login-box a, .checkbox.login-checkbox {
     font-size: .7rem;
     text-align: left;
 

@@ -65,8 +65,8 @@
                             <div class="navbar-end">
                                 <div class="navbar-item">
                                     <div class="buttons">
-                                        <a class="button is-rounded" href="{{ url('/login') }}"><strong>Login</strong></a>
-                                        <a class="button is-rounded signup-button" href="{{ url('/join') }}"><strong>Join</strong></a>
+                                        <a class="button button-empty is-rounded" href="{{ url('/login') }}"><strong>Login</strong></a>
+                                        <a class="button button-filled is-rounded signup-button" href="{{ url('/join') }}"><strong>Join</strong></a>
                                     </div>
                                 </div>
                             </div>
