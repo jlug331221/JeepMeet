@@ -71,3 +71,16 @@ nav .button:hover {
         border-color: $teal;
     }
 }
+
+nav .signup-button {
+    border-color: $secondary-site-color;
+    background-color: $secondary-site-color;
+    color: white;
+}
+
+nav .signup-button:hover {
+    @media only screen and (min-width: 1088px) {
+        color: $teal;
+        border-color: $teal;
+    }
+}

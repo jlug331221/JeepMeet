@@ -2,10 +2,12 @@
     text-transform: uppercase;
     border-color: $secondary-site-color;
     border-width: 2px;
-    background-color: transparent;
-    color: black;
+    background-color: $secondary-site-color;
+    color: white;
 }
 
 .button:hover {
-    border-color: $main-site-color;
+    border-color: $secondary-site-color;
+    background-color: transparent;
+    color: black;
 }
