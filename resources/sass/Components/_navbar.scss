@@ -32,6 +32,14 @@ a.navbar-item:hover, a.navbar-link:hover {
     background-color: $main-site-color;
 }
 
+.navbar-burger {
+    color: $secondary-site-color;
+}
+
+.navbar-burger:hover {
+    color: $teal;
+}
+
 .navbar-burger span.small-burger {
     max-width: 20%;
 }
@@ -44,22 +52,16 @@ nav .navbar-end .buttons {
     }
 }
 
-.button {
-    text-transform: uppercase;
-    border-color: $secondary-site-color;
-    border-width: 2px;
-    background-color: transparent;
-    color:  black;
-    //filter: invert(100%);
-
+nav .button:hover {
     @media only screen and (min-width: 1088px) {
-        color: $secondary-site-color;
+        color: $teal;
+        border-color: $teal;
     }
 }
 
-.button:hover {
+nav .signup-button:hover {
     @media only screen and (min-width: 1088px) {
-        color: #47DED6;
-        border-color: #47DED6;
+        color: $teal;
+        border-color: $teal;
     }
 }
