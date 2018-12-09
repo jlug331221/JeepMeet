@@ -17,10 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::view('/register', '/auth/register');
+Route::view('/join', '/auth/join');
 Route::view('/login', '/auth/login');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::view('/home', 'home');
 
 Route::view('/forum', 'forum');
 Route::view('/news', 'news');

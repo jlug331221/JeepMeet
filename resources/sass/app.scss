@@ -10,10 +10,23 @@
 // Bulma CSS Framework
 @import '~bulma/bulma.sass';
 
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+  
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
+    position: relative;
     margin: 0;
     font-family: $font-family-raleway-sans-serif;
     font-size: $font-size-base;
+    min-height: 100%;
     font-weight: 400;
     line-height: $line-height-base;
     color: #212529;
@@ -21,10 +34,16 @@ body {
 }
 
 // Components
-@import 'navbar';
-@import 'main';
-@import 'footer';
+@import './Components/navbar';
+@import './Components/main';
+@import './Components/footer';
+@import './Components/button';
+@import './Components/icon';
+@import './Components/ahref';
+@import './Components/whitesmoke-section';
 
 // Pages
-@import 'contact';
-@import 'about';
+@import './Pages/contact';
+@import './Pages/about';
+@import './Pages/login';
+@import './Pages/join';
