@@ -1,23 +1,20 @@
-.contact {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    //background: url('../../storage/app/public/images/pic1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: center;
-    height: 1600px;
+.contact-ahref {
+    padding-top: .34rem;
+    padding-left: 1rem;
 }
 
+.button.is-text.contact-ahref:hover {
+    color: $secondary-site-color;
+}
 
-.form-control {
-    width: 600px;
-    background: transparent;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid black;
-    color: #4dc0b5;
-    margin-top: 75px;
-    margin-bottom: 16px;
-    background-color: aquamarine;
+.button.is-text.contact-ahref {
+    text-decoration: none;
+}
+
+.gfield-required {
+    color: #790000;
+}
+
+label span.contact-red-asterisk {
+    color: red;
 }
