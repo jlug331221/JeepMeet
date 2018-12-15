@@ -52,15 +52,6 @@
 
                 <div class="field">
                     <div class="control has-icons-left">
-                        <input type="email" class="input" placeholder="Confirm Email">
-                        <span class="icon is-small is-left">
-                            <i class="far fa-envelope"></i>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <div class="control has-icons-left">
                         <input type="password" class="input" placeholder="Password">
                         <span class="icon is-small is-left">
                             <i class="fas fa-lock"></i>
