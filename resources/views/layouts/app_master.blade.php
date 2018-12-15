@@ -41,9 +41,15 @@
                     
                         <div id="jeepup-navbar" class="navbar-menu is-active">
                             <div class="navbar-start">
-                                <a class="navbar-item" href="{{ url('/home') }}">
-                                    <strong>Home</strong>
-                                </a>
+                                @auth
+                                    <a class="navbar-item" href="{{ url('/profile') }}">
+                                        <strong>Profile</strong>
+                                    </a>
+
+                                <a class="navbar-item" href="{{ url('/events') }}">
+                                        <strong>Events</strong>
+                                    </a>
+                                @endauth
 
                                 <a class="navbar-item" href="{{ url('/forum') }}">
                                     <strong>Forum</strong>
@@ -64,10 +70,18 @@
                         
                             <div class="navbar-end">
                                 <div class="navbar-item">
-                                    <div class="buttons">
-                                        <a class="button button-empty is-rounded" href="{{ url('/login') }}"><strong>Login</strong></a>
-                                        <a class="button button-filled is-rounded signup-button" href="{{ url('/join') }}"><strong>Join</strong></a>
-                                    </div>
+                                    @guest
+                                        <div class="buttons">
+                                            <a class="button button-empty is-rounded" href="{{ url('/login') }}"><strong>Login</strong></a>
+                                            <a class="button button-filled is-rounded signup-button" href="{{ url('/join') }}"><strong>Join</strong></a>
+                                        </div>
+                                    @endguest
+
+                                    @auth
+                                        <div class="buttons">
+                                            <a class="buttons button-empty is-rounded" href=""><strong>Logout</strong></a>
+                                        </div>    
+                                    @endauth
                                 </div>
                             </div>
                         </div>
