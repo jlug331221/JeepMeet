@@ -26,3 +26,7 @@ Route::view('/forum', 'forum');
 Route::view('/news', 'news');
 Route::view('/about', 'about');
 Route::view('/contact', 'contact');
+
+Route::get('/contact', [
+    'uses' => 'ContactMessageController@create'
+]);
