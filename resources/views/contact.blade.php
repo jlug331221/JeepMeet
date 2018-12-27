@@ -9,37 +9,45 @@
         <section class="section whitesmoke-section">
             <h2 class="title is-2">Contact Us</h2>
 
-            <form action="">
+            <form method="POST" action="{{ route('contact/store') }}">
+                @csrf
+                
                 <div class="field is-horizontal">
                     <div class="field-body">
                         <div class="field required">
-                        <label class="label">First Name
-                            <span class="contact-red-asterisk">*</span>
-                        </label>
+                            <label class="label">First Name
+                                <span class="contact-red-asterisk">*</span>
+                            </label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="First Name" required>
+                                <input id="first_name" class="input" type="text" placeholder="First Name" name="first_name">
+                                @if ($errors->has('first_name'))
+                                    <small class="form-test invalid-feedback">{{ $errors->first('first_name') }}</small>
+                                @endif
                             </div>
                         </div>
                 
                         <div class="field">
                             <label class="label">Last Name</label>
-                                <div class="control">
-                                    <input class="input" type="text" placeholder="Last Name">
-                                </div>
-                         </div>
+                            <div class="control">
+                                <input id="last_name" class="input" type="text" placeholder="Last Name" name="last_name">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
+                    
                 <div class="field">
                     <label class="label">Email
                         <span class="contact-red-asterisk">*</span>
                     </label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="email" placeholder="Email" required>
+                        <input id="email" class="input" type="email" placeholder="Email" name="email">
+                        @if ($errors->has('email'))
+                            <small class="form-test invalid-feedback">{{ $errors->first('email') }}</small>
+                        @endif
                         <span class="icon is-small is-left">
                             <i class="fas fa-envelope"></i>
                         </span>
-                        <span class="icon is-small is-right">
+                        <span id="contact-triangle" class="icon is-small is-right">
                             <i class="fas fa-exclamation-triangle"></i>
                         </span>
                     </div>
@@ -50,16 +58,19 @@
                         <span class="contact-red-asterisk">*</span>
                     </label>
                     <div class="control">
-                        <textarea class="textarea" placeholder="Type your message here" required></textarea>
+                        <textarea id="message" class="textarea is-invalid" placeholder="Type your message here" name="message"></textarea>
+                        @if ($errors->has('message'))
+                            <small class="form-test invalid-feedback">{{ $errors->first('message') }}</small>
+                        @endif
                     </div>
                 </div>
 
                 <div class="field is-grouped">
                     <div class="control">
-                        <button class="button button-filled is-rounded">Submit</button>
+                        <button id="submit" class="button button-filled is-rounded contact">Submit</button>
                     </div>
                     <div class="control">
-                        <button class="button is-text contact-ahref">Clear</button>
+                        <button id="clear" type="button" class="button is-text contact-ahref">Clear</button>
                     </div>
                 </div>
             </form>
