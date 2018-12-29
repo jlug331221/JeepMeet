@@ -7,39 +7,36 @@ use Illuminate\Http\Request;
 
 class ContactMessageController extends Controller
 {
+    // Needs funtion contract
     public function index()
     {
         return view('contact');
     }
 
+    // Needs function contract
     public function store(Request $request)
     {
         $this->validate($request, [
             'first_name' => 'required',
-            'email' => 'required|email',
-            'message' => 'required'
+            'email'      => 'required|email',
+            'message'    => 'required'
         ]);
 
-        // Send an email to jeepmeet.com about a received Contact Us message
-        Mail::send('emails.contact-admin', array(
-            'first_name' => $request->get('first_name'),
-            'last_name'  => $request->get('last_name'),
-            'email'      => $request->get('email'),
-            'message'    => $request->get('message')
-        ), function($message) use ($request) {
-            $message->from($request->get('email'));
-            $message->to('jeepmeetup@gmail.com')->subject('New Contact Message');
+        // Send an email to jeepmeetup@gmail.com about a received Contact Us message
+        Mail::send('emails.contact-admin', [
+            'first_name' => $request->input('first_name'),
+            'last_name'  => $request->input('last_name'),
+            'email'      => $request->input('email'),
+            'contact_message'    => $request->input('message')
+        ], function($message) use ($request) {
+            $message->from($request->input('email'));
+            $message->to('jeepmeetup@gmail.com')->subject('New Contact Us Message');
         });
 
         // Save the request data to the database
 
         // Alert the user that their message has been received or failed
-
-
-
-
-        return redirect()->back->with('flash_message', 'Thank you for your message.');
-
+        return redirect('contact')->with('status', 'Thank you for your message.');
     }
 }
 
