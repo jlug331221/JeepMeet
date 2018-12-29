@@ -28,7 +28,7 @@ Route::view('/about', 'about');
 //Route::view('/contact', 'contact');
 
 Route::get('/contact', [
-    'uses' => 'ContactMessageController@create'
+    'uses' => 'ContactMessageController@index'
 ]);
 
 Route::post('/contact', [
