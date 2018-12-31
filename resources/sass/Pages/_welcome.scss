@@ -1,0 +1,59 @@
+.welcome-topography {
+    position: relative;
+    background: url('../../../storage/app/public/svg/topography.svg');
+    height: 250px;
+
+    @media only screen and (min-width: 425px) {
+        height: 300px;
+    }
+
+    @media only screen and (min-width: 650px) {
+        height: 335px;
+    }
+
+    @media only screen and (min-width: 1088px) {
+        height: 400px;
+    }
+}
+
+.welcome-topography:before {
+    content: "";
+    background: #fff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: 1;
+    display: block;
+}
+
+.welcome-topography:after {
+    content: "";
+    background: $main-site-color;
+    opacity: .8;
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.section.is-medium.welcome-military-jeep {
+    color: $secondary-site-color;
+
+    @media only screen and (min-width: 1088px) {
+        padding-top: 5rem;
+    }
+}
+
+.welcome-military-jeep figure {
+    z-index: 2;
+    position: relative;
+}
+
+.welcome-hero-text {
+    text-align: center;
+    word-break: keep-all;
+}

@@ -8,7 +8,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'JeepUp') }} | @yield('title')</title>
+        <title>{{ config('app.name', 'JeepMeet') }} | @yield('title')</title>
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -30,7 +30,7 @@
                 <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
                     <div class="container"> 
                         <div class="navbar-brand">
-                            <a href="/"><h1 class="brand-name navbar-item">JeepUp</h1></a>
+                            <a href="/"><h1 class="brand-name navbar-item">JeepMeet</h1></a>
                         
                             <a role="button" class="navbar-burger burger is-active" aria-label="menu" aria-expanded="false" data-target="jeepup-navbar">
                                 <span aria-hidden="true"></span>
@@ -95,9 +95,9 @@
 
             <footer class="footer">
                 <div class="content has-text-centered">
-                    <p><span class="footer-brand">JeepUp</span>&nbsp;<small>&copy;</small>&nbsp;{{ date('Y') }}</p>
-                    <p>Privacy Statement</p>
-                    <a href="mailto:thejeepup@gmail.com">thejeepup@gmail.com</a>
+                    <p><span class="footer-brand">JeepMeet</span>&nbsp;<small>&copy;</small>&nbsp;{{ date('Y') }}</p>
+                    <p><a href="#">Privacy Statement</a></p>
+                    <a href="mailto:jeepmeetup@gmail.com">jeepmeetup@gmail.com</a>
                 </div>
             </footer>
         </div> <!-- End of Vue application div tag -->
