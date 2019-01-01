@@ -24,10 +24,10 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="has-navbar-fixed-top">
         <div id="app">
             <header>
-                <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+                <nav class="navbar is-fixed-top is-transparent" role="navigation" aria-label="main navigation">
                     <div class="container"> 
                         <div class="navbar-brand">
                             <a href="/"><h1 class="brand-name navbar-item">JeepMeet</h1></a>

@@ -6,7 +6,7 @@
 
 <div class="columns is-mobile is-centered welcome-topography">
     <div class="column is-three-quarters-mobile is-half-tablet is-half-desktop">
-        <section class="section is-medium welcome-military-jeep">
+        <section class="section welcome-military-jeep">
             <figure class="image is-16by9">
                 <img src="{{ asset('images/jeep_military.svg') }}" alt="Military Jeep">
             </figure>
@@ -15,7 +15,7 @@
 </div>
 
 <div class="columns is-mobile is-centered welcome-hero-text">
-    <div class="column is-half-mobile is-half-tablet is-full-desktop">
+    <div class="column is-full-mobile is-full-tablet is-full-desktop">
         <section class="hero">
             <div class="hero-body">
                 <div class="container">
