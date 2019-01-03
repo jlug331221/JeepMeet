@@ -9,9 +9,15 @@
         <section class="section whitesmoke-section">
             <h2 class="title is-2">Contact Us</h2>
 
-            <form method="POST" action="{{ route('contact/store') }}">
+            <form class="form" method="POST" action="{{ route('contact/store') }}">
                 @csrf
                 
+                @if (session('status'))
+                    <div class="alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+
                 <div class="field is-horizontal">
                     <div class="field-body">
                         <div class="field required">

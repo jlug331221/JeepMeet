@@ -28,7 +28,7 @@ class ContactMessageController extends Controller
             'last_name'  => $request->input('last_name'),
             'email'      => $request->input('email'),
             'contact_message'    => $request->input('message')
-        ], function($message) use ($request) {
+            ], function($message) use ($request) {
             $message->from($request->input('email'));
             $message->to('jeepmeetup@gmail.com')->subject('New Contact Us Message');
         });
@@ -36,7 +36,7 @@ class ContactMessageController extends Controller
         // Save the request data to the database
 
         // Alert the user that their message has been received or failed
-        return redirect('contact')->with('status', 'Thank you for your message.');
+        return back()->with('status', 'Thank you for your message.');
     }
 }
 
