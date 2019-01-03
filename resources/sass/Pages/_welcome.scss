@@ -1,4 +1,4 @@
-.welcome-topography {
+.welcome-hero-background {
     position: relative;
     background-image: radial-gradient(circle at 0 100%, #6585b0, $main-site-color);
     height: 200px;
@@ -28,7 +28,7 @@
     }
 }
 
-.welcome-topography:before {
+.welcome-hero-background:before {
     content: "";
     background: #fff;
     bottom: 0;
@@ -39,7 +39,7 @@
     display: block;
 }
 
-.welcome-topography:after {
+.welcome-hero-background:after {
     content: "";
     position: absolute;
     z-index: 0;
@@ -58,4 +58,12 @@
 .welcome-hero-text {
     text-align: center;
     word-break: keep-all;
+}
+
+.welcome-small-figures {
+    margin: auto;
+}
+
+.welcome-h3 {
+    margin-top: 1rem;
 }
