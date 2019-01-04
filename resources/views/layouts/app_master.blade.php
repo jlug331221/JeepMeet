@@ -8,7 +8,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'JeepUp') }} | @yield('title')</title>
+        <title>{{ config('app.name', 'JeepMeet') }} | @yield('title')</title>
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -24,13 +24,13 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="has-navbar-fixed-top">
         <div id="app">
             <header>
-                <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+                <nav class="navbar is-fixed-top is-transparent" role="navigation" aria-label="main navigation">
                     <div class="container"> 
                         <div class="navbar-brand">
-                            <a href="/"><h1 class="brand-name navbar-item">JeepUp</h1></a>
+                            <a href="/"><h1 class="brand-name navbar-item">JeepMeet</h1></a>
                         
                             <a role="button" class="navbar-burger burger is-active" aria-label="menu" aria-expanded="false" data-target="jeepup-navbar">
                                 <span aria-hidden="true"></span>
@@ -41,9 +41,15 @@
                     
                         <div id="jeepup-navbar" class="navbar-menu is-active">
                             <div class="navbar-start">
-                                <a class="navbar-item" href="{{ url('/home') }}">
-                                    <strong>Home</strong>
-                                </a>
+                                @auth
+                                    <a class="navbar-item" href="{{ url('/profile') }}">
+                                        <strong>Profile</strong>
+                                    </a>
+
+                                <a class="navbar-item" href="{{ url('/events') }}">
+                                        <strong>Events</strong>
+                                    </a>
+                                @endauth
 
                                 <a class="navbar-item" href="{{ url('/forum') }}">
                                     <strong>Forum</strong>
@@ -64,10 +70,18 @@
                         
                             <div class="navbar-end">
                                 <div class="navbar-item">
-                                    <div class="buttons">
-                                        <a class="button button-empty is-rounded" href="{{ url('/login') }}"><strong>Login</strong></a>
-                                        <a class="button button-filled is-rounded signup-button" href="{{ url('/join') }}"><strong>Join</strong></a>
-                                    </div>
+                                    @guest
+                                        <div class="buttons">
+                                            <a class="button button-empty is-rounded" href="{{ url('/login') }}"><strong>Login</strong></a>
+                                            <a class="button button-filled is-rounded signup-button" href="{{ url('/join') }}"><strong>Join</strong></a>
+                                        </div>
+                                    @endguest
+
+                                    @auth
+                                        <div class="buttons">
+                                            <a class="buttons button-empty is-rounded" href=""><strong>Logout</strong></a>
+                                        </div>    
+                                    @endauth
                                 </div>
                             </div>
                         </div>
@@ -81,9 +95,10 @@
 
             <footer class="footer">
                 <div class="content has-text-centered">
-                    <p><span class="footer-brand">JeepUp</span>&nbsp;<small>&copy;</small>&nbsp;{{ date('Y') }}</p>
-                    <p>Privacy Statement</p>
-                    <a href="mailto:thejeepup@gmail.com">thejeepup@gmail.com</a>
+                    <p><small>&copy;</small>&nbsp;<span class="footer-brand">JeepMeet</span>&nbsp;2018-{{ date('Y') }}.&nbsp;All rights reserved.</p>
+                    <p><a href="#">Legal Notice</a></p>
+                    <p><a href="#">Privacy Statement</a></p>
+                    <a href="mailto:jeepmeetup@gmail.com">jeepmeetup@gmail.com</a>
                 </div>
             </footer>
         </div> <!-- End of Vue application div tag -->

@@ -20,7 +20,7 @@ Auth::routes();
 Route::view('/join', '/auth/join');
 Route::view('/login', '/auth/login');
 
-Route::view('/home', 'home');
+Route::view('/profile', 'home');
 
 Route::view('/forum', 'forum');
 Route::view('/news', 'news');

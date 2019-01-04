@@ -1,5 +1,6 @@
 footer {
     position: relative;
+    background-image: radial-gradient(circle at 0 100%, #101113, #33363D);
     right: 0;
     bottom: 0;
     left: 0;
@@ -29,7 +30,7 @@ footer .content p:not(:last-child) {
 }
 
 .footer-brand {
-    font-family: $font-family-faster-one-cursive;
+    font-family: $font-family-russo-one;
     color: $secondary-site-color;
     font-size: .75rem;
 
