@@ -95,7 +95,8 @@
 
             <footer class="footer">
                 <div class="content has-text-centered">
-                    <p><span class="footer-brand">JeepMeet</span>&nbsp;<small>&copy;</small>&nbsp;{{ date('Y') }}</p>
+                    <p><small>&copy;</small>&nbsp;<span class="footer-brand">JeepMeet</span>&nbsp;2018-{{ date('Y') }}.&nbsp;All rights reserved.</p>
+                    <p><a href="#">Legal Notice</a></p>
                     <p><a href="#">Privacy Statement</a></p>
                     <a href="mailto:jeepmeetup@gmail.com">jeepmeetup@gmail.com</a>
                 </div>

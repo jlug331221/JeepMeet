@@ -60,10 +60,55 @@
     word-break: keep-all;
 }
 
+.welcome-montserrat {
+    font-family: $font-family-montserrat-sans-serif;
+}
+
 .welcome-small-figures {
     margin: auto;
 }
 
 .welcome-h3 {
     margin-top: 1rem;
+}
+
+.welcome-whitesmoke {
+    background-color: whitesmoke;
+}
+
+span.welcome-forum-text {
+    color: $secondary-site-color;
+}
+
+.welcome-svg-margin-top {
+    margin-top: 1rem;
+
+    @media only screen and (min-width: 768px) {
+        margin-top: 2rem;
+    }
+}
+
+.welcome-small-subtitle-text {
+    margin-top: -1rem;
+}
+
+.welcome-signup-button, a.welcome-profile-button {
+    min-width: 200px;
+    margin-top: 2rem;
+
+    @media only screen and (min-width: 768px) {
+        margin-top: 5rem;
+    }
+}
+
+a.welcome-profile-button, a.welcome-profile-button:hover {
+    color: #000;
+}
+
+.welcome-column-margin-top {
+    margin-top: 2rem;
+
+    @media only screen and (min-width: 768px) {
+        margin-top: 0rem;
+    }
 }
