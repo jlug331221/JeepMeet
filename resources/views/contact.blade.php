@@ -6,17 +6,25 @@
 
 <div class="columns is-mobile is-centered">
     <div class="column is-three-quarters-mobile is-half-tablet is-half-desktop">
+        @if (session('success'))
+            <div class="notification is-success center-notification contact-notification">
+                <button class="delete contact-delete-notification"></button>
+                {{ session('success')  }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="notification is-danger center-notification contact-notification">
+                <button class="delete contact-delete-notification"></button>
+                {{ session('error')  }}
+            </div>
+        @endif
+
         <section class="section whitesmoke-section">
             <h2 class="title is-2">Contact Us</h2>
 
             <form class="form" method="POST" action="{{ route('contact/store') }}">
                 @csrf
-                
-                @if (session('status'))
-                    <div class="alert-success">
-                        {{ session('status') }}
-                    </div>
-                @endif
 
                 <div class="field is-horizontal">
                     <div class="field-body">

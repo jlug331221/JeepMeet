@@ -53,7 +53,6 @@ $(document).ready(function() {
             "cursor": "default",
             "box-shadow": "none"
         });
-        alert("Form Submitted Successfully..!!");
     });
 
     // On click of clear button
@@ -64,6 +63,16 @@ $(document).ready(function() {
         $("#email").val("");
         $("#message").val("");
     });
+
+    // On click clear notification
+    $(".contact-delete-notification").click(function() {
+        $(".contact-notification").remove();
+    });
+
+    
+    setTimeout(function() { 
+        $(".contact-notification").remove();
+    }, 5000);
 
 });
 
