@@ -28,6 +28,14 @@
     border-color: $main-site-color;
 
     @media only screen and (min-width: 1088px) {
+        color: $main-site-color;
+    }
+}
+
+nav.button-empty:hover {
+    border-color: $main-site-color;
+
+    @media only screen and (min-width: 1088px) {
         color: $white;
     }
 }

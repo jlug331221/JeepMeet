@@ -13,6 +13,8 @@ require('./bootstrap');
 
 require('./components/jquery/navbar');
 
+require('./components/jquery/contact_message');
+
 window.Vue = require('vue');
 
 /**
