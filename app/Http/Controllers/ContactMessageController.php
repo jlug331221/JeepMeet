@@ -9,7 +9,9 @@ use App\ContactMessage;
 class ContactMessageController extends Controller
 {
     /**
+     * This function displays the 'Contact Us' page
      * 
+     * @return Illuminate\View
      */
     public function index()
     {
@@ -23,7 +25,7 @@ class ContactMessageController extends Controller
      * 
      * @param $request - Request object
      * 
-     * @return Illuminate\Routing\Redirector
+     * @return Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -35,7 +37,7 @@ class ContactMessageController extends Controller
 
         try {
             // Send an email to jeepmeetup@gmail.com about a received Contact Us message
-            // sendMailToAdmin($request);
+            sendMailToAdmin($request);
 
             // Save the request data to the database
             ContactMessage::create([
@@ -58,6 +60,8 @@ class ContactMessageController extends Controller
      * request object data.
      * 
      * @param $request - Request object
+     * 
+     * @return void
      */
     public function sendMailToAdmin(Request $request) 
     {
