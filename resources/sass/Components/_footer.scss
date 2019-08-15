@@ -1,40 +1,48 @@
 footer {
-    position: relative;
-    background-image: radial-gradient(circle at 0 100%, #101113, #33363D);
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-top: 3px solid $secondary-site-color;
-    color: white;
-    font-size: .55rem;
+  position: relative;
+  // background-image: radial-gradient(circle at 0 100%, $tertiary-site-color, #33363D);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-top: 3px solid $secondary-site-color;
+  color: #FFF;
+  font-size: .55rem;
 
-    @media only screen and (min-width: 768px) {
-        font-size: .65rem;
-    }
+  @media only screen and (min-width: 768px) {
+    font-size: .65rem;
+  }
 
-    @media only screen and (min-width: 1088px) {
-        font-size: .75rem;
-    }
+  @media only screen and (min-width: 1088px) {
+    font-size: .75rem;
+  }
 }
 
 .footer {
-    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
 }
 
 footer a {
-    color: white;
+  color: $white-chocolate;
 }
 
 footer .content p:not(:last-child) {
-    margin-bottom: .15rem;
+  margin-bottom: .15rem;
+}
+
+footer .envelope-contact-us {
+  color: $white-chocolate !important;
+}
+
+footer .envelope-contact-us:hover {
+  color: $secondary-site-color !important;
 }
 
 .footer-brand {
-    font-family: $font-family-russo-one;
-    color: $secondary-site-color;
-    font-size: .75rem;
+  font-family: $font-family-russo-one;
+  color: #FFF;
+  font-size: .75rem;
 
-    @media only screen and (min-width: 1088px) {
-        font-size: .9rem;
-    }
+  @media only screen and (min-width: 1088px) {
+      font-size: .9rem;
+  }
 }

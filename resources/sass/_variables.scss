@@ -1,9 +1,14 @@
 // Body
-$body-bg: #fff;
+$body-bg: #FFF;
 
 // Site colors
-$main-site-color: #151D37;
-$secondary-site-color: #D84F4F;
+$main-site-color: #525D3A;
+$secondary-site-color: #819359;
+$tertiary-site-color: #363636;
+
+// Colors
+$white-chocolate: #ECE6DD;
+$green-pastel: #02C23C;
 
 // Typography
 $font-family-raleway-sans-serif: "Raleway", sans-serif;
@@ -13,15 +18,6 @@ $font-family-russo-one: 'Russo One', sans-serif;
 $font-size-base: 1rem;
 $line-height-base: 1.6;
 
-// Colors
-$blue: #3490dc;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #47DED6;
-$cyan: #6cb2eb;
-
 // Override Bulma variables
 $link-hover: $secondary-site-color;
-$footer-background-color: #33363D;
+$footer-background-color: #212529;

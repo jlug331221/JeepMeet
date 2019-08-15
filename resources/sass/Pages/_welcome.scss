@@ -1,114 +1,117 @@
 .welcome-hero-background {
-    position: relative;
-    background-image: radial-gradient(circle at 0 100%, #6585b0, $main-site-color);
-    height: 200px;
+  position: relative;
+  background-image: radial-gradient(circle at 0 100%, $secondary-site-color, $main-site-color);
+  height: 200px;
 
-    @media only screen and (min-width: 425px) {
-        height: 300px;
-    }
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
 
-    @media only screen and (min-width: 768px) {
-        height: 325px;
-    }
+  @media only screen and (min-width: 425px) {
+      height: 300px;
+  }
 
-    @media only screen and (min-width: 1088px) {
-        height: 350px;
-    }
+  @media only screen and (min-width: 768px) {
+      height: 325px;
+  }
 
-    @media only screen and (min-width: 1200px) {
-        height: 400px;
-    }
+  @media only screen and (min-width: 1088px) {
+      height: 350px;
+  }
 
-    @media only screen and (min-width: 1400px) {
-        height: 425px;
-    }
+  @media only screen and (min-width: 1200px) {
+      height: 400px;
+  }
 
-    @media only screen and (min-width: 1600px) {
-        height: 500px;
-    }
+  @media only screen and (min-width: 1400px) {
+      height: 425px;
+  }
+
+  @media only screen and (min-width: 1600px) {
+      height: 500px;
+  }
 }
 
 .welcome-hero-background:before {
-    content: "";
-    background: #fff;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-    z-index: 1;
-    display: block;
+  content: "";
+  background: #fff;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  display: block;
 }
 
 .welcome-hero-background:after {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .welcome-military-jeep figure {
-    z-index: 2;
-    position: relative;
+  z-index: 2;
+  position: relative;
 }
 
 .welcome-hero-text {
-    text-align: center;
-    word-break: keep-all;
+  text-align: center;
+  word-break: keep-all;
 }
 
 .welcome-montserrat {
-    font-family: $font-family-montserrat-sans-serif;
+  font-family: $font-family-montserrat-sans-serif;
 }
 
 .welcome-small-figures {
-    margin: auto;
+  margin: auto;
 }
 
 .welcome-h3 {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .welcome-whitesmoke {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 
 span.welcome-forum-text {
-    color: $secondary-site-color;
+  color: $green-pastel;
 }
 
 .welcome-svg-margin-top {
-    margin-top: 1rem;
+  margin-top: 1rem;
 
-    @media only screen and (min-width: 768px) {
-        margin-top: 2rem;
-    }
+  @media only screen and (min-width: 768px) {
+      margin-top: 2rem;
+  }
 }
 
 .welcome-small-subtitle-text {
-    margin-top: -1rem;
+  margin-top: -1rem;
 }
 
 .welcome-signup-button, a.welcome-profile-button {
-    min-width: 200px;
-    margin-top: 2rem;
+  min-width: 200px;
+  margin-top: 2rem;
 
-    @media only screen and (min-width: 768px) {
-        margin-top: 5rem;
-    }
+  @media only screen and (min-width: 768px) {
+      margin-top: 5rem;
+  }
 }
 
 a.welcome-profile-button, a.welcome-profile-button:hover {
-    color: #000;
+  color: #000;
 }
 
 .welcome-column-margin-top {
-    margin-top: 2rem;
+  margin-top: 2rem;
 
-    @media only screen and (min-width: 768px) {
-        margin-top: 0rem;
-    }
+  @media only screen and (min-width: 768px) {
+      margin-top: 0rem;
+  }
 }

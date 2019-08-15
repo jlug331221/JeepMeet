@@ -1,67 +1,75 @@
 nav { 
-    text-align: center;
+  text-align: center;
 }
 
 .brand-name {
-    font-size: 1.3rem;
-    font-family: $font-family-russo-one;
-    color: $secondary-site-color;
+  font-size: 1.3rem;
+  font-family: $font-family-russo-one;
+  color: #FFF;
 
-    @media only screen and (min-width: 768px) {
-        font-size: 1.4rem;
-    }
+  @media only screen and (min-width: 768px) {
+      font-size: 1.4rem;
+  }
 
-    @media only screen and (min-width: 1088px) {
-        font-size: 1.6rem;
-    }
+  @media only screen and (min-width: 1088px) {
+      font-size: 1.6rem;
+  }
 }
 
 a.navbar-item, a.navbar-link {
-    color: black;
+  color: black;
 
-    @media only screen and (min-width: 1088px) {
-        color: white;
-    }
+  @media only screen and (min-width: 1088px) {
+      color: #FFF;
+  }
 }
 
 a.navbar-item:hover, a.navbar-link:hover {
-    color: $secondary-site-color;
+  color: $secondary-site-color;
 }
 
 .navbar {
-    background-color: $main-site-color;
+  background-color: $main-site-color;
 }
 
 .navbar-burger {
-    color: $secondary-site-color;
+  color: $white-chocolate;
 }
 
 .navbar-burger:hover {
-    color: $teal;
+  color: $tertiary-site-color;
 }
 
 .navbar-burger span.small-burger {
-    max-width: 20%;
+  max-width: 20%;
 }
 
 nav .navbar-end .buttons {
-    justify-content: center;
+  justify-content: center;
 
-    @media only screen and (min-width: 1088px) {
-        justify-content: flex-start;
-    }
+  @media only screen and (min-width: 1088px) {
+      justify-content: flex-start;
+  }
 }
 
-nav .button:hover {
-    @media only screen and (min-width: 1088px) {
-        color: $teal;
-        border-color: $teal;
-    }
+nav .login-button {
+  @media only screen and (min-width: 1088px) {
+    color: $white-chocolate;
+    border-color: $tertiary-site-color;
+  }
+}
+
+nav .login-button:hover {
+  color: $secondary-site-color;
+
+  @media only screen and (min-width: 1088px) {
+    color: #FFF;
+  }
 }
 
 nav .signup-button:hover {
-    @media only screen and (min-width: 1088px) {
-        color: $teal;
-        border-color: $teal;
-    }
+  @media only screen and (min-width: 1088px) {
+      color: $white-chocolate;
+      border-color: $tertiary-site-color;
+  }
 }
