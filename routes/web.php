@@ -25,13 +25,11 @@ Route::view('/profile', 'home');
 Route::view('/forum', 'forum');
 Route::view('/news', 'news');
 Route::view('/about', 'about');
-//Route::view('/contact', 'contact');
 
 Route::get('/contact', [
-    'uses' => 'ContactMessageController@index'
+    'uses' => 'ContactUsMessageController@index'
 ]);
 
 Route::post('/contact', [
-    'uses' => 'ContactMessageController@store',
-    'as' => 'contact/store'
+    'uses' => 'ContactUsMessageController@submitEmailAndPersistMessage'
 ]);

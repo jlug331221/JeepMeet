@@ -10,20 +10,26 @@ require('./bootstrap');
 /**
  * Load the JQuery Component code.
  */
-
 require('./components/jquery/navbar');
 
-require('./components/jquery/contact_message');
-
 window.Vue = require('vue');
+
+/**
+ * Vue validation library.
+ */
+import Vuelidate from 'vuelidate';
+Vue.use(Vuelidate);
+
+/**
+ * Import our Vue components
+ */
+Vue.component('contact-us', require('./components/ContactUs.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({
     el: '#app'

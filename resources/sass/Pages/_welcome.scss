@@ -7,27 +7,27 @@
   border-bottom-right-radius: 50% 20%;
 
   @media only screen and (min-width: 425px) {
-      height: 300px;
+    height: 300px;
   }
 
   @media only screen and (min-width: 768px) {
-      height: 325px;
+    height: 325px;
   }
 
   @media only screen and (min-width: 1088px) {
-      height: 350px;
+    height: 350px;
   }
 
   @media only screen and (min-width: 1200px) {
-      height: 400px;
+    height: 400px;
   }
 
   @media only screen and (min-width: 1400px) {
-      height: 425px;
+    height: 425px;
   }
 
   @media only screen and (min-width: 1600px) {
-      height: 500px;
+    height: 500px;
   }
 }
 
@@ -83,11 +83,15 @@ span.welcome-forum-text {
   color: $green-pastel;
 }
 
+span.welcome-forum-text:hover {
+  color: $tertiary-site-color;
+}
+
 .welcome-svg-margin-top {
   margin-top: 1rem;
 
   @media only screen and (min-width: 768px) {
-      margin-top: 2rem;
+    margin-top: 2rem;
   }
 }
 
@@ -100,7 +104,7 @@ span.welcome-forum-text {
   margin-top: 2rem;
 
   @media only screen and (min-width: 768px) {
-      margin-top: 5rem;
+    margin-top: 5rem;
   }
 }
 
@@ -112,6 +116,6 @@ a.welcome-profile-button, a.welcome-profile-button:hover {
   margin-top: 2rem;
 
   @media only screen and (min-width: 768px) {
-      margin-top: 0rem;
+    margin-top: 0rem;
   }
 }

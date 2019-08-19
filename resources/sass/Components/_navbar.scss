@@ -8,11 +8,11 @@ nav {
   color: #FFF;
 
   @media only screen and (min-width: 768px) {
-      font-size: 1.4rem;
+    font-size: 1.4rem;
   }
 
   @media only screen and (min-width: 1088px) {
-      font-size: 1.6rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -20,7 +20,7 @@ a.navbar-item, a.navbar-link {
   color: black;
 
   @media only screen and (min-width: 1088px) {
-      color: #FFF;
+    color: #FFF;
   }
 }
 
@@ -48,7 +48,7 @@ nav .navbar-end .buttons {
   justify-content: center;
 
   @media only screen and (min-width: 1088px) {
-      justify-content: flex-start;
+    justify-content: flex-start;
   }
 }
 
@@ -69,7 +69,7 @@ nav .login-button:hover {
 
 nav .signup-button:hover {
   @media only screen and (min-width: 1088px) {
-      color: $white-chocolate;
-      border-color: $tertiary-site-color;
+    color: $white-chocolate;
+    border-color: $tertiary-site-color;
   }
 }

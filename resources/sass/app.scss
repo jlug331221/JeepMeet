@@ -34,17 +34,18 @@ body {
 }
 
 // Components
-@import './Components/navbar';
-@import './Components/main';
-@import './Components/footer';
-@import './Components/button';
-@import './Components/icon';
 @import './Components/ahref';
+@import './Components/button';
+@import './Components/footer';
+@import './Components/icon';
+@import './Components/main';
+@import './Components/navbar';
+@import './Components/notifications';
+@import './Components/small-errors-text-and-asterisks';
 @import './Components/whitesmoke-section';
 
 // Pages
-@import './Pages/contact';
 @import './Pages/about';
-@import './Pages/login';
 @import './Pages/join';
+@import './Pages/login';
 @import './Pages/welcome';

@@ -4,7 +4,7 @@
 
 @section('main-content')
 
-<section class="section">
+<section class="section is-medium">
   <div class="columns is-centered">
     <div class="column is-full-mobile is-three-fifths-tablet is-three-fifths-desktop 
       is-half-widescreen">

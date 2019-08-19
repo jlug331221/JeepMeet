@@ -80,7 +80,7 @@
     <div class="column has-text-centered is-full-mobile is-one-half-tablet is-one-half-desktop">
       <h3 class="is-size-6-mobile is-size-5-tablet is-size-4-desktop">
           Engage with members of the community on our 
-          <a href="#">
+          <a href="{{ url('/forum') }}">
             <span class="welcome-forum-text has-text-weight-bold">Forum</span>
           </a>.
       </h3>
