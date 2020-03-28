@@ -1,0 +1,57 @@
+// Site Fonts
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway:400,600');
+
+// Brand Font
+@import url('https://fonts.googleapis.com/css?family=Russo+One');
+
+// Variables
+@import 'variables';
+
+// Bulma CSS Framework
+@import '~bulma/bulma.sass';
+
+// Font Awesome
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+  
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  font-family: $font-family-raleway-sans-serif;
+  font-size: $font-size-base;
+  min-height: 100%;
+  font-weight: 400;
+  line-height: $line-height-base;
+  color: #212529;
+  background-color: $body-bg;
+}
+
+// Components
+@import './Components/ahref';
+@import './Components/button';
+@import './Components/footer';
+@import './Components/icon';
+@import './Components/main';
+@import './Components/navbar';
+@import './Components/notification';
+@import './Components/small-errors-text-and-asterisks';
+@import './Components/whitesmoke-section';
+
+// Pages
+@import './Pages/about';
+@import './Pages/join';
+@import './Pages/login';
+@import './Pages/welcome';

@@ -1,0 +1,34 @@
+.button-filled {
+  text-transform: uppercase;
+  border-color: $tertiary-site-color;
+  border-width: 2px;
+  background-color: $tertiary-site-color;
+  color: $white-chocolate;
+  box-shadow: $box-shadow;
+}
+
+.button-filled:hover {
+  border-color: $tertiary-site-color;
+  background-color: transparent;
+  color: #000;
+}
+
+.button-empty {
+  text-transform: uppercase;
+  border-color: $tertiary-site-color;
+  border-width: 2px;
+  background-color: transparent;
+  color: $tertiary-site-color;
+
+  @media only screen and (min-width: 1088px) {
+    color: $tertiary-site-color;
+  }
+}
+
+.button-empty:hover {
+  border-color: $secondary-site-color;
+
+  @media only screen and (min-width: 1088px) {
+    color: $secondary-site-color;
+  }
+}
