@@ -23,6 +23,8 @@ class CreateJeepMeetsTable extends Migration
             $table->time('start');
             $table->time('end');
 
+            $table->unsignedSmallInteger('jeepers_attending');
+
             $table->float('latitude', 10, 6);
             $table->float('longitude', 10, 6);
 

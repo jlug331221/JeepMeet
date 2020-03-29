@@ -21,7 +21,8 @@
         <div class="hero-body">
           <div class="container">
             <h1 class="title is-size-3-mobile is-size-2-tablet 
-              is-size-1-desktop">Welcome to JeepMeet</h1>
+              is-size-1-desktop">Welcome to 
+              <span class="brand-name-non-navbar">JeepMeet</span></h1>
 
             <h4 class="welcome-montserrat subtitle">The One Stop Place to Meet Fellow Jeepers</h4>
 

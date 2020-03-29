@@ -9,7 +9,8 @@
     <div class="column is-full-mobile is-three-fifths-tablet is-three-fifths-desktop 
       is-half-widescreen">
       <h1 class="is-size-3-mobile is-size-2-tablet is-size-1-desktop 
-        has-text-centered has-text-weight-bold">About JeepMeet</h1>
+        has-text-centered has-text-weight-bold">About 
+        <span class="brand-name-non-navbar">JeepMeet</span></h1>
       
       <p class="has-text-justified about-montserrat-p-text">
         JeepMeet is a project that was brought to fruition by two guys looking for something to do 

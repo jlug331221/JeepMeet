@@ -99,11 +99,20 @@
       <div class="content has-text-centered">
         <p><small>&copy;</small>&nbsp;<span class="footer-brand">JeepMeet</span>
           2018-{{ date('Y') }}.&nbsp;All rights reserved.</p>
+        
         <p><a href="#">Legal Notice</a></p>
+        
         <p><a href="#">Privacy Statement</a></p>
+        
         <a href="mailto:jeepmeetup@gmail.com">
           <span class="icon">
             <i class="far fa-envelope fa-lg envelope-contact-us"></i>
+          </span>
+        </a>
+
+        <a href="https://github.com/jlug331221/JeepMeet">
+          <span class="icon">
+            <i class="fab fa-github fa-lg"></i>
           </span>
         </a>
       </div>

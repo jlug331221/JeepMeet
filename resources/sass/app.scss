@@ -39,6 +39,10 @@ body {
   background-color: $body-bg;
 }
 
+.brand-name-non-navbar {
+  font-family: "Russo One", sans-serif;
+}
+
 // Components
 @import './Components/ahref';
 @import './Components/button';
