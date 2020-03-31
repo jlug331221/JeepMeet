@@ -23,7 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('password', 128);
 
             $table->string('avatar')->default('user.jpg');
-            $table->string('location_country', 100)->nullable();
+            $table->string('location_country', 100);
+            $table->string('location_state_province', 100)->nullable();
 
             $table->rememberToken();
             $table->timestamps();

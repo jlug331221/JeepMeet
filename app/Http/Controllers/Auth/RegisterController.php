@@ -50,11 +50,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'first_name' => ['required', 'string', 'max:50'],
-            'last_name'  => ['required', 'string', 'max:50'],
-            'username'   => ['required', 'string', 'max:50'],
-            'email'      => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password'   => ['required', 'string', 'min:8', 'confirmed'],
+            'first_name'       => ['required', 'string', 'max:50'],
+            'last_name'        => ['required', 'string', 'max:50'],
+            'username'         => ['required', 'string', 'max:50', 'unique:users'],
+            'email'            => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password'         => ['required', 'string', 'min:8', 'confirmed'],
+            'location_country' => ['required', 'string']
         ]);
     }
 
@@ -67,9 +68,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'first_name'              => $data['first_name'],
+            'last_name'               => $data['last_name'],
+            'username'                => $data['username'],
+            'email'                   => $data['email'],
+            'password'                => Hash::make($data['password']),
+            'location_country'        => $data['location_country'],
+            'location_state_province' => $date['location_state_province']
         ]);
     }
 }
