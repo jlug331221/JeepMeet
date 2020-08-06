@@ -394,7 +394,7 @@
         <div class="field register-form-buttons">
           <div class="control">
             <button class="button button-filled is-rounded"
-              :disabled="formDisabled()">Join</button>
+              :disabled="formDisabled()" @click="registerUser()">Join</button>
 
             <button class="button is-rounded" @click="clearForm()">Clear</button>
           </div>
@@ -450,6 +450,32 @@
 
       passwordsNotEqual() {
         return this.formFields.password !== this.formFields.confirm_password;
+      },
+
+      registerUser() {
+        axios.post('/register', this.formFields).then((res) => {
+          this.clearForm();
+          this.success = res.data.success;
+          
+          // Set success to an empty string to hide notification after 5 seconds
+          setTimeout(() => this.success = "", 5000);
+        }).catch((err) => {          
+          // First check for form field errors and display those
+          if(err.response.status === 422) {
+            this.errors = err.response.data.errors || {};
+            if(this.errors.first_name) { this.formFields.first_name = ""; }
+            if(this.errors.email) { this.formFields.email = ""; }
+            if(this.errors.message) { this.formFields.message = ""; }
+            
+            // Hide form field errors after 5 seconds
+            setTimeout(() => this.errors = {}, 5000);
+          }
+          
+          // Display server side error
+          this.error = err.response.data.error;
+          // Set error to an empty string to hide notification after 5 seconds
+          setTimeout(() => this.error = "", 5000)
+        });
       }
     }
   }
