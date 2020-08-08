@@ -1,23 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.app_master')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+@section('title', 'Profile')
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+@section('main-content')
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
+<section class="section is-medium">
+  <div class="columns is-centered">
+    <div class="column is-full-mobile is-three-fifths-tablet is-three-fifths-desktop 
+      is-half-widescreen">
+      <h1 class="title">You are logged in and verified!!</h1>
     </div>
-</div>
+  </div>
+</section>
+
 @endsection

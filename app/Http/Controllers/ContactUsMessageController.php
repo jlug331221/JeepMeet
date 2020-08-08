@@ -34,7 +34,8 @@ class ContactUsMessageController extends Controller
             ContactUsMessage::sendMailToAdmin($request);
 
             // Alert the user that their message has been received
-            return response()->json(['success'=> 'Thank you for your message. If we need to respond, we will do so in a timely manner.'], 200);
+            return response()->json(['success'=> 'Thank you for your message. ' .
+                'If we need to respond, we will do so in a timely manner.'], 200);
         }
         catch(Exception $e) {
             // Alert the user that their message has failed to send

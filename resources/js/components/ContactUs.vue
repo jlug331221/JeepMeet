@@ -140,7 +140,6 @@
           // Set success to an empty string to hide notification after 5 seconds
           setTimeout(() => this.success = "", 8000);
         }).catch((err) => {
-          console.log(err);
           this.loadingSpinner = false;
           
           // First check for form field errors and display those
@@ -155,7 +154,8 @@
           }
 
           // Display server side error
-          this.error = err;
+          this.error = err.response.data.error;
+          
           // Set error to an empty string to hide notification after 5 seconds
           setTimeout(() => this.error = "", 5000)
         })
@@ -212,12 +212,15 @@
     color: $main-site-color;
     text-decoration: none;
   }
+
   button.clear-button {
     color: $secondary-site-color;
   }
+
   .red-email-text {
     color: #F00;
   }
+  
   .contact-notification {
     margin-top: 2rem;
   }

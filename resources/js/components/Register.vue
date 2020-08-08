@@ -1,6 +1,16 @@
 <template>
   <div class="columns is-mobile is-centered">
     <div class="column is-three-quarters-mobile is-half-tablet is-half-desktop">
+      <div v-show="success" class="notification is-info register-notification">
+        <button v-on:click="hideSuccessNotification" class="delete"></button>
+        {{ success }}
+      </div>
+
+      <div v-show="error" class="notification is-danger register-notification">
+        <button v-on:click="hideErrorNotification" class="delete"></button>
+        {{ error }}
+      </div>
+
       <section class="section is-medium has-text-left whitesmoke-section">
         <h2 class="title is-2">Join Now</h2>
         
@@ -62,7 +72,7 @@
           :type="{ 'is-danger': passwordsNotEqual() }">
           <b-input type="password"
             placeholder="Confirm Password"
-            v-model="formFields.confirm_password"
+            v-model="formFields.password_confirmation"
             icon-pack="fa"
             icon="lock"
             class="register-password"
@@ -391,7 +401,7 @@
           </b-select>
         </b-field>
 
-        <div class="field register-form-buttons">
+        <div v-show="! loadingSpinner" class="field register-form-buttons">
           <div class="control">
             <button class="button button-filled is-rounded"
               :disabled="formDisabled()" @click="registerUser()">Join</button>
@@ -399,6 +409,9 @@
             <button class="button is-rounded" @click="clearForm()">Clear</button>
           </div>
         </div>
+
+        <button v-show="loadingSpinner" class="button button-filled
+            is-rounded is-loading"></button>
       </section>
     </div>
   </div>
@@ -419,10 +432,17 @@
           username: "",
           email: "",
           password: "",
-          confirm_password: "",
+          password_confirmation: "",
           location_country: "",
           location_state_province: ""
         },
+
+        success: "",
+        error: "",
+        
+        errors: {}, // Server side errors for invalid form field values
+
+        loadingSpinner: false
       }
     },
 
@@ -433,7 +453,7 @@
         this.formFields.username = "";
         this.formFields.email = "";
         this.formFields.password = "";
-        this.formFields.confirm_password = "";
+        this.formFields.password_confirmation = "";
         this.formFields.location_country = "";
         this.formFields.location_state_province = "";
       },
@@ -442,24 +462,27 @@
         return this.formFields.first_name == "" || this.formFields.last_name == "" ||
           this.formFields.username == "" || this.formFields.email == "" ||
           this.formFields.email.indexOf("@") == -1 || this.formFields.password == "" ||
-          this.formFields.confirm_password == "" || this.passwordsNotEqual() ||
+          this.formFields.password_confirmation == "" || this.passwordsNotEqual() ||
           this.formFields.location_country == "" || 
           (this.formFields.location_country == "United States of America" && 
            this.formFields.location_state_province == "");
       },
 
       passwordsNotEqual() {
-        return this.formFields.password !== this.formFields.confirm_password;
+        return this.formFields.password !== this.formFields.password_confirmation;
       },
 
       registerUser() {
+        this.loadingSpinner = true;
+        this.success = ""; this.error = ""; this.errors = {};
+
         axios.post('/register', this.formFields).then((res) => {
+          this.loadingSpinner = false;
           this.clearForm();
           this.success = res.data.success;
+        }).catch((err) => {        
+          this.loadingSpinner = false;
           
-          // Set success to an empty string to hide notification after 5 seconds
-          setTimeout(() => this.success = "", 5000);
-        }).catch((err) => {          
           // First check for form field errors and display those
           if(err.response.status === 422) {
             this.errors = err.response.data.errors || {};
@@ -473,9 +496,19 @@
           
           // Display server side error
           this.error = err.response.data.error;
+          
           // Set error to an empty string to hide notification after 5 seconds
           setTimeout(() => this.error = "", 5000)
         });
+      },
+
+      hideSuccessNotification() {
+        // Set success to an empty string to hide notification
+        if(this.success) { this.success = ""; }
+      },
+
+      hideErrorNotification() {
+        if(this.error) { this.error = ""; }
       }
     }
   }
@@ -489,5 +522,9 @@
   .register-password.control.has-icons-left .icon,
   .register-password.control.has-icons-right .icon {
     pointer-events: visible !important;
+  }
+
+  .register-notification {
+    margin-top: 2rem;
   }
 </style>

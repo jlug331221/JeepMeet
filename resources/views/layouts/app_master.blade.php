@@ -7,11 +7,11 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'JeepMeet') }}</title>
+  <title>{{ config('app.name', 'JeepMeet') }} | @yield('title')</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+  <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
@@ -40,7 +40,7 @@
           <div id="jeepup-navbar" class="navbar-menu is-active">
             <div class="navbar-start">
               @auth
-                <a class="navbar-item" href="{{ url('/profile') }}">
+                <a class="navbar-item" href="{{ url('/home') }}">
                     <strong>Profile</strong>
                 </a>
 
@@ -68,22 +68,20 @@
           
             <div class="navbar-end">
               <div class="navbar-item">
+                <div class="buttons">
                 @guest
-                  <div class="buttons">
                     <a class="button button-empty is-rounded login-button" 
                       href="{{ url('/login') }}"><strong>Login</strong></a>
                     <a class="button button-filled is-rounded signup-button" 
                       href="{{ url('/register') }}"><strong>Join</strong></a>
-                  </div>
                 @endguest
 
                 @auth
-                  <div class="buttons">
-                    <a class="buttons button-empty is-rounded" href="">
+                    <a class="button button-filled is-rounded" href="{{ url('/logout') }}">
                       <strong>Logout</strong>
-                    </a>
-                  </div>    
+                    </a>   
                 @endauth
+                </div>
               </div>
             </div>
           </div>

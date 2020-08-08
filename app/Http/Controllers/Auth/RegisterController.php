@@ -9,6 +9,9 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+
 class RegisterController extends Controller
 {
     /*
@@ -29,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/register';
 
     /**
      * Create a new controller instance.
@@ -74,7 +77,30 @@ class RegisterController extends Controller
             'email'                   => $data['email'],
             'password'                => Hash::make($data['password']),
             'location_country'        => $data['location_country'],
-            'location_state_province' => $date['location_state_province']
+            'location_state_province' => $data['location_state_province']
         ]);
+    }
+
+    /**
+     * Handle a registration request for the application. We are overriding the
+     * Laravel 'register' method in the RegistersUsers trait.
+     * 
+     * We do this so as not to login the user upon registration.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        // return $this->registered($request, $user)
+        //     ?: redirect($this->redirectPath())->back()->with();
+
+        return $this->registered($request, $user)
+            ?: response()->json(['success' => 'You have successfully registered. ' .
+                'Please check your email to verify your account.'], 200);
     }
 }

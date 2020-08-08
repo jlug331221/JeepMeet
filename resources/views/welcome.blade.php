@@ -116,7 +116,7 @@
           build up that JeepMeet Cred!</h3>
 
         <a class="button button-empty is-rounded signup-button welcome-profile-button" 
-          href="{{ url('/profile') }}"><strong>Profile</strong></a>
+          href="{{ url('/home') }}"><strong>Profile</strong></a>
       @endauth
     </div>
   </div>
