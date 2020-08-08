@@ -122,7 +122,7 @@
         success: "",
         error: "", // Error with emailing JeepMeet admin or saving message to database
         
-        errors: {}, // Server side errors for invalid form field values,
+        errors: {}, // Server side errors for invalid form field values
         loadingSpinner: false
       }
     },
@@ -131,13 +131,16 @@
       submitContactUsForm() {
         this.loadingSpinner = true;
         this.success = ""; this.error = ""; this.errors = {};
+        
         axios.post('/contact', this.formFields).then((res) => {
           this.loadingSpinner = false;
           this.clearTextFormFieldsAndErrors();
           this.success = res.data.success;
+
           // Set success to an empty string to hide notification after 5 seconds
-          setTimeout(() => this.success = "", 5000);
+          setTimeout(() => this.success = "", 8000);
         }).catch((err) => {
+          console.log(err);
           this.loadingSpinner = false;
           
           // First check for form field errors and display those
@@ -146,11 +149,13 @@
             if(this.errors.first_name) { this.formFields.first_name = ""; }
             if(this.errors.email) { this.formFields.email = ""; }
             if(this.errors.message) { this.formFields.message = ""; }
+            
             // Hide form field errors after 5 seconds
             setTimeout(() => this.errors = {}, 5000);
           }
+
           // Display server side error
-          this.error = err.response.data.error;
+          this.error = err;
           // Set error to an empty string to hide notification after 5 seconds
           setTimeout(() => this.error = "", 5000)
         })
