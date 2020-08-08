@@ -96,8 +96,7 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
-        // return $this->registered($request, $user)
-        //     ?: redirect($this->redirectPath())->back()->with();
+        $this->guard()->login($user);
 
         return $this->registered($request, $user)
             ?: response()->json(['success' => 'You have successfully registered. ' .
