@@ -44,7 +44,7 @@
         </div>
 
         <div class="field">
-          <a class="has-text-left" href="#">Forgot Credentials</a>
+          <a class="has-text-left" href="{{ url('password/reset') }}">Forgot Credentials</a>
         </div>
 
         <div class="field">

@@ -16,8 +16,8 @@
         <div class="card-content">
           <div class="content">
             @if (session('resent'))
-              <div class="alert alert-success" role="alert">
-                  {{ __('A fresh verification link has been sent to your email address.') }}
+              <div class="notification is-info is-light" role="alert">
+                {{ __('A fresh verification link has been sent to your email address.') }}
               </div>
             @endif
 
@@ -25,7 +25,7 @@
             {{ __('If you did not receive the email') }},
             <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
               @csrf
-              <button style="margin-top: 1rem;" type="submit" class="button is-link">
+              <button style="margin-top: 1rem;" type="submit" class="button is-link is-light">
                 {{ __('Click here to request another') }}
               </button>
             </form>
