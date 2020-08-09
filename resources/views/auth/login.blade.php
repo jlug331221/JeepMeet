@@ -37,7 +37,7 @@
         <div class="field">
           <div class="control">
             <label class="checkbox login-checkbox">
-                <input type="checkbox">
+                <input type="checkbox" name="remember">
                 Keep Me Logged In
             </label>
           </div>
