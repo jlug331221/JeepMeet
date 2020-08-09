@@ -14,7 +14,8 @@
 
         <div class="field">
           <div class="control has-icons-left">
-            <input type="text" class="input" placeholder="Username" name="username">
+            <input type="text" id="username-input" class="input"
+              placeholder="Username" name="username">
             
             <span class="icon is-small is-left">
               <i class="fas fa-user"></i>
@@ -24,7 +25,8 @@
 
         <div class="field">
           <div class="control has-icons-left">
-            <input type="password" class="input" placeholder="Password" name="password">
+            <input type="password" id="password-input" class="input"
+              placeholder="Password" name="password">
             
             <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
@@ -47,11 +49,18 @@
 
         <div class="field">
           <div class="control">
-            <button type="submit" class="button button-filled is-rounded">Submit</button>
+            <button type="submit" class="button button-filled is-rounded login-submit">Submit</button>
           </div>
         </div>
       </form>
     </section>
+
+    @error('username')
+      <div class="notification is-danger">
+        <button class="delete handle-delete-of-button"></button>
+        {{ $message }}
+      </div>
+    @enderror
   </div>
 </div>
 
