@@ -1,94 +1,112 @@
 <template>
   <div class="columns is-mobile is-centered">
     <div class="column is-three-quarters-mobile is-half-tablet is-half-desktop">
-      <div v-show="success" class="notification is-info register-notification">
+      <div v-show="success" class="notification is-info is-light register-notification">
         <button v-on:click="hideSuccessNotification" class="delete"></button>
         {{ success }}
       </div>
 
-      <div v-show="error" class="notification is-danger register-notification">
+      <div
+        v-show="errorsList.length > 0"
+        class="notification is-danger is-light register-notification"
+      >
         <button v-on:click="hideErrorNotification" class="delete"></button>
-        {{ error }}
+        <ul>
+          <li v-for="error in errorsList" :key="error">{{ error }}</li>
+        </ul>
       </div>
 
       <section class="section is-medium has-text-left whitesmoke-section">
         <h2 class="title is-2">Join Now</h2>
-        
+
         <div class="field is-horizontal">
           <div class="field-body">
             <b-field>
-              <b-input placeholder="First Name"
+              <b-input
+                placeholder="First Name"
                 icon-pack="fa"
                 icon="user"
                 v-model="formFields.first_name"
-                required>
-              </b-input>
+                required
+              ></b-input>
             </b-field>
 
             <b-field>
-              <b-input placeholder="Last Name"
+              <b-input
+                placeholder="Last Name"
                 icon-pack="fa"
                 icon="user"
                 v-model="formFields.last_name"
-                required>
-              </b-input>
+                required
+              ></b-input>
             </b-field>
           </div>
         </div>
 
         <b-field>
-          <b-input placeholder="Username"
+          <b-input
+            placeholder="Username"
             icon-pack="fa"
             icon="user-circle"
             v-model="formFields.username"
-            required>
-          </b-input>
+            required
+          ></b-input>
         </b-field>
 
         <b-field>
-          <b-input placeholder="Email"
+          <b-input
+            placeholder="Email"
             icon-pack="fa"
             icon="envelope"
             type="email"
             v-model="formFields.email"
-            required>
-          </b-input>
+            required
+          ></b-input>
         </b-field>
 
-        <b-field :message="{ 'Passwords do not match': passwordsNotEqual() }"
-          :type="{ 'is-danger': passwordsNotEqual() }">
-          <b-input type="password"
+        <b-field
+          :message="{ 'Passwords do not match': passwordsNotEqual() }"
+          :type="{ 'is-danger': passwordsNotEqual() }"
+        >
+          <b-input
+            type="password"
             placeholder="Password"
             v-model="formFields.password"
             icon-pack="fa"
             icon="lock"
             class="register-password"
             password-reveal
-            required>
-          </b-input>
+            required
+          ></b-input>
         </b-field>
 
-        <b-field :message="{ 'Passwords do not match': passwordsNotEqual() }"
-          :type="{ 'is-danger': passwordsNotEqual() }">
-          <b-input type="password"
+        <b-field
+          :message="{ 'Passwords do not match': passwordsNotEqual() }"
+          :type="{ 'is-danger': passwordsNotEqual() }"
+        >
+          <b-input
+            type="password"
             placeholder="Confirm Password"
             v-model="formFields.password_confirmation"
             icon-pack="fa"
             icon="lock"
             class="register-password"
             password-reveal
-            required>
-          </b-input>
+            required
+          ></b-input>
         </b-field>
 
-        <b-field :message="{ 'Please select a country': 
-            formFields.location_country == '' }">
+        <b-field
+          :message="{ 'Please select a country': 
+            formFields.location_country == '' }"
+        >
           <b-select
             v-model="formFields.location_country"
             icon="globe-americas"
             icon-pack="fa"
             expanded
-            required>
+            required
+          >
             <option value="United States of America">United States of America</option>
             <option value="Afganistan">Afghanistan</option>
             <option value="Albania">Albania</option>
@@ -338,15 +356,18 @@
           </b-select>
         </b-field>
 
-        <b-field :message="{ 'Please select a state': 
+        <b-field
+          :message="{ 'Please select a state': 
             formFields.location_state_province == '' }"
-            v-show="formFields.location_country == 'United States of America'">
+          v-show="formFields.location_country == 'United States of America'"
+        >
           <b-select
             v-model="formFields.location_state_province"
             icon="map-marker-alt"
             icon-pack="fa"
             expanded
-            required>
+            required
+          >
             <option value="Alabama">Alabama</option>
             <option value="Alaska">Alaska</option>
             <option value="Arizona">Arizona</option>
@@ -403,128 +424,147 @@
 
         <div v-show="! loadingSpinner" class="field register-form-buttons">
           <div class="control">
-            <button class="button button-filled is-rounded"
-              :disabled="formDisabled()" @click="registerUser()">Join</button>
+            <button
+              class="button button-filled is-rounded"
+              :disabled="formDisabled()"
+              @click="registerUser()"
+            >Join</button>
 
             <button class="button is-rounded" @click="clearForm()">Clear</button>
           </div>
         </div>
 
-        <button v-show="loadingSpinner" class="button button-filled
-            is-rounded is-loading"></button>
+        <button v-show="loadingSpinner" class="button button-filled is-rounded is-loading"></button>
       </section>
     </div>
   </div>
 </template>
 
 <script>
-  import { required, email } from 'vuelidate/lib/validators';
-  import { Notification, Input } from 'buefy';
+import { required, email } from "vuelidate/lib/validators";
+import { Notification, Input } from "buefy";
 
-  export default {
-    name: "register",
+export default {
+  name: "register",
 
-    data() {
-      return {
-        formFields: {
-          first_name: "",
-          last_name: "",
-          username: "",
-          email: "",
-          password: "",
-          password_confirmation: "",
-          location_country: "",
-          location_state_province: ""
-        },
+  data() {
+    return {
+      formFields: {
+        first_name: "",
+        last_name: "",
+        username: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
+        location_country: "",
+        location_state_province: "",
+      },
 
-        success: "",
-        error: "",
-        
-        errors: {}, // Server side errors for invalid form field values
+      success: "",
+      errorsList: [],
 
-        loadingSpinner: false
-      }
+      errors: {}, // Server side errors for invalid form field values
+
+      loadingSpinner: false,
+    };
+  },
+
+  methods: {
+    clearForm() {
+      this.formFields.first_name = "";
+      this.formFields.last_name = "";
+      this.formFields.username = "";
+      this.formFields.email = "";
+      this.formFields.password = "";
+      this.formFields.password_confirmation = "";
+      this.formFields.location_country = "";
+      this.formFields.location_state_province = "";
     },
 
-    methods: {
-      clearForm() {
-        this.formFields.first_name = "";
-        this.formFields.last_name = "";
-        this.formFields.username = "";
-        this.formFields.email = "";
-        this.formFields.password = "";
-        this.formFields.password_confirmation = "";
-        this.formFields.location_country = "";
-        this.formFields.location_state_province = "";
-      },
+    formDisabled() {
+      return (
+        this.formFields.first_name == "" ||
+        this.formFields.last_name == "" ||
+        this.formFields.username == "" ||
+        this.formFields.email == "" ||
+        this.formFields.email.indexOf("@") == -1 ||
+        this.formFields.password == "" ||
+        this.formFields.password_confirmation == "" ||
+        this.passwordsNotEqual() ||
+        this.formFields.location_country == "" ||
+        (this.formFields.location_country == "United States of America" &&
+          this.formFields.location_state_province == "")
+      );
+    },
 
-      formDisabled() {
-        return this.formFields.first_name == "" || this.formFields.last_name == "" ||
-          this.formFields.username == "" || this.formFields.email == "" ||
-          this.formFields.email.indexOf("@") == -1 || this.formFields.password == "" ||
-          this.formFields.password_confirmation == "" || this.passwordsNotEqual() ||
-          this.formFields.location_country == "" || 
-          (this.formFields.location_country == "United States of America" && 
-           this.formFields.location_state_province == "");
-      },
+    passwordsNotEqual() {
+      return this.formFields.password !== this.formFields.password_confirmation;
+    },
 
-      passwordsNotEqual() {
-        return this.formFields.password !== this.formFields.password_confirmation;
-      },
+    registerUser() {
+      this.loadingSpinner = true;
+      this.success = "";
+      this.error = "";
+      this.errors = {};
 
-      registerUser() {
-        this.loadingSpinner = true;
-        this.success = ""; this.error = ""; this.errors = {};
-
-        axios.post('/register', this.formFields).then((res) => {
+      axios
+        .post("/register", this.formFields)
+        .then((res) => {
           this.loadingSpinner = false;
           this.clearForm();
           this.success = res.data.success;
-        }).catch((err) => {        
+        })
+        .catch((err) => {
           this.loadingSpinner = false;
-          
+
           // First check for form field errors and display those
-          if(err.response.status === 422) {
+          if (err.response.status === 422) {
             this.errors = err.response.data.errors || {};
-            if(this.errors.first_name) { this.formFields.first_name = ""; }
-            if(this.errors.email) { this.formFields.email = ""; }
-            if(this.errors.message) { this.formFields.message = ""; }
-            
+            if (this.errors.username) {
+              this.formFields.username = "";
+              this.errorsList.push(this.errors.username[0]);
+            }
+            if (this.errors.email) {
+              this.formFields.email = "";
+              this.errorsList.push(this.errors.email[0]);
+            }
+
             // Hide form field errors after 5 seconds
-            setTimeout(() => this.errors = {}, 5000);
+            setTimeout(() => (this.errors = {}), 5000);
           }
-          
-          // Display server side error
-          this.error = err.response.data.error;
-          
+
           // Set error to an empty string to hide notification after 5 seconds
-          setTimeout(() => this.error = "", 5000)
+          setTimeout(() => (this.errorsList = []), 5000);
         });
-      },
+    },
 
-      hideSuccessNotification() {
-        // Set success to an empty string to hide notification
-        if(this.success) { this.success = ""; }
-      },
-
-      hideErrorNotification() {
-        if(this.error) { this.error = ""; }
+    hideSuccessNotification() {
+      // Set success to an empty string to hide notification
+      if (this.success) {
+        this.success = "";
       }
-    }
-  }
+    },
+
+    hideErrorNotification() {
+      if (this.errorsList) {
+        this.errorsList = [];
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss">
-  .register-form-buttons {
-    margin-top: 2rem;
-  }
+.register-form-buttons {
+  margin-top: 2rem;
+}
 
-  .register-password.control.has-icons-left .icon,
-  .register-password.control.has-icons-right .icon {
-    pointer-events: visible !important;
-  }
+.register-password.control.has-icons-left .icon,
+.register-password.control.has-icons-right .icon {
+  pointer-events: visible !important;
+}
 
-  .register-notification {
-    margin-top: 2rem;
-  }
+.register-notification {
+  margin-top: 2rem;
+}
 </style>

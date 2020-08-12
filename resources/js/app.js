@@ -30,7 +30,7 @@ Vue.use(Buefy);
  * Import our Vue components
  */
 Vue.component('contact-us', require('./components/ContactUs.vue').default);
-Vue.component('register', require('./components/Register.vue').default);
+Vue.component('register', require('./components/Auth/Register.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
