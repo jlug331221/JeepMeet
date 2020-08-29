@@ -511,7 +511,9 @@ export default {
         .post("/register", this.formFields)
         .then((res) => {
           this.loadingSpinner = false;
+
           this.clearForm();
+
           this.success = res.data.success;
         })
         .catch((err) => {
