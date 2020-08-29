@@ -10,7 +10,7 @@ require('./bootstrap');
  * Load the plain JS Component code.
  */
 require('./components/PlainJS/navbar');
-require('./components/PlainJS/Buttons/buttonDelete');
+require('./components/PlainJS/Buttons/notificationButtonDelete');
 
 window.Vue = require('vue');
 
@@ -39,5 +39,5 @@ Vue.component('register', require('./components/Auth/Register.vue').default);
  */
 
 const app = new Vue({
-    el: '#app',
+  el: '#app',
 });

@@ -533,7 +533,7 @@ export default {
             setTimeout(() => (this.errors = {}), 5000);
           }
 
-          // Set error to an empty string to hide notification after 5 seconds
+          // Set error list to empty to hide notification after 5 seconds
           setTimeout(() => (this.errorsList = []), 5000);
         });
     },
