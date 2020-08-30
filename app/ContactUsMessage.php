@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Http\Requests\ContactUsMessageRequest;
+
 use Mail;
 
 class ContactUsMessage extends Model
@@ -17,7 +19,7 @@ class ContactUsMessage extends Model
      * 
      * @return void
      */
-    public static function sendMailToAdmin(Request $request) 
+    public static function sendMailToAdmin(ContactUsMessageRequest $request) 
     {
         Mail::send('emails.contact-us', [
             'first_name' => $request->input('first_name'),

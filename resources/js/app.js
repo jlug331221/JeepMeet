@@ -9,20 +9,10 @@ require('./bootstrap');
 /**
  * Load the plain JS Component code.
  */
-require('./components/navbar');
+require('./components/PlainJS/navbar');
+require('./components/PlainJS/Buttons/notificationButtonDelete');
 
 window.Vue = require('vue');
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 /**
  * Vue validation library.
@@ -31,9 +21,16 @@ import Vuelidate from 'vuelidate';
 Vue.use(Vuelidate);
 
 /**
+ * Buefy
+ */
+import Buefy from 'buefy';
+Vue.use(Buefy);
+
+/**
  * Import our Vue components
  */
 Vue.component('contact-us', require('./components/ContactUs.vue').default);
+Vue.component('register', require('./components/Auth/Register.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -42,5 +39,5 @@ Vue.component('contact-us', require('./components/ContactUs.vue').default);
  */
 
 const app = new Vue({
-    el: '#app',
+  el: '#app',
 });
