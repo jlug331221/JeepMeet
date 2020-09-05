@@ -24,7 +24,7 @@ class CreateCommentsTable extends Migration
                     ->onUpdate('cascade')
                     ->onDelete('cascade');
 
-            $table->unsignedBigInteger('parent_comment_id')->nullable();
+            $table->unsignedBigInteger('parent_id')->nullable();
 
             $table->text('comment');
 
