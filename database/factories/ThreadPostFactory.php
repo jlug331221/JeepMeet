@@ -12,7 +12,7 @@ $factory->define(Post::class, function (Faker $faker) {
     'thread_id' => Thread::all()->random()->id,
     'title' => $faker->sentence(4),
     'content' => $faker->sentences(8, true),
-    'created_at' => now(),
-    'updated_at' => now(),
+    'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now'),
+    'updated_at' => $faker->dateTimeThisYear($max = 'now'),
   ];
 });

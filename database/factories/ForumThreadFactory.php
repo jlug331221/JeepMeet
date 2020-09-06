@@ -9,7 +9,7 @@ $factory->define(Thread::class, function (Faker $faker) {
   return [
     'user_id' => User::all()->random()->id,
     'title' => $faker->sentence(),
-    'created_at' => now(),
-    'updated_at' => now(),
+    'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now'),
+    'updated_at' => $faker->dateTimeThisYear($max = 'now'),
   ];
 });

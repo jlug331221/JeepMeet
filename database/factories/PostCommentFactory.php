@@ -12,7 +12,7 @@ $factory->define(Comment::class, function (Faker $faker) {
     'post_id' => Post::all()->random()->id,
     'comment' => $faker->sentences(5, true),
     'parent_id' => null,
-    'created_at' => now(),
-    'updated_at' => now(),
+    'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now'),
+    'updated_at' => $faker->dateTimeThisYear($max = 'now'),
   ];
 });
