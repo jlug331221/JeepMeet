@@ -17,12 +17,13 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onUpdate('cascade');
 
             $table->unsignedBigInteger('thread_id');
             $table->foreign('thread_id')->references('id')->on('threads')
-                    ->onUpdate('cascade')
-                    ->onDelete('cascade');
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table->string('title', 140);
             $table->text('content');

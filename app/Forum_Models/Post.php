@@ -7,13 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title', 'content'
+    ];
+
+    /**
      * Get the user who created the post.
      * 
-     * @return App\User_Models\User
+     * @return App\User
      */
     public function user()
     {
-        return $this->belongsTo('App\User_Models\User');
+        return $this->belongsTo('App\User');
     }
 
     /**

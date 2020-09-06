@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ContactUsMessageController extends Controller
 {
     /**
-     * This function displays the 'Contact Us' page
+     * Display the 'Contact Us' page
      * 
      * @return Illuminate\View
      */
