@@ -4,6 +4,6 @@
 
 @section('main-content')
 
-{{-- Forum Page --}}
+<main-forum></main-forum>
 
 @endsection

@@ -1,10 +1,10 @@
 <template>
-  <h1 class="title has-text-centered" style="margin-top: 2rem;">You are logged in and verified!!</h1>
+  <h1 class="title has-text-centered">Post page displaying post info and post comments</h1>
 </template>
 
 <script>
 export default {
-  name: "home",
+  name: "post",
 
   data() {
     return {};

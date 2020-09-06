@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div class="columns is-mobile is-centered">
     <div class="column is-three-quarters-mobile is-half-tablet is-half-desktop">
       <div v-show="success" class="notification is-info is-light register-notification">
@@ -98,7 +98,7 @@
 
         <b-field
           :message="{ 'Please select a country': 
-            formFields.location_country == '' }"
+              formFields.location_country == '' }"
         >
           <b-select
             v-model="formFields.location_country"
@@ -358,7 +358,7 @@
 
         <b-field
           :message="{ 'Please select a state': 
-            formFields.location_state_province == '' }"
+              formFields.location_state_province == '' }"
           v-show="formFields.location_country == 'United States of America'"
         >
           <b-select
@@ -440,7 +440,7 @@
   </div>
 </template>
 
-<script>
+  <script>
 import { required, email } from "vuelidate/lib/validators";
 import { Notification, Input } from "buefy";
 
@@ -483,17 +483,17 @@ export default {
 
     formDisabled() {
       return (
-        this.formFields.first_name == "" ||
-        this.formFields.last_name == "" ||
-        this.formFields.username == "" ||
-        this.formFields.email == "" ||
-        this.formFields.email.indexOf("@") == -1 ||
-        this.formFields.password == "" ||
-        this.formFields.password_confirmation == "" ||
+        this.formFields.first_name === "" ||
+        this.formFields.last_name === "" ||
+        this.formFields.username === "" ||
+        this.formFields.email === "" ||
+        this.formFields.email.indexOf("@") === -1 ||
+        this.formFields.password === "" ||
+        this.formFields.password_confirmation === "" ||
         this.passwordsNotEqual() ||
-        this.formFields.location_country == "" ||
-        (this.formFields.location_country == "United States of America" &&
-          this.formFields.location_state_province == "")
+        this.formFields.location_country === "" ||
+        (this.formFields.location_country === "United States of America" &&
+          this.formFields.location_state_province === "")
       );
     },
 
