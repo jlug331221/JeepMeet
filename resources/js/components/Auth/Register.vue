@@ -440,7 +440,7 @@
   </div>
 </template>
 
-  <script>
+<script>
 import { required, email } from "vuelidate/lib/validators";
 import { Notification, Input } from "buefy";
 

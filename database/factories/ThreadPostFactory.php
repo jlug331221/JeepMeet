@@ -13,6 +13,6 @@ $factory->define(Post::class, function (Faker $faker) {
     'title' => $faker->sentence(4),
     'content' => $faker->sentences(8, true),
     'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now'),
-    'updated_at' => $faker->dateTimeThisYear($max = 'now'),
+    'updated_at' => $faker->dateTimeBetween($startDate = '-1 month', $endDate = 'now'),
   ];
 });

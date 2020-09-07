@@ -28,7 +28,9 @@ class PostController extends Controller
     public function recentPosts()
     {
         // return response()->json(200);
-        return Post::whereMonth('created_at', '=', Carbon::now()->subMonth(3)->month)->get()->toJson();
+        return Post::whereMonth('created_at', '=', Carbon::now()->subMonth(3)->month)
+                ->whereYear('created_at', '=', Carbon::now()->year)
+                ->orderBy('created_at', 'DESC')->get()->toJson();
     }
 
     /**
