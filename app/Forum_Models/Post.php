@@ -17,27 +17,27 @@ class Post extends Model
 
     /**
      * Get the user who created the post.
-     * 
+     *
      * @return App\User
      */
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User')->select(['id', 'username']);
     }
 
     /**
      * Get the parent thread of the post.
-     * 
+     *
      * @return App\Forum_Models\Thread
      */
     public function thread()
     {
-        return $this->belongsTo('App\Forum_Models\Thread');
+        return $this->belongsTo('App\Forum_Models\Thread')->select(['id', 'title']);
     }
-    
+
     /**
      * Get the comments of a particular post.
-     * 
+     *
      * @return App\Forum_Models\Comment
      */
     public function comments()
