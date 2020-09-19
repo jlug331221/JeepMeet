@@ -9,11 +9,11 @@
       <div class="post-content content">
         <p>
           <strong class="post-thread-link">{{ data.thread.title }}</strong>
-          <br>
+          <br />
           <strong class="post-title">{{ data.title }}</strong>
           <small>@{{ data.user.username }}</small>
           <small>{{ data.created_at }}</small>
-          <br>
+          <br />
           {{ data.content }}
         </p>
       </div>
@@ -50,5 +50,19 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+
+<style lang="scss" scoped>
+@import "~@/_variables.scss";
+
+.post-content {
+  & .post-thread-link {
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  & .post-title {
+    font-size: 1.325rem;
+    color: $secondary-site-color;
+  }
+}
 </style>
