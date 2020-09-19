@@ -25,7 +25,7 @@ html {
   height: 100%;
   box-sizing: border-box;
 }
-  
+
 *,
 *:before,
 *:after {
@@ -48,18 +48,8 @@ body {
   font-family: "Russo One", sans-serif;
 }
 
-// Components
-@import './Components/ahref';
-@import './Components/button';
-@import './Components/footer';
-@import './Components/icon';
-@import './Components/main';
-@import './Components/navbar';
-@import './Components/notification';
-@import './Components/small-errors-text-and-asterisks';
-@import './Components/whitesmoke-section';
-
 // Pages
-@import './Pages/about';
-@import './Pages/login';
-@import './Pages/welcome';
+@import './Pages/index';
+
+// Components
+@import './Components/index';
