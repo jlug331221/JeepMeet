@@ -48,21 +48,24 @@
             </div>
           </article>
 
-          <post v-for="post in posts" :key="post.id" v-show="!isLoading" v-bind:data="post" />
+          <post-preview
+            v-for="post in posts"
+            :key="post.id"
+            v-show="!isLoading"
+            v-bind:data="post"
+          />
         </div>
       </div>
-
-      <b-loading :is-full-page="isFullPage" :active="isLoading"></b-loading>
     </section>
   </div>
 </template>
 
 <script>
-import Post from './Post';
+import PostPreview from "./PostPreview";
 
 export default {
   components: {
-    Post
+    PostPreview,
   },
   name: "main-forum",
 
@@ -71,7 +74,7 @@ export default {
       posts: [],
 
       isLoading: false,
-      isFullPage: true,
+      isFullPage: false,
 
       skeletonMedia: 4,
     };
@@ -88,7 +91,12 @@ export default {
 
           this.posts = res.data;
         })
-        .catch((err) => {});
+        .catch((err) => {
+          console.error(
+            "There appears to be a problem fetching the recent posts. ",
+            err
+          );
+        });
     },
   },
 

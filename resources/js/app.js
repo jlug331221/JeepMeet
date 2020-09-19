@@ -36,7 +36,7 @@ Vue.component('home', require('./components/Home.vue').default);
 
 Vue.component('main-forum', require('./components/Forum/MainForum.vue').default);
 Vue.component('threads', require('./components/Forum/Threads.vue').default);
-Vue.component('post', require('./components/Forum/Post.vue').default);
+Vue.component('post', require('./components/Forum/PostPreview.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  name: "post",
+  name: "post-preview",
 
   props: {
     data: Object,
