@@ -16,3 +16,5 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->group(function() {
     return NULL;
 });
+
+Route::get('recent-posts', 'API\Forum\PostController@recentPosts');

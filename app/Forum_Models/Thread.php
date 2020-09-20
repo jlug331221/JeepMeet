@@ -9,11 +9,11 @@ class Thread extends Model
     /**
      * Get the user who created the thread.
      * 
-     * @return App\User_Models\User
+     * @return App\User
      */
     public function user()
     {
-        return $this->belongsTo('App\User_Models\User');
+        return $this->belongsTo('App\User');
     }
 
     /**
