@@ -115,23 +115,23 @@
 </template>
 
 <script>
-import { required, email } from "vuelidate/lib/validators";
-import { setTimeout } from "timers";
+import { required, email } from 'vuelidate/lib/validators';
+import { setTimeout } from 'timers';
 
 export default {
-  name: "contact-us",
+  name: 'contact-us',
 
   data() {
     return {
       formFields: {
-        first_name: "",
-        last_name: "",
-        email: "",
-        message: "",
+        first_name: '',
+        last_name: '',
+        email: '',
+        message: '',
       },
 
-      success: "",
-      error: "", // Error with emailing JeepMeet admin or saving message to database
+      success: '',
+      error: '', // Error with emailing JeepMeet admin or saving message to database
 
       errors: {}, // Server side errors for invalid form field values
       loadingSpinner: false,
@@ -141,19 +141,19 @@ export default {
   methods: {
     submitContactUsForm() {
       this.loadingSpinner = true;
-      this.success = "";
-      this.error = "";
+      this.success = '';
+      this.error = '';
       this.errors = {};
 
       axios
-        .post("/contact", this.formFields)
+        .post('/contact', this.formFields)
         .then((res) => {
           this.loadingSpinner = false;
           this.clearTextFormFieldsAndErrors();
           this.success = res.data.success;
 
           // Set success to an empty string to hide notification after 5 seconds
-          setTimeout(() => (this.success = ""), 8000);
+          setTimeout(() => (this.success = ''), 8000);
         })
         .catch((err) => {
           this.loadingSpinner = false;
@@ -162,13 +162,13 @@ export default {
           if (err.response.status === 422) {
             this.errors = err.response.data.errors || {};
             if (this.errors.first_name) {
-              this.formFields.first_name = "";
+              this.formFields.first_name = '';
             }
             if (this.errors.email) {
-              this.formFields.email = "";
+              this.formFields.email = '';
             }
             if (this.errors.message) {
-              this.formFields.message = "";
+              this.formFields.message = '';
             }
 
             // Hide form field errors after 5 seconds
@@ -179,37 +179,37 @@ export default {
           this.error = err.response.data.error;
 
           // Set error to an empty string to hide notification after 5 seconds
-          setTimeout(() => (this.error = ""), 5000);
+          setTimeout(() => (this.error = ''), 5000);
         });
     },
 
     clearTextFormFieldsAndErrors() {
-      this.formFields.first_name = "";
-      this.formFields.last_name = "";
-      this.formFields.email = "";
-      this.formFields.message = "";
+      this.formFields.first_name = '';
+      this.formFields.last_name = '';
+      this.formFields.email = '';
+      this.formFields.message = '';
       // Upon clicking the 'Clear' button, hide form field errors after 2 seconds
       setTimeout(() => (this.errors = {}), 2000);
     },
 
     submitButtonIsDisabled() {
       return (
-        this.formFields.first_name === "" ||
-        this.formFields.email === "" ||
-        this.formFields.message === ""
+        this.formFields.first_name === '' ||
+        this.formFields.email === '' ||
+        this.formFields.message === ''
       );
     },
 
     hideSuccessNotification() {
       // Set success to an empty string to hide notification
       if (this.success) {
-        this.success = "";
+        this.success = '';
       }
     },
 
     hideErrorNotification() {
       if (this.error) {
-        this.error = "";
+        this.error = '';
       }
     },
   },
@@ -235,7 +235,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/_variables.scss";
+@import '~@/_variables.scss';
 
 button.clear-button {
   color: $main-site-color;

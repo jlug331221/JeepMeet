@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "threads",
+  name: 'threads',
 
   data() {
     return {};
@@ -12,5 +12,5 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 </style>

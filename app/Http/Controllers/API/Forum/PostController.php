@@ -21,15 +21,14 @@ class PostController extends Controller
     }
 
     /**
-     * Get all posts within the previous 3 months.
+     * Get all posts within the previous 3 months (including days up to 4 months).
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function recentPosts()
     {
         return Post::with(['user', 'thread'])
-                ->whereMonth('created_at', '=', Carbon::now()->subMonth(3)->month)
-                ->whereYear('created_at', '=', Carbon::now()->year)
+                ->whereBetween('created_at', [Carbon::now()->subMonth(3), Carbon::now()])
                 ->orderBy('created_at', 'DESC')->get()->toJson();
     }
 

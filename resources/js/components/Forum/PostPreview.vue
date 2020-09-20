@@ -1,8 +1,8 @@
-<template>
+  <template>
   <article class="media">
     <figure class="media-left">
       <p class="image is-64x64">
-        <img src="https://bulma.io/images/placeholders/128x128.png" />
+        <b-image src="/img/128x128.png" alt="data.user.username" ratio="6by6" :rounded="true"></b-image>
       </p>
     </figure>
     <div class="media-content">
@@ -11,8 +11,16 @@
           <strong class="post-thread-link">{{ data.thread.title }}</strong>
           <br />
           <strong class="post-title">{{ data.title }}</strong>
-          <small>@{{ data.user.username }}</small>
-          <small>{{ data.created_at }}</small>
+          <small class="post-by-user-text">by @{{ data.user.username }}</small>
+          <b-tooltip
+            class="post-date-tooltip"
+            :label="data.created_at"
+            type="is-dark"
+            position="is-top"
+            :animated="true"
+          >
+            <small>{{ convertToRelativeTime(data.created_at) }}</small>
+          </b-tooltip>
           <br />
           {{ data.content }}
         </p>
@@ -38,8 +46,13 @@
 </template>
 
 <script>
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(relativeTime);
+
 export default {
-  name: "post-preview",
+  name: 'post-preview',
 
   props: {
     data: Object,
@@ -48,11 +61,17 @@ export default {
   data() {
     return {};
   },
+
+  methods: {
+    convertToRelativeTime(dateTime) {
+      return dayjs().to(dayjs(dateTime));
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "~@/_variables.scss";
+@import '~@/_variables.scss';
 
 .post-content {
   & .post-thread-link {
@@ -63,6 +82,14 @@ export default {
   & .post-title {
     font-size: 1.325rem;
     color: $secondary-site-color;
+  }
+
+  & .post-by-user-text {
+    font-family: $font-family-montserrat-sans-serif;
+  }
+
+  & .post-date-tooltip {
+    cursor: pointer;
   }
 }
 </style>

@@ -61,13 +61,13 @@
 </template>
 
 <script>
-import PostPreview from "./PostPreview";
+import PostPreview from './PostPreview';
 
 export default {
   components: {
     PostPreview,
   },
-  name: "main-forum",
+  name: 'main-forum',
 
   data() {
     return {
@@ -85,7 +85,7 @@ export default {
       this.isLoading = true;
 
       axios
-        .get("/api/recent-posts")
+        .get('/api/recent-posts')
         .then((res) => {
           this.isLoading = false;
 
@@ -93,7 +93,7 @@ export default {
         })
         .catch((err) => {
           console.error(
-            "There appears to be a problem fetching the recent posts. ",
+            'There appears to be a problem fetching the recent posts. ',
             err
           );
         });
@@ -107,7 +107,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/_variables.scss";
+@import '~@/_variables.scss';
 
 .main-forum-message-header {
   justify-content: center;
