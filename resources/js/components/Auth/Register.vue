@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div class="columns is-mobile is-centered">
     <div class="column is-three-quarters-mobile is-half-tablet is-half-desktop">
       <div v-show="success" class="notification is-info is-light register-notification">
@@ -98,7 +98,7 @@
 
         <b-field
           :message="{ 'Please select a country': 
-            formFields.location_country == '' }"
+              formFields.location_country == '' }"
         >
           <b-select
             v-model="formFields.location_country"
@@ -358,7 +358,7 @@
 
         <b-field
           :message="{ 'Please select a state': 
-            formFields.location_state_province == '' }"
+              formFields.location_state_province == '' }"
           v-show="formFields.location_country == 'United States of America'"
         >
           <b-select
@@ -441,26 +441,26 @@
 </template>
 
 <script>
-import { required, email } from "vuelidate/lib/validators";
-import { Notification, Input } from "buefy";
+import { required, email } from 'vuelidate/lib/validators';
+import { Notification, Input } from 'buefy';
 
 export default {
-  name: "register",
+  name: 'register',
 
   data() {
     return {
       formFields: {
-        first_name: "",
-        last_name: "",
-        username: "",
-        email: "",
-        password: "",
-        password_confirmation: "",
-        location_country: "",
-        location_state_province: "",
+        first_name: '',
+        last_name: '',
+        username: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+        location_country: '',
+        location_state_province: '',
       },
 
-      success: "",
+      success: '',
       errorsList: [],
 
       errors: {}, // Server side errors for invalid form field values
@@ -471,29 +471,29 @@ export default {
 
   methods: {
     clearForm() {
-      this.formFields.first_name = "";
-      this.formFields.last_name = "";
-      this.formFields.username = "";
-      this.formFields.email = "";
-      this.formFields.password = "";
-      this.formFields.password_confirmation = "";
-      this.formFields.location_country = "";
-      this.formFields.location_state_province = "";
+      this.formFields.first_name = '';
+      this.formFields.last_name = '';
+      this.formFields.username = '';
+      this.formFields.email = '';
+      this.formFields.password = '';
+      this.formFields.password_confirmation = '';
+      this.formFields.location_country = '';
+      this.formFields.location_state_province = '';
     },
 
     formDisabled() {
       return (
-        this.formFields.first_name == "" ||
-        this.formFields.last_name == "" ||
-        this.formFields.username == "" ||
-        this.formFields.email == "" ||
-        this.formFields.email.indexOf("@") == -1 ||
-        this.formFields.password == "" ||
-        this.formFields.password_confirmation == "" ||
+        this.formFields.first_name === '' ||
+        this.formFields.last_name === '' ||
+        this.formFields.username === '' ||
+        this.formFields.email === '' ||
+        this.formFields.email.indexOf('@') === -1 ||
+        this.formFields.password === '' ||
+        this.formFields.password_confirmation === '' ||
         this.passwordsNotEqual() ||
-        this.formFields.location_country == "" ||
-        (this.formFields.location_country == "United States of America" &&
-          this.formFields.location_state_province == "")
+        this.formFields.location_country === '' ||
+        (this.formFields.location_country === 'United States of America' &&
+          this.formFields.location_state_province === '')
       );
     },
 
@@ -503,12 +503,12 @@ export default {
 
     registerUser() {
       this.loadingSpinner = true;
-      this.success = "";
-      this.error = "";
+      this.success = '';
+      this.error = '';
       this.errors = {};
 
       axios
-        .post("/register", this.formFields)
+        .post('/register', this.formFields)
         .then((res) => {
           this.loadingSpinner = false;
 
@@ -523,11 +523,11 @@ export default {
           if (err.response.status === 422) {
             this.errors = err.response.data.errors || {};
             if (this.errors.username) {
-              this.formFields.username = "";
+              this.formFields.username = '';
               this.errorsList.push(this.errors.username[0]);
             }
             if (this.errors.email) {
-              this.formFields.email = "";
+              this.formFields.email = '';
               this.errorsList.push(this.errors.email[0]);
             }
 
@@ -543,7 +543,7 @@ export default {
     hideSuccessNotification() {
       // Set success to an empty string to hide notification
       if (this.success) {
-        this.success = "";
+        this.success = '';
       }
     },
 
