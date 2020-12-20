@@ -1,28 +1,31 @@
-  <template>
+<template>
   <article class="media">
     <figure class="media-left">
       <p class="image is-64x64">
-        <b-image src="/img/128x128.png" alt="data.user.username" ratio="6by6" :rounded="true"></b-image>
+        <i class="fas fa-user fa-3x" v-if="postData.user.avatar === ''"></i>
+
+        <b-image
+          src="/img/128x128.png"
+          alt="postData.user.username"
+          :rounded="true"
+          v-else
+        ></b-image>
       </p>
     </figure>
     <div class="media-content">
       <div class="post-content content">
         <p>
-          <strong class="post-thread-link">{{ data.thread.title }}</strong>
-          <br />
-          <strong class="post-title">{{ data.title }}</strong>
-          <small class="post-by-user-text">by @{{ data.user.username }}</small>
-          <b-tooltip
-            class="post-date-tooltip"
-            :label="data.created_at"
-            type="is-dark"
-            position="is-top"
-            :animated="true"
-          >
-            <small>{{ convertToRelativeTime(data.created_at) }}</small>
-          </b-tooltip>
-          <br />
-          {{ data.content }}
+          <strong class="post-thread-link">{{ postData.thread.title }}</strong>
+        </p>
+        <p class="title is-5">
+          <strong class="post-title">{{ postData.title }}</strong>
+        </p>
+        <p class="subtitle is-6">
+          by @{{ postData.user.username }}
+          <small>{{ convertToRelativeTime(postData.created_at) }}</small>
+        </p>
+        <p>
+          {{ postData.content }}
         </p>
       </div>
 
@@ -55,7 +58,7 @@ export default {
   name: 'post-preview',
 
   props: {
-    data: Object,
+    postData: Object,
   },
 
   data() {
@@ -80,16 +83,11 @@ export default {
   }
 
   & .post-title {
-    font-size: 1.325rem;
     color: $secondary-site-color;
   }
 
   & .post-by-user-text {
     font-family: $font-family-montserrat-sans-serif;
-  }
-
-  & .post-date-tooltip {
-    cursor: pointer;
   }
 }
 </style>

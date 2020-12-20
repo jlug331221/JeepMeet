@@ -17,4 +17,8 @@ Route::middleware('auth:api')->group(function() {
     return NULL;
 });
 
+Route::apiResources([
+    'threads' => 'API\Forum\ThreadController'
+]);
+
 Route::get('recent-posts', 'API\Forum\PostController@recentPosts');
