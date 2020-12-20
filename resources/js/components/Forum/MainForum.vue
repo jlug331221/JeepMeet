@@ -29,14 +29,26 @@
                 v-for="threadTopic in threadTopics"
                 :key="threadTopic.id"
                 v-show="!isLoadingThreadTopics"
-                class="main-forum-thread-topic"
+                class="columns is-variable is-5 main-forum-thread-topic"
               >
-                <h6 class="subtitle is-6 main-forum-topic-title">
-                  {{ threadTopic.title }}
-                </h6>
-                <span class="icon is-small">
-                  <i class="fas fa-eye"></i>
-                </span>
+                <div class="column is-9-tablet is-10-desktop">
+                  <h6 class="subtitle is-6 main-forum-topic-title">
+                    {{ threadTopic.title }}
+                  </h6>
+                </div>
+
+                <div
+                  class="column is-3-tablet is-2-desktop main-forum-thread-number-of-posts-info"
+                >
+                  <span class="icon is-small">
+                    <i class="fas fa-comment-dots"></i>
+                  </span>
+                  <strong>
+                    <p class="main-forum-thread-number-of-posts">
+                      {{ threadTopic.number_of_posts }}
+                    </p></strong
+                  >
+                </div>
               </div>
 
               <b-loading
@@ -53,8 +65,8 @@
 
           <article
             class="media"
-            v-for="i in skeletonMedia"
-            :key="i"
+            v-for="recentPost in recentPosts"
+            :key="recentPost.title"
             v-show="isLoadingRecentPosts"
           >
             <figure class="media-left">
@@ -99,6 +111,7 @@
 </template>
 
 <script>
+import numeral from 'numeral';
 import PostPreview from './PostPreview';
 
 export default {
@@ -117,7 +130,7 @@ export default {
       isLoadingThreadTopics: false,
       isFullPage: false,
 
-      skeletonMedia: 4,
+      skeletonMedia: 0,
     };
   },
 
@@ -129,6 +142,8 @@ export default {
         .get('/api/recent-posts')
         .then((res) => {
           this.recentPosts = res.data;
+
+          this.skeletonMedia = this.recentPosts.length;
 
           this.isLoadingRecentPosts = false;
         })
@@ -147,6 +162,12 @@ export default {
         .get('/api/threads')
         .then((res) => {
           this.threadTopics = res.data;
+
+          this.threadTopics.map((thread) => {
+            thread.number_of_posts = numeral(thread.number_of_posts).format(
+              '0a'
+            );
+          });
 
           this.isLoadingThreadTopics = false;
         })
@@ -183,16 +204,27 @@ export default {
   }
 }
 
-.main-forum-thread-topic {
-  display: flex;
-  justify-content: space-between;
-
-  .main-forum-topic-title {
-    font-weight: 600;
-  }
+.main-forum-topic-title {
+  font-weight: 600;
+  margin-bottom: 0;
 }
 
 article.notification.main-forum-topic-notification {
-  padding: 0;
+  padding: 1.25rem 1.5rem 1.25rem 1.5rem;
+}
+
+div.main-forum-thread-topic {
+  align-items: center;
+
+  div.main-forum-thread-number-of-posts-info {
+    display: flex;
+    align-items: center;
+    padding-right: 2rem;
+
+    p.main-forum-thread-number-of-posts {
+      margin-left: 0.3rem;
+      font-size: 0.8rem;
+    }
+  }
 }
 </style>
