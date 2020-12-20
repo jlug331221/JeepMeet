@@ -102,13 +102,13 @@
         
         <p><a href="#">Privacy Statement</a></p>
         
-        <a href="mailto:jeepmeetup@gmail.com">
+        <a href="mailto:jeepmeetup@gmail.com" target="_blank">
           <span class="icon">
             <i class="far fa-envelope fa-lg envelope-contact-us"></i>
           </span>
         </a>
 
-        <a href="https://github.com/jlug331221/JeepMeet">
+        <a href="https://github.com/jlug331221/JeepMeet" target="_blank">
           <span class="icon">
             <i class="fab fa-github fa-lg"></i>
           </span>

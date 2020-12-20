@@ -219,7 +219,12 @@ div.main-forum-thread-topic {
   div.main-forum-thread-number-of-posts-info {
     display: flex;
     align-items: center;
-    padding-right: 2rem;
+
+    margin-top: -1.25rem;
+
+    @media only screen and (min-width: 769px) {
+      margin-top: 0;
+    }
 
     p.main-forum-thread-number-of-posts {
       margin-left: 0.3rem;
