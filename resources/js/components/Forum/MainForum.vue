@@ -32,9 +32,16 @@
                 class="columns is-variable is-5 main-forum-thread-topic"
               >
                 <div class="column is-9-tablet is-10-desktop">
-                  <h6 class="subtitle is-6 main-forum-topic-title">
-                    {{ threadTopic.title }}
-                  </h6>
+                  <router-link
+                    :to="{
+                      name: 'single-thread',
+                      params: { threadId: threadTopic.id },
+                    }"
+                  >
+                    <h6 class="subtitle is-6 main-forum-topic-title">
+                      {{ threadTopic.title }}
+                    </h6>
+                  </router-link>
                 </div>
 
                 <div
