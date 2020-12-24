@@ -33,16 +33,6 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for creating a new post.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created post in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -60,17 +50,6 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified post.
-     *
-     * @param  \App\Forum_Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Post $post)
     {
         //
     }

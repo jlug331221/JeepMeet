@@ -26,5 +26,6 @@ $footer-background-color: #212529;
 
 $box-shadow: 1px 0px 6px #333;
 
-$loading-background: rgba(54, 54, 54, 0.25);
-$loading-background-legacy: $tertiary-site-color;
+$loading-background: #FFFFFF;
+$loading-overlay-min-height: 20vh;
+$loading-background-legacy: #FFFFFF;
