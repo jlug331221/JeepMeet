@@ -4,6 +4,6 @@
 
 @section('main-content')
 
-<main-forum></main-forum>
+<router-view></router-view>
 
 @endsection

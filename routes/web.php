@@ -21,9 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::view('/forum', 'forum');
 Route::view('/news', 'news');
 Route::view('/about', 'about');
+
+Route::get('forum', 'ShowForumController')->name('forum');
 
 Route::get('/contact', [
   'uses' => 'ContactUsMessageController@index'
@@ -32,3 +33,7 @@ Route::get('/contact', [
 Route::post('/contact', [
   'uses' => 'ContactUsMessageController@submitEmailAndPersistMessage'
 ]);
+
+// The following is needed to use Laravel and Vue Routing without the hash in the URL.
+// This also allows a page refresh in the admin dashboard without getting a 404 error page.
+Route::get('{path}', 'ShowForumController')->where('path', '.*');

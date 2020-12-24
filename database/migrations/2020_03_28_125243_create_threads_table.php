@@ -20,6 +20,7 @@ class CreateThreadsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
 
             $table->string('title', 140);
+            $table->unsignedInteger('number_of_posts')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
