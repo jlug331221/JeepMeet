@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Forum_Models;
+namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
+    use HasFactory;
+
     /**
      * Get the user who created the thread.
      * 
@@ -19,10 +22,10 @@ class Thread extends Model
     /**
     * Get the posts for a particular thread.
     *
-    * @return App\Forum_Models\Post
+    * @return App\Models\Post
     */
     public function posts()
     {
-        return $this->hasMany('App\Forum_Models\Post');
+        return $this->hasMany('App\Models\Post');
     }
 }

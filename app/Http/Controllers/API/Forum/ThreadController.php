@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\API\Forum;
 
-use App\Forum_Models\Thread;
+use App\Models\Thread;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -32,7 +32,7 @@ class ThreadController extends Controller
     /**
      * Display the specified thread.
      *
-     * @param  \App\Forum_Models\Thread  $thread
+     * @param  \App\Models\Thread  $thread
      * @return \Illuminate\Http\Response
      */
     public function show(Thread $thread)
@@ -44,7 +44,7 @@ class ThreadController extends Controller
      * Update the specified thread in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Forum_Models\Thread  $thread
+     * @param  \App\Models\Thread  $thread
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Thread $thread)
@@ -55,7 +55,7 @@ class ThreadController extends Controller
     /**
      * Remove the specified thread from storage.
      *
-     * @param  \App\Forum_Models\Thread  $thread
+     * @param  \App\Models\Thread  $thread
      * @return \Illuminate\Http\Response
      */
     public function destroy(Thread $thread)

@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Forum_Models;
+namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    use HasFactory;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -28,11 +31,11 @@ class Post extends Model
     /**
      * Get the parent thread of the post.
      *
-     * @return App\Forum_Models\Thread
+     * @return App\Models\Thread
      */
     public function thread()
     {
-        return $this->belongsTo('App\Forum_Models\Thread')->select(['id', 'title']);
+        return $this->belongsTo('App\Models\Thread')->select(['id', 'title']);
     }
 
     /**

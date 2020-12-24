@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\API\Forum;
 
-use App\Forum_Models\Post;
+use App\Models\Post;
 use Carbon\Carbon;
 
 use App\Http\Controllers\Controller;
@@ -46,7 +46,7 @@ class PostController extends Controller
     /**
      * Display the specified post.
      *
-     * @param  \App\Forum_Models\Post  $post
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
@@ -58,7 +58,7 @@ class PostController extends Controller
      * Update the specified post in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Forum_Models\Post  $post
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Post $post)
@@ -69,7 +69,7 @@ class PostController extends Controller
     /**
      * Remove the specified post from storage.
      *
-     * @param  \App\Forum_Models\Post  $post
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
