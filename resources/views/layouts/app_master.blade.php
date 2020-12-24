@@ -43,11 +43,11 @@
                 <a class="navbar-item" href="{{ url('/home') }}">
                     <strong>Profile</strong>
                 </a>
-
-                <a class="navbar-item" href="{{ url('/events') }}">
-                  <strong>Events</strong>
-                </a>
               @endauth
+
+              <a class="navbar-item" href="{{ url('/events') }}">
+                <strong>Events</strong>
+              </a>
 
               <a class="navbar-item" href="{{ url('/forum') }}">
                 <strong>Forum</strong>

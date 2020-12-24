@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Forum_Models;
+namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    use HasFactory;
+
     /**
      * Get the user who created the comment.
      * 
@@ -19,10 +22,10 @@ class Comment extends Model
     /**
      * Get the parent post for the comment.
      * 
-     * @return App\Forum_Models\Post
+     * @return App\Models\Post
      */
     public function post()
     {
-        return $this->belongsTo('App\Forum_Models\Post');
+        return $this->belongsTo('App\Models\Post');
     }
 }

@@ -3,12 +3,13 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable;
+    use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -41,30 +42,30 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
     * Get the threads for a particular user.
     *
-    * @return App\Forum_Models\Thread
+    * @return App\Models\Thread
     */
     public function threads()
     {
-        return $this->hasMany('App\Forum_Models\Thread');
+        return $this->hasMany('App\Models\Thread');
     }
 
     /**
      * Get the posts for a particular user.
      * 
-     * @return App\Forum_Models\Post
+     * @return App\Models\Post
      */
     public function posts()
     {
-        return $this->hasMany('App\Forum_Models\Post');
+        return $this->hasMany('App\Models\Post');
     }
 
     /**
      * Get the comments made by a particular user.
      * 
-     * @return App\Forum_Models\Comment
+     * @return App\Models\Comment
      */
     public function comments()
     {
-        return $this->hasMany('App\Forum_Models\Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 }

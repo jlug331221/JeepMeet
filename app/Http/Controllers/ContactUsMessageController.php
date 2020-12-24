@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ContactUsMessage;
+use App\Models\ContactUsMessage;
 use App\Http\Requests\ContactUsMessageRequest;
 
 use Illuminate\Http\Request;
