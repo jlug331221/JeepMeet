@@ -27,3 +27,5 @@ Route::apiResources([
 ]);
 
 Route::get('recent-posts', 'API\Forum\PostController@recentPosts');
+
+Route::get('thread/posts/{id}', 'API\Forum\ThreadController@getPostsForThread');

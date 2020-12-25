@@ -59,7 +59,7 @@
               </div>
 
               <b-loading
-                :is-full-page="isFullPage"
+                :is-full-page="false"
                 v-model="isLoadingThreadTopics"
                 :can-cancel="false"
               ></b-loading>
@@ -68,49 +68,7 @@
         </div>
 
         <div class="column is-7">
-          <h1 class="title is-2">Recent Posts</h1>
-
-          <article
-            class="media"
-            v-for="recentPost in recentPosts"
-            :key="recentPost.title"
-            v-show="isLoadingRecentPosts"
-          >
-            <figure class="media-left">
-              <p class="image is-64x64">
-                <b-skeleton circle width="64px" height="64px"></b-skeleton>
-              </p>
-            </figure>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <b-skeleton active></b-skeleton>
-                  <b-skeleton height="80px"></b-skeleton>
-                </p>
-              </div>
-              <nav class="level is-mobile">
-                <div class="level-left">
-                  <a class="level-item">
-                    <span class="icon is-small">
-                      <b-skeleton></b-skeleton>
-                    </span>
-                  </a>
-                  <a class="level-item">
-                    <span class="icon is-small">
-                      <b-skeleton></b-skeleton>
-                    </span>
-                  </a>
-                </div>
-              </nav>
-            </div>
-          </article>
-
-          <post-preview
-            v-for="post in recentPosts"
-            :key="post.id"
-            v-show="!isLoadingRecentPosts"
-            v-bind:postData="post"
-          />
+          <router-view></router-view>
         </div>
       </div>
     </section>
@@ -119,49 +77,19 @@
 
 <script>
 import numeral from 'numeral';
-import PostPreview from './PostPreview';
 
 export default {
-  components: {
-    PostPreview,
-  },
-
   name: 'main-forum',
 
   data() {
     return {
-      recentPosts: [],
       threadTopics: [],
 
-      isLoadingRecentPosts: false,
       isLoadingThreadTopics: false,
-      isFullPage: false,
-
-      skeletonMedia: 0,
     };
   },
 
   methods: {
-    fetchRecentPosts() {
-      this.isLoadingRecentPosts = true;
-
-      axios
-        .get('/api/recent-posts')
-        .then((res) => {
-          this.recentPosts = res.data;
-
-          this.skeletonMedia = this.recentPosts.length;
-
-          this.isLoadingRecentPosts = false;
-        })
-        .catch((err) => {
-          console.error(
-            'There appears to be a problem fetching the recent posts...',
-            err
-          );
-        });
-    },
-
     fetchThreadTopics() {
       this.isLoadingThreadTopics = true;
 
@@ -188,8 +116,6 @@ export default {
   },
 
   mounted() {
-    this.fetchRecentPosts();
-
     this.fetchThreadTopics();
   },
 };

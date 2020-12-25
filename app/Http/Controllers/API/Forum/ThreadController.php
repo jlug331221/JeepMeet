@@ -19,6 +19,16 @@ class ThreadController extends Controller
     }
 
     /**
+     * Get all of the posts for a single thread with $id.
+     * 
+     * @param  int $id
+     * @return Illuminate\Database\Eloquent\Collection
+     */
+    public function getPostsForThread($id) {
+        return Thread::find($id)->posts;
+    }
+
+    /**
      * Store a newly created thread in storage.
      *
      * @param  \Illuminate\Http\Request  $request
