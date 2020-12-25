@@ -17,6 +17,10 @@ Route::middleware('auth:api')->group(function() {
     return NULL;
 });
 
+Route::middleware('auth:sanctum')->group(function() {
+    return NULL;
+});
+
 Route::apiResources([
     'threads' => 'API\Forum\ThreadController',
     'posts' => 'API\Forum\PostController',
