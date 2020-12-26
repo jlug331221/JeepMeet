@@ -16,7 +16,19 @@
           </article>
 
           <div class="box main-forum-box">
-            <h1 class="title is-2">Topics</h1>
+            <div class="columns main-forum-topics-header">
+              <div class="column">
+                <h1 class="title is-2 main-forum-topics-h1-text">Topics</h1>
+              </div>
+
+              <div class="column is-narrow">
+                <router-link :to="{ name: 'recent-posts' }">
+                  <button class="button is-dark is-rounded">
+                    Recent Posts
+                  </button>
+                </router-link>
+              </div>
+            </div>
 
             <hr />
 
@@ -35,7 +47,10 @@
                   <router-link
                     :to="{
                       name: 'single-thread',
-                      params: { threadId: threadTopic.id },
+                      params: {
+                        threadId: threadTopic.id,
+                        threadTitle: threadTopic.title,
+                      },
                     }"
                   >
                     <h6 class="subtitle is-6 main-forum-topic-title">
@@ -134,6 +149,22 @@ export default {
 
   .loading-overlay {
     min-height: $loading-overlay-min-height;
+  }
+}
+
+.main-forum-topics-header {
+  align-items: center;
+
+  .main-forum-topics-h1-text {
+    white-space: nowrap;
+  }
+
+  button {
+    font-size: 0.85rem;
+
+    @media only screen and (min-width: 815px) {
+      font-size: 1rem;
+    }
   }
 }
 

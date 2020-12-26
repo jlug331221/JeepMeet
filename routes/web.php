@@ -21,7 +21,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified', 'auth');
 
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('logout', 'Auth\LoginController@logout');
 
 Route::view('/news', 'news');
 Route::view('/about', 'about');

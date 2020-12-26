@@ -44,6 +44,7 @@ Vue.component('main-forum', require('./components/Forum/MainForum.vue').default)
 Vue.component('thread', require('./components/Forum/Thread.vue').default);
 Vue.component('post-preview', require('./components/Forum/PostPreview.vue').default);
 Vue.component('recent-posts', require('./components/Forum/RecentPosts.vue').default);
+Vue.component('post-skeleton', require('./components/Forum/PostSkeleton.vue').default);
 
 const routes = [
   {
@@ -51,9 +52,15 @@ const routes = [
     component: require('./components/Forum/RecentPosts.vue').default
   },
   {
+    path: '/recent-posts',
+    name: 'recent-posts',
+    component: require('./components/Forum/RecentPosts.vue').default
+  },
+  {
     path: '/thread/:threadId',
     name: 'single-thread',
-    component: require('./components/Forum/Thread.vue').default
+    component: require('./components/Forum/Thread.vue').default,
+    props: true
   },
 ];
 

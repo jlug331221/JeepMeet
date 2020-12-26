@@ -1,41 +1,13 @@
 <template>
   <div>
-    <h1 class="title is-2">Recent Posts</h1>
+    <h1 class="title is-3">Recent Posts</h1>
 
-    <article
-      class="media"
-      v-for="recentPost in recentPosts"
-      :key="recentPost.title"
+    <hr />
+
+    <post-skeleton
+      v-bind:skeletonCount="recentPosts.length"
       v-show="isLoadingRecentPosts"
-    >
-      <figure class="media-left">
-        <p class="image is-64x64">
-          <b-skeleton circle width="64px" height="64px"></b-skeleton>
-        </p>
-      </figure>
-      <div class="media-content">
-        <div class="content">
-          <p>
-            <b-skeleton active></b-skeleton>
-            <b-skeleton height="80px"></b-skeleton>
-          </p>
-        </div>
-        <nav class="level is-mobile">
-          <div class="level-left">
-            <a class="level-item">
-              <span class="icon is-small">
-                <b-skeleton></b-skeleton>
-              </span>
-            </a>
-            <a class="level-item">
-              <span class="icon is-small">
-                <b-skeleton></b-skeleton>
-              </span>
-            </a>
-          </div>
-        </nav>
-      </div>
-    </article>
+    ></post-skeleton>
 
     <post-preview
       v-for="post in recentPosts"
@@ -48,12 +20,14 @@
 
 <script>
 import PostPreview from './PostPreview';
+import PostSkeleton from './PostSkeleton';
 
 export default {
   name: 'recent-posts',
 
   components: {
     PostPreview,
+    PostSkeleton,
   },
 
   data() {
@@ -61,8 +35,6 @@ export default {
       recentPosts: [],
 
       isLoadingRecentPosts: false,
-
-      skeletonMedia: 0,
     };
   },
 
@@ -74,8 +46,6 @@ export default {
         .get('/api/recent-posts')
         .then((res) => {
           this.recentPosts = res.data;
-
-          this.skeletonMedia = this.recentPosts.length;
 
           this.isLoadingRecentPosts = false;
         })

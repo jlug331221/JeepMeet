@@ -33,6 +33,18 @@ class PostController extends Controller
     }
 
     /**
+     * Get all of the posts for a thread with $id.
+     * 
+     * @param  int $id
+     * @return Illuminate\Database\Eloquent\Collection
+     */
+    public function postsForThread($id) {
+        return Post::with(['user'])
+                ->where('thread_id', $id)
+                ->get();
+    }
+
+    /**
      * Store a newly created post in storage.
      *
      * @param  \Illuminate\Http\Request  $request

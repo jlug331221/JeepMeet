@@ -1,25 +1,47 @@
 <template>
   <div>
-    <h1 class="container title has-text-centered">
-      Single thread page with ID: {{ $route.params.threadId }} and associated
-      posts.
+    <h1 class="title is-3">
+      {{ $props.threadTitle }}
     </h1>
 
-    <section class="container section">
-      <div v-for="post in threadPosts" :key="post.id">
-        {{ post.title }}
-      </div>
-    </section>
+    <hr />
+
+    <post-skeleton
+      v-bind:skeletonCount="threadPosts.length"
+      v-show="isLoadingThreadPosts"
+    ></post-skeleton>
+
+    <div v-show="!isLoadingThreadPosts">
+      <post-preview
+        v-for="post in threadPosts"
+        :key="post.id"
+        v-show="!isLoadingThreadPosts"
+        v-bind:postData="post"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import PostPreview from './PostPreview';
+import PostSkeleton from './PostSkeleton';
+
 export default {
   name: 'thread',
 
+  props: {
+    threadId: Number,
+    threadTitle: String,
+  },
+
+  components: {
+    PostPreview,
+    PostSkeleton,
+  },
+
   data() {
     return {
-      threadId: this.$route.params.threadId,
+      currentThreadId: this.$props.threadId,
 
       threadPosts: [],
 
@@ -32,7 +54,7 @@ export default {
       this.isLoadingThreadPosts = true;
 
       axios
-        .get('/api/thread/posts/' + this.threadId)
+        .get('/api/thread/posts/' + this.$props.threadId)
         .then((res) => {
           this.threadPosts = res.data;
 
@@ -40,7 +62,7 @@ export default {
         })
         .catch((err) => {
           console.error(
-            'There appears to be a problem fetch the thread posts...',
+            'There appears to be a problem fetching the thread posts...',
             err
           );
         });
@@ -52,8 +74,8 @@ export default {
   },
 
   updated() {
-    if (this.threadId !== this.$route.params.threadId) {
-      this.threadId = this.$route.params.threadId;
+    if (this.currentThreadId !== this.$props.threadId) {
+      this.currentThreadId = this.$props.threadId;
 
       this.getPostsForThread();
     }

@@ -14,7 +14,7 @@
     </figure>
     <div class="media-content">
       <div class="post-content content">
-        <p>
+        <p v-if="postData.thread">
           <strong class="post-thread-link">{{ postData.thread.title }}</strong>
         </p>
         <p class="title is-5">
