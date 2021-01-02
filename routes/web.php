@@ -37,6 +37,6 @@ Route::post('/contact', [
   'uses' => 'ContactUsMessageController@submitEmailAndPersistMessage'
 ]);
 
-// The following is needed to use Laravel and Vue Routing without the hash in the URL.
-// This also allows a page refresh in the forum page without getting a 404 error page.
-Route::get('{path}', 'ShowForumController')->where('path', '.*');
+// The following route also allows a page refresh in the forum page (Vue app) 
+// without getting a 404 error page.
+Route::get('/{path?}', 'ShowForumController')->where('path', '^(?!api).*$');
