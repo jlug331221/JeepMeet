@@ -46,7 +46,11 @@
                 <div class="column is-9-tablet is-10-desktop">
                   <router-link
                     :to="{
-                      name: 'single-thread',
+                      path:
+                        '/thread/' +
+                        threadTopic.id +
+                        '/' +
+                        threadTopic.title.replaceAll(' ', '_'),
                       params: {
                         threadId: threadTopic.id,
                         threadTitle: threadTopic.title,
@@ -100,6 +104,8 @@ export default {
     return {
       threadTopics: [],
 
+      // threadTitlesWithoutSpaces: [],
+
       isLoadingThreadTopics: false,
     };
   },
@@ -117,6 +123,10 @@ export default {
             thread.number_of_posts = numeral(thread.number_of_posts).format(
               '0a'
             );
+
+            // this.threadTitlesWithoutSpaces.push(
+            //   thread.threadTitle.replace(' ', '_')
+            // );
           });
 
           this.isLoadingThreadTopics = false;

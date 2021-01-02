@@ -37,6 +37,6 @@ Route::post('/contact', [
   'uses' => 'ContactUsMessageController@submitEmailAndPersistMessage'
 ]);
 
-// The following route also allows a page refresh in the forum page (Vue app) 
+// The following route allows a page refresh in the forum page (Vue app) 
 // without getting a 404 error page.
 Route::get('/{path?}', 'ShowForumController')->where('path', '^(?!api).*$');

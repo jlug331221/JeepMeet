@@ -17,7 +17,11 @@
         <p v-if="postData.thread">
           <router-link
             :to="{
-              name: 'single-thread',
+              path:
+                '/thread/' +
+                postData.thread.id +
+                '/' +
+                postData.thread.title.replaceAll(' ', '_'),
               params: {
                 threadId: postData.thread.id,
                 threadTitle: postData.thread.title,
@@ -32,9 +36,14 @@
         <p class="title is-5">
           <router-link
             :to="{
-              name: 'post',
+              path:
+                '/post/' +
+                postData.id +
+                '/' +
+                postData.title.replaceAll(' ', '_'),
               params: {
                 postId: postData.id,
+                postTitle: postData.title,
               },
             }"
             class="post-title-link"

@@ -5,7 +5,7 @@ const routes = [
     component: require('./components/Forum/RecentPosts.vue').default
   },
   {
-    path: '/post/:postId',
+    path: '/post/:postId/:postTitle',
     name: 'post',
     component: require('./components/Forum/Post.vue').default,
     props: true

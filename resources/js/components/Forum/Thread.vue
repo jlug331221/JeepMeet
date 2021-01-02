@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="title is-3">
-      {{ $props.threadTitle }}
+      {{ $props.threadTitle.replaceAll('_', ' ') }}
     </h1>
 
     <hr />
@@ -41,7 +41,7 @@ export default {
 
   data() {
     return {
-      currentThreadId: this.$props.threadId,
+      currentThreadId: Number(this.$props.threadId),
 
       threadPosts: [],
 
@@ -54,7 +54,7 @@ export default {
       this.isLoadingThreadPosts = true;
 
       axios
-        .get('/api/thread/' + this.$props.threadId + '/posts')
+        .get('/api/thread/' + this.currentThreadId + '/posts')
         .then((res) => {
           this.threadPosts = res.data;
 
@@ -74,8 +74,8 @@ export default {
   },
 
   updated() {
-    if (this.currentThreadId !== this.$props.threadId) {
-      this.currentThreadId = this.$props.threadId;
+    if (this.currentThreadId !== Number(this.$props.threadId)) {
+      this.currentThreadId = Number(this.$props.threadId);
 
       this.getPostsForThread();
     }

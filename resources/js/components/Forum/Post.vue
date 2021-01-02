@@ -1,8 +1,18 @@
 <template>
   <div>
     <h1 class="title is-3">
-      {{ $props.postId }}
+      {{ $props.postTitle.replaceAll('_', ' ') }}
     </h1>
+
+    <hr />
+
+    <div
+      class="block"
+      v-for="postComment in postComments"
+      :key="postComment.id"
+    >
+      {{ postComment.comment }}
+    </div>
   </div>
 </template>
 
@@ -11,7 +21,8 @@ export default {
   name: 'post',
 
   props: {
-    postId: Number,
+    postId: Number | String,
+    postTitle: String,
   },
 
   data() {
