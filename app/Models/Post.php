@@ -25,7 +25,7 @@ class Post extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\User')->select(['id', 'username', 'avatar']);
+        return $this->belongsTo('App\User')->select(['id', 'first_name', 'last_name', 'username', 'avatar']);
     }
 
     /**

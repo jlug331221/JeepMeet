@@ -21,6 +21,30 @@ class PostController extends Controller
     }
 
     /**
+     * Get all comments for post with $id.
+     * 
+     * @param int $id
+     * @return Illuminate\Database\Eloquent\Collection
+     */
+    public function postComments($id)
+    {
+        $postWithUser = Post::with('user')
+                            ->where('id', $id)
+                            ->get();
+
+        $post = Post::find($id);
+
+        $comments = $post->comments()
+                        ->with('user')
+                        ->get();
+
+        return response()->json([
+            'post' => $postWithUser[0],
+            'comments' => $comments
+        ]);
+    }
+
+    /**
      * Get all posts within the previous 3 months (including days up to 4 months).
      *
      * @return \Illuminate\Database\Eloquent\Collection
@@ -30,20 +54,6 @@ class PostController extends Controller
         return Post::withCount('comments')
                 ->with(['user', 'thread'])
                 ->whereBetween('created_at', [Carbon::now()->subMonth(3), Carbon::now()])
-                ->orderBy('created_at', 'DESC')
-                ->get();
-    }
-
-    /**
-     * Get all of the posts for a thread with $id.
-     * 
-     * @param  int $id
-     * @return Illuminate\Database\Eloquent\Collection
-     */
-    public function postsForThread($id) {
-        return Post::withCount('comments')
-                ->with(['user'])
-                ->where('thread_id', $id)
                 ->orderBy('created_at', 'DESC')
                 ->get();
     }

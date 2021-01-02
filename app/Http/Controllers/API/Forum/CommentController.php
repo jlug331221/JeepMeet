@@ -20,19 +20,6 @@ class CommentController extends Controller
     }
 
     /**
-     * Get all of the comments for a post with $id.
-     * 
-     * @param int $id
-     * @return Illuminate\Database\Eloquent\Collection
-     */
-    public function commentsForPost($id) {
-        return Comment::with(['user'])
-                ->where('post_id', $id)
-                ->orderBy('created_at', 'ASC')
-                ->get();
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

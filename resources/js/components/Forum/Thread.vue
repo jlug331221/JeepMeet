@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="title is-3">
-      {{ $props.threadTitle.replaceAll('_', ' ') }}
+      {{ $props.threadTitle.replaceAll('-', ' ') }}
     </h1>
 
     <hr />

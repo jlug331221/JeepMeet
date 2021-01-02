@@ -1,8 +1,8 @@
 <template>
   <article class="media">
-    <figure class="media-left">
-      <p class="image is-64x64">
-        <i class="fas fa-user fa-3x" v-if="postData.user.avatar === ''"></i>
+    <div class="media-left">
+      <figure class="image is-48x48">
+        <i class="fas fa-user fa-2x" v-if="postData.user.avatar === ''"></i>
 
         <b-image
           src="/img/128x128.png"
@@ -10,8 +10,8 @@
           :rounded="true"
           v-else
         ></b-image>
-      </p>
-    </figure>
+      </figure>
+    </div>
     <div class="media-content">
       <div class="post-preview-post-content content">
         <p v-if="postData.thread">
@@ -21,7 +21,7 @@
                 '/thread/' +
                 postData.thread.id +
                 '/' +
-                postData.thread.title.replaceAll(' ', '_'),
+                postData.thread.title.replaceAll(' ', '-'),
               params: {
                 threadId: postData.thread.id,
                 threadTitle: postData.thread.title,
@@ -40,7 +40,7 @@
                 '/post/' +
                 postData.id +
                 '/' +
-                postData.title.replaceAll(' ', '_'),
+                postData.title.replaceAll(' ', '-'),
               params: {
                 postId: postData.id,
                 postTitle: postData.title,
@@ -52,7 +52,7 @@
           </router-link>
         </p>
         <p class="subtitle is-6">
-          by @{{ postData.user.username }}
+          @{{ postData.user.username }}
           <small>{{ convertToRelativeTime(postData.created_at) }}</small>
         </p>
         <p>

@@ -50,7 +50,7 @@
                         '/thread/' +
                         threadTopic.id +
                         '/' +
-                        threadTopic.title.replaceAll(' ', '_'),
+                        threadTopic.title.replaceAll(' ', '-'),
                       params: {
                         threadId: threadTopic.id,
                         threadTitle: threadTopic.title,
@@ -104,8 +104,6 @@ export default {
     return {
       threadTopics: [],
 
-      // threadTitlesWithoutSpaces: [],
-
       isLoadingThreadTopics: false,
     };
   },
@@ -123,10 +121,6 @@ export default {
             thread.number_of_posts = numeral(thread.number_of_posts).format(
               '0a'
             );
-
-            // this.threadTitlesWithoutSpaces.push(
-            //   thread.threadTitle.replace(' ', '_')
-            // );
           });
 
           this.isLoadingThreadTopics = false;
