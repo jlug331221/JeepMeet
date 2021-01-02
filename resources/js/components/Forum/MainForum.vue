@@ -22,7 +22,7 @@
               </div>
 
               <div class="column is-narrow">
-                <router-link :to="{ name: 'recent-posts' }">
+                <router-link :to="{ name: 'forum' }">
                   <button class="button is-dark is-rounded">
                     Recent Posts
                   </button>
@@ -63,7 +63,7 @@
                   class="column is-3-tablet is-2-desktop main-forum-thread-number-of-posts-info"
                 >
                   <span class="icon is-small">
-                    <i class="fas fa-comment-dots"></i>
+                    <i class="fas fa-comment-alt"></i>
                   </span>
                   <strong>
                     <p class="main-forum-thread-number-of-posts">
@@ -175,6 +175,14 @@ export default {
 
 article.notification.main-forum-topic-notification {
   padding: 1.25rem 1.5rem 1.25rem 1.5rem;
+
+  a:not(.button):not(.dropdown-item) {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $main-site-color;
+  }
 }
 
 div.main-forum-thread-topic {

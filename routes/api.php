@@ -28,4 +28,6 @@ Route::apiResources([
 
 Route::get('recent-posts', 'API\Forum\PostController@recentPosts');
 
-Route::get('thread/posts/{id}', 'API\Forum\PostController@postsForThread');
+Route::get('thread/{id}/posts', 'API\Forum\PostController@postsForThread');
+
+Route::get('post/{id}/comments', 'API\Forum\CommentController@commentsForPost');

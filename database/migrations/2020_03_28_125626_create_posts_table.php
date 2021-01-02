@@ -28,6 +28,8 @@ class CreatePostsTable extends Migration
             $table->string('title', 140);
             $table->text('content');
 
+            $table->unsignedInteger('likes');
+
             $table->softDeletes();
             $table->timestamps();
         });

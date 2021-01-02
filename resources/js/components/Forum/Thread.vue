@@ -30,7 +30,7 @@ export default {
   name: 'thread',
 
   props: {
-    threadId: Number,
+    threadId: Number | String,
     threadTitle: String,
   },
 
@@ -54,7 +54,7 @@ export default {
       this.isLoadingThreadPosts = true;
 
       axios
-        .get('/api/thread/posts/' + this.$props.threadId)
+        .get('/api/thread/' + this.$props.threadId + '/posts')
         .then((res) => {
           this.threadPosts = res.data;
 

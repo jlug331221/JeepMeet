@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 
+import routes from './routes';
+
 /**
  * Load the plain JS Component code.
  */
@@ -40,29 +42,14 @@ Vue.component('register', require('./components/Auth/Register.vue').default);
 
 Vue.component('home', require('./components/Home.vue').default);
 
-Vue.component('main-forum', require('./components/Forum/MainForum.vue').default);
-Vue.component('thread', require('./components/Forum/Thread.vue').default);
-Vue.component('post-preview', require('./components/Forum/PostPreview.vue').default);
-Vue.component('recent-posts', require('./components/Forum/RecentPosts.vue').default);
-Vue.component('post-skeleton', require('./components/Forum/PostSkeleton.vue').default);
+Vue.component('jeep-meet-events', require('./components/JeepMeetEvents.vue').default);
 
-const routes = [
-  {
-    path: '/forum',
-    component: require('./components/Forum/RecentPosts.vue').default
-  },
-  {
-    path: '/recent-posts',
-    name: 'recent-posts',
-    component: require('./components/Forum/RecentPosts.vue').default
-  },
-  {
-    path: '/thread/:threadId',
-    name: 'single-thread',
-    component: require('./components/Forum/Thread.vue').default,
-    props: true
-  },
-];
+Vue.component('main-forum', require('./components/Forum/MainForum.vue').default);
+Vue.component('post', require('./components/Forum/Post.vue').default);
+Vue.component('post-preview', require('./components/Forum/PostPreview.vue').default);
+Vue.component('post-skeleton', require('./components/Forum/PostSkeleton.vue').default);
+Vue.component('recent-posts', require('./components/Forum/RecentPosts.vue').default);
+Vue.component('thread', require('./components/Forum/Thread.vue').default);
 
 const router = new VueRouter({
   mode: 'history',

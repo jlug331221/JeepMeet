@@ -45,6 +45,6 @@ class Post extends Model
      */
     public function comments()
     {
-        return $this->hasMany('App\Forum_Models\Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 }

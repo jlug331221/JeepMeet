@@ -27,9 +27,11 @@ class PostController extends Controller
      */
     public function recentPosts()
     {
-        return Post::with(['user', 'thread'])
+        return Post::withCount('comments')
+                ->with(['user', 'thread'])
                 ->whereBetween('created_at', [Carbon::now()->subMonth(3), Carbon::now()])
-                ->orderBy('created_at', 'DESC')->get()->toJson();
+                ->orderBy('created_at', 'DESC')
+                ->get();
     }
 
     /**
@@ -39,8 +41,10 @@ class PostController extends Controller
      * @return Illuminate\Database\Eloquent\Collection
      */
     public function postsForThread($id) {
-        return Post::with(['user'])
+        return Post::withCount('comments')
+                ->with(['user'])
                 ->where('thread_id', $id)
+                ->orderBy('created_at', 'DESC')
                 ->get();
     }
 

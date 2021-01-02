@@ -29,6 +29,7 @@ class PostFactory extends Factory
             'thread_id' => Thread::all()->random()->id,
             'title' => $this->faker->sentence(4),
             'content' => $this->faker->sentences(8, true),
+            'likes' => $this->faker->numberBetween($min = 0, $max = 100),
             'created_at' => $this->faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now'),
             'updated_at' => $this->faker->dateTimeBetween($startDate = '-1 month', $endDate = 'now'),
         ];
