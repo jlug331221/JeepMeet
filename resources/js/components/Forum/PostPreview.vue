@@ -84,10 +84,7 @@
 </template>
 
 <script>
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-
-dayjs.extend(relativeTime);
+import { convertToRelativeTime } from '../../Utilities/relativeTime';
 
 export default {
   name: 'post-preview',
@@ -101,9 +98,7 @@ export default {
   },
 
   methods: {
-    convertToRelativeTime(dateTime) {
-      return dayjs().to(dayjs(dateTime));
-    },
+    convertToRelativeTime,
   },
 };
 </script>

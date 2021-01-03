@@ -22,7 +22,7 @@
               </strong>
               <small v-if="post.user">@{{ post.user.username }}</small>
               <small v-if="post">
-                {{ post.created_at }}
+                {{ convertToRelativeTime(post.created_at) }}
               </small>
 
               <br />
@@ -59,10 +59,7 @@
 </template>
 
 <script>
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-
-dayjs.extend(relativeTime);
+import { convertToRelativeTime } from '../../Utilities/relativeTime';
 
 export default {
   name: 'post',
@@ -83,9 +80,7 @@ export default {
   },
 
   methods: {
-    convertToRelativeTime(dateTime) {
-      return dayjs().to(dayjs(datetime));
-    },
+    convertToRelativeTime,
 
     getCommentsForPost() {
       this.isLoadingPostComments = true;
