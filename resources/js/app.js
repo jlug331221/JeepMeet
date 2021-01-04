@@ -6,8 +6,6 @@
 
 require('./bootstrap');
 
-import routes from './routes';
-
 /**
  * Load the plain JS Component code.
  */
@@ -21,6 +19,7 @@ window.Vue = require('vue');
  */
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
+import routes from './routes';
 
 /**
  * Vue validation library.
@@ -44,6 +43,8 @@ Vue.component('home', require('./components/Home.vue').default);
 
 Vue.component('jeep-meet-events', require('./components/JeepMeetEvents.vue').default);
 
+Vue.component('comment', require('./components/Forum/Comment.vue').default);
+Vue.component('comment-skeleton', require('./components/Forum/CommentSkeleton.vue').default);
 Vue.component('main-forum', require('./components/Forum/MainForum.vue').default);
 Vue.component('post', require('./components/Forum/Post.vue').default);
 Vue.component('post-preview', require('./components/Forum/PostPreview.vue').default);

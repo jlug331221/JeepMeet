@@ -9,20 +9,11 @@
       <div class="media-content">
         <div class="content">
           <p>
-            <b-skeleton active></b-skeleton>
             <b-skeleton height="80px"></b-skeleton>
           </p>
         </div>
         <nav class="level is-mobile">
           <div class="level-left">
-            <a class="level-item">
-              <span class="icon is-small">
-                <b-skeleton></b-skeleton>
-              </span>
-            </a>
-          </div>
-
-          <div class="level-right">
             <a class="level-item">
               <span class="icon is-small">
                 <b-skeleton></b-skeleton>
@@ -37,7 +28,7 @@
 
 <script>
 export default {
-  name: 'post-skeleton',
+  name: 'comment-skeleton',
 
   props: {
     skeletonCount: Number,

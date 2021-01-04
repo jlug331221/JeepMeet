@@ -11,14 +11,12 @@
       v-show="isLoadingThreadPosts"
     ></post-skeleton>
 
-    <div v-show="!isLoadingThreadPosts">
-      <post-preview
-        v-for="post in threadPosts"
-        :key="post.id"
-        v-show="!isLoadingThreadPosts"
-        v-bind:postData="post"
-      />
-    </div>
+    <post-preview
+      v-for="post in threadPosts"
+      :key="post.id"
+      v-show="!isLoadingThreadPosts"
+      v-bind:postData="post"
+    />
   </div>
 </template>
 

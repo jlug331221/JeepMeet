@@ -1,6 +1,12 @@
 <template>
   <div>
-    <div class="box post-box">
+    <comment-skeleton
+      v-bind:skeletonCount="postComments.length"
+      v-show="isLoadingPostComments"
+    >
+    </comment-skeleton>
+
+    <div class="box post-box" v-show="!isLoadingPostComments">
       <article class="media">
         <div class="media-left">
           <figure class="image is-48x48">
@@ -32,33 +38,33 @@
           </div>
           <nav class="level is-mobile">
             <div class="level-left">
-              <a class="level-item" aria-label="reply">
+              <a class="level-item post-likes-icon">
                 <span class="icon is-small">
-                  <i class="fas fa-reply" aria-hidden="true"></i>
+                  <i class="fas fa-heart"></i>
                 </span>
               </a>
-              <a class="level-item" aria-label="like">
-                <span class="icon is-small">
-                  <i class="fas fa-heart" aria-hidden="true"></i>
-                </span>
-              </a>
+
+              <span class="level-item">{{ post.likes }}</span>
             </div>
           </nav>
         </div>
       </article>
     </div>
 
-    <div
-      class="block"
+    <comment
+      v-show="!isLoadingPostComments"
       v-for="postComment in postComments"
       :key="postComment.id"
+      v-bind:commentData="postComment"
     >
-      {{ postComment.comment }}
-    </div>
+    </comment>
   </div>
 </template>
 
 <script>
+import Comment from './Comment';
+import CommentSkeleton from './CommentSkeleton';
+
 import { convertToRelativeTime } from '../../Utilities/relativeTime';
 
 export default {
@@ -67,6 +73,11 @@ export default {
   props: {
     postId: Number | String,
     postTitle: String,
+  },
+
+  components: {
+    CommentSkeleton,
+    Comment,
   },
 
   data() {
@@ -115,5 +126,9 @@ export default {
 .post-box {
   box-shadow: none;
   background-color: #f1f1f1;
+}
+
+div.level-left > a.level-item.post-likes-icon {
+  margin-right: 0.25rem;
 }
 </style>
