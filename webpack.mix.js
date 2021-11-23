@@ -12,13 +12,27 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-  .webpackConfig({
-    resolve: {
-      alias: {
-        '@': path.resolve('resources/sass')
-      }
-    }
-  })
+  .vue()
   .sass('resources/sass/app.scss', 'public/css');
+// .postCss('resources/css/app.css', 'public/css', [
+//   //
+// ]);
 
-mix.browserSync('localhost:8000');
+mix.webpackConfig({
+  devServer: {
+    host: "0.0.0.0",
+    port: 8080,
+  },
+});
+
+// mix.js('resources/js/app.js', 'public/js')
+//   .webpackConfig({
+//     resolve: {
+//       alias: {
+//         '@': path.resolve('resources/sass')
+//       }
+//     }
+//   })
+//   .sass('resources/sass/app.scss', 'public/css');
+
+// mix.browserSync('localhost:8000');

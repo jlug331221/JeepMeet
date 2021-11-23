@@ -9,60 +9,60 @@ require('./bootstrap');
 /**
  * Load the plain JS Component code.
  */
-require('./components/PlainJS/navbar');
-require('./components/PlainJS/Buttons/notificationButtonDelete');
+// require('./components/PlainJS/navbar');
+// require('./components/PlainJS/Buttons/notificationButtonDelete');
 
 window.Vue = require('vue');
 
 /**
  * Vue Router
  */
-import VueRouter from 'vue-router';
-Vue.use(VueRouter);
+// import VueRouter from 'vue-router';
+// Vue.use(VueRouter);
 
 /**
  * Vue validation library.
  */
-import Vuelidate from 'vuelidate';
-Vue.use(Vuelidate);
+// import Vuelidate from 'vuelidate';
+// Vue.use(Vuelidate);
 
 /**
  * Buefy
  */
-import Buefy from 'buefy';
-Vue.use(Buefy);
+// import Buefy from 'buefy';
+// Vue.use(Buefy);
 
 /**
  * Import our Vue components
  */
-Vue.component('contact-us', require('./components/ContactUs.vue').default);
-Vue.component('register', require('./components/Auth/Register.vue').default);
+// Vue.component('contact-us', require('./components/ContactUs.vue').default);
+// Vue.component('register', require('./components/Auth/Register.vue').default);
 
-Vue.component('home', require('./components/Home.vue').default);
+// Vue.component('home', require('./components/Home.vue').default);
 
-Vue.component('main-forum', require('./components/Forum/MainForum.vue').default);
-Vue.component('thread', require('./components/Forum/Thread.vue').default);
-Vue.component('post', require('./components/Forum/PostPreview.vue').default);
+// Vue.component('main-forum', require('./components/Forum/MainForum.vue').default);
+// Vue.component('thread', require('./components/Forum/Thread.vue').default);
+// Vue.component('post', require('./components/Forum/PostPreview.vue').default);
 
-const routes = [
-  {
-    path: '/forum',
-    component: require('./components/Forum/MainForum.vue').default
-  },
-  {
-    path: '/thread/:threadId',
-    name: 'single-thread',
-    component: require('./components/Forum/Thread.vue').default
-  },
-];
+// const routes = [
+//   {
+//     path: '/forum',
+//     component: require('./components/Forum/MainForum.vue').default
+//   },
+//   {
+//     path: '/thread/:threadId',
+//     name: 'single-thread',
+//     component: require('./components/Forum/Thread.vue').default
+//   },
+// ];
 
-const router = new VueRouter({
-  mode: 'history',
-  fallback: true,
-  linkActiveClass: 'is-active',
-  routes
-});
-router.mode = 'html5'
+// const router = new VueRouter({
+//   mode: 'history',
+//   fallback: true,
+//   linkActiveClass: 'is-active',
+//   routes
+// });
+// router.mode = 'html5'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -70,6 +70,6 @@ router.mode = 'html5'
  * or customize the JavaScript scaffolding to fit our unique needs.
  */
 const app = new Vue({
-  router,
+  // router,
   el: '#app',
 });
