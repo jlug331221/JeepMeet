@@ -10,7 +10,6 @@ and we would love for you to be too. Go out in the world and meet other Jeepers,
 - [MySQL](https://www.mysql.com/)
 
 ## Development Stack
-- [VirtualBox](https://www.virtualbox.org/)
-- [Vagrant](https://www.vagrantup.com/)
-- [Laravel Homestead](https://laravel.com/docs/6.x/homestead)
+- [Laravel Sail](https://laravel.com/docs/8.x/sail)
+- [Docker](https://www.docker.com/)
 - [VS Code](https://code.visualstudio.com/)
