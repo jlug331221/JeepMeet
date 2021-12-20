@@ -17,7 +17,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application home page.
+     * Show the Jeep Meet home page (user home page).
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */

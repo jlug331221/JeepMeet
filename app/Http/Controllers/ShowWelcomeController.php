@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 
-class ShowForumController extends Controller
+class ShowWelcomeController extends Controller
 {
     /**
-     * Show the user to the Main Forum page.
+     * Show the user to the Welcome page.
      *
      * @return Inertia
      */
     public function __invoke()
     {
-        return Inertia::render('Forum/ForumIndex');
+        return Inertia::render('Welcome');
     }
 }

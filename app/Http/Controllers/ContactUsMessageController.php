@@ -6,6 +6,8 @@ use App\Models\ContactUsMessage;
 use App\Http\Requests\ContactUsMessageRequest;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Inertia\Inertia;
 
 class ContactUsMessageController extends Controller
 {
@@ -16,7 +18,7 @@ class ContactUsMessageController extends Controller
      */
     public function index()
     {
-        return view('contact');
+        return Inertia::render('Contact');
     }
 
     /**
@@ -34,13 +36,13 @@ class ContactUsMessageController extends Controller
             ContactUsMessage::sendMailToAdmin($request);
 
             // Alert the user that their message has been received
-            return response()->json(['success'=> 'Thank you for your message. ' .
-                'If we need to respond, we will do so in a timely manner.'], 200);
+            return redirect('/contact')->with('success', 'Thank you for your message. ' .
+                'If we need to respond, we will do so in a timely manner.');
         }
         catch(Exception $e) {
             // Alert the user that their message has failed to send
-            return response()->json(['error'=> 'There appears to be a problem with sending your ' .
-                'message. Please try again.'], 422);
+            return redirect('/contact')->with('error', 'There appears to be a problem sending your' .
+                'message. Please try again.');
         }
     }
 }

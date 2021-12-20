@@ -42,7 +42,7 @@ class ContactUsMessageRequest extends FormRequest
             'first_name.required' => 'A first name is required',
             'email.required'  => 'An email address is required',
             'email.email' => 'The email address must be valid',
-            'message' => 'A message is required'
+            'message.required' => 'A message is required'
         ];
     }
 }

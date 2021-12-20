@@ -9,10 +9,25 @@ require('./bootstrap');
 /**
  * Load the plain JS Component code.
  */
-// require('./components/PlainJS/navbar');
-// require('./components/PlainJS/Buttons/notificationButtonDelete');
+require('./components/PlainJS/navbar');
+require('./components/PlainJS/Buttons/notificationButtonDelete');
 
-window.Vue = require('vue');
+import { createApp, h } from 'vue';
+import { createInertiaApp, Head, Link } from '@inertiajs/inertia-vue3';
+import SvgVue from 'svg-vue3';
+
+createInertiaApp({
+  title: title => `JeepMeet | ${title}`,
+  resolve: name => require(`./Pages/${name}`),
+  setup({ el, App, props, plugin }) {
+    createApp({ render: () => h(App, props) })
+      .use(plugin)
+      .use(SvgVue)
+      .component("Head", Head)
+      .component("Link", Link)
+      .mount(el)
+  },
+});
 
 /**
  * Vue Router
@@ -69,7 +84,7 @@ window.Vue = require('vue');
  * the page. Then, we may begin adding components to this application
  * or customize the JavaScript scaffolding to fit our unique needs.
  */
-const app = new Vue({
-  // router,
-  el: '#app',
-});
+// const app = new Vue({
+//   router,
+//   el: '#app',
+// });
