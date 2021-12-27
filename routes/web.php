@@ -16,11 +16,7 @@ use Inertia\Inertia;
 
 Route::get('/', ShowWelcomeController::class);
 
-Auth::routes(['verify' => true]);
-
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified', 'auth');
-
-// Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::resource('/news', NewsController::class);
 Route::get('/about', ShowAboutController::class);
@@ -34,6 +30,8 @@ Route::get('/contact', [
 Route::post('/contact', [
   'uses' => 'ContactUsMessageController@submitEmailAndPersistMessage'
 ]);
+
+require __DIR__.'/auth.php';
 
 // The following is needed to use Laravel and Vue Routing without the hash in the URL.
 // This also allows a page refresh in the admin dashboard without getting a 404 error page.

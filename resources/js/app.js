@@ -9,22 +9,29 @@ require('./bootstrap');
 /**
  * Load the plain JS Component code.
  */
-require('./components/PlainJS/navbar');
 require('./components/PlainJS/Buttons/notificationButtonDelete');
 
 import { createApp, h } from 'vue';
 import { createInertiaApp, Head, Link } from '@inertiajs/inertia-vue3';
+
 import SvgVue from 'svg-vue3';
 
-createInertiaApp({
+import Oruga from '@oruga-ui/oruga-next';
+import { bulmaConfig } from '@oruga-ui/theme-bulma';
+import '@oruga-ui/theme-bulma/dist/bulma.css';
+// import '@oruga-ui/oruga-next/dist/oruga.css';
+
+const app = createInertiaApp({
   title: title => `JeepMeet | ${title}`,
   resolve: name => require(`./Pages/${name}`),
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
       .use(SvgVue)
+      .use(Oruga, bulmaConfig)
       .component("Head", Head)
       .component("Link", Link)
+      .mixin({ methods: { route: window.route } })
       .mount(el)
   },
 });
@@ -40,12 +47,6 @@ createInertiaApp({
  */
 // import Vuelidate from 'vuelidate';
 // Vue.use(Vuelidate);
-
-/**
- * Buefy
- */
-// import Buefy from 'buefy';
-// Vue.use(Buefy);
 
 /**
  * Import our Vue components

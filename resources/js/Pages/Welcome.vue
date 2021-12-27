@@ -178,15 +178,15 @@
             Join today and post your first JeepMeet.
           </h3>
 
-          <a
+          <Link
             class="
               button button-filled
               is-rounded
               signup-button
               welcome-signup-button
             "
-            href="{{ url('/register') }}"
-            ><strong>Join</strong></a
+            href="/register"
+            ><strong>Join</strong></Link
           >
         </div>
 
@@ -195,15 +195,15 @@
             Go to your profile and build up that JeepMeet Cred!
           </h3>
 
-          <a
+          <Link
             class="
               button button-empty
               is-rounded
               signup-button
               welcome-profile-button
             "
-            href="{{ url('/home') }}"
-            ><strong>Profile</strong></a
+            href="/home"
+            ><strong>Profile</strong></Link
           >
         </div>
       </div>

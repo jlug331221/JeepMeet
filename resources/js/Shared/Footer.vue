@@ -63,11 +63,16 @@ footer {
 }
 
 .footer {
+  background-color: $footer-background-color;
   padding: 1.5rem 1.5rem 2rem 1.5rem;
 }
 
 footer a {
   color: $white-chocolate;
+}
+
+footer a:hover {
+  color: $secondary-site-color;
 }
 
 footer .content p:not(:last-child) {

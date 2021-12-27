@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\User;
+use Inertia\Inertia;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,23 +26,16 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    // use RegistersUsers;
 
     /**
-     * Where to redirect users after registration.
+     * Display the registration view.
      *
-     * @var string
+     * @return Inertia
      */
-    protected $redirectTo = '/register';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function create()
     {
-        $this->middleware('guest');
+        return Inertia::render('Auth/Register');
     }
 
     /**
@@ -68,7 +62,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function createNewUser(array $data)
     {
         return User::create([
             'first_name'              => $data['first_name'],
@@ -84,22 +78,21 @@ class RegisterController extends Controller
     /**
      * Handle a registration request for the application. We are overriding the
      * Laravel 'register' method in the RegistersUsers trait.
-     * 
-     * We do this so as not to login the user upon registration.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request)
+    public function store(Request $request)
     {
         $this->validator($request->all())->validate();
 
-        event(new Registered($user = $this->create($request->all())));
+        $user = $this->createNewUser($request->all());
 
-        $this->guard()->login($user);
+        event(new Registered($user));
 
-        return $this->registered($request, $user)
-            ?: response()->json(['success' => 'You have successfully registered. ' .
-                'Please check your email to verify your account.'], 200);
+        Auth::login($user);
+
+        return redirect('/register')->with('success', 'You are now registered! A link has ' .
+            'been sent to you to verify your email.');
     }
 }

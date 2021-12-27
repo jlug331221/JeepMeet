@@ -4,22 +4,38 @@
   </header>
 
   <div class="main-wrapper">
+    <!-- Extract to component -->
     <div
       class="columns is-mobile is-centered"
-      v-show="$page.props.flash.success || $page.props.flash.error"
+      v-show="
+        $page.props.flash.success ||
+        $page.props.flash.error ||
+        $page.props.flash.status
+      "
     >
       <div
         class="column is-three-quarters-mobile is-half-tablet is-half-desktop"
       >
         <div
           v-show="$page.props.flash.success"
-          class="notification is-info flash-notification"
+          class="notification is-success flash-notification"
         >
           <button
             v-on:click="hideSuccessNotification()"
             class="delete"
           ></button>
           {{ $page.props.flash.success }}
+        </div>
+
+        <div
+          v-show="$page.props.flash.status"
+          class="notification is-info flash-notification"
+        >
+          <button
+            v-on:click="hideSuccessNotification()"
+            class="delete"
+          ></button>
+          {{ $page.props.flash.status }}
         </div>
 
         <div

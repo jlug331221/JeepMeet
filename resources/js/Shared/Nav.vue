@@ -6,11 +6,13 @@
   >
     <div class="container">
       <div class="navbar-brand">
-        <a href="/"><h1 class="brand-name navbar-item">JeepMeet</h1></a>
+        <Link href="/"><h1 class="brand-name navbar-item">JeepMeet</h1></Link>
 
         <a
           role="button"
-          class="navbar-burger burger is-active"
+          class="navbar-burger burger"
+          :class="{ 'is-active': showNav }"
+          @click="showNav = !showNav"
           aria-label="menu"
           aria-expanded="false"
           data-target="jeepup-navbar"
@@ -21,31 +23,35 @@
         </a>
       </div>
 
-      <div id="jeepup-navbar" class="navbar-menu is-active">
+      <div
+        id="jeepup-navbar"
+        class="navbar-menu"
+        :class="{ 'is-active': showNav }"
+      >
         <div class="navbar-start">
           <div v-if="user">
-            <Link class="navbar-item" href="/home">
+            <Link class="navbar-item" href="/home" @click="showNav = !showNav">
               <strong>Profile</strong>
             </Link>
           </div>
 
-          <Link class="navbar-item" href="/events">
+          <Link class="navbar-item" href="/events" @click="showNav = !showNav">
             <strong>Events</strong>
           </Link>
 
-          <Link class="navbar-item" href="/forum">
+          <Link class="navbar-item" href="/forum" @click="showNav = !showNav">
             <strong>Forum</strong>
           </Link>
 
-          <Link class="navbar-item" href="/news">
+          <Link class="navbar-item" href="/news" @click="showNav = !showNav">
             <strong>News</strong>
           </Link>
 
-          <Link class="navbar-item" href="/about">
+          <Link class="navbar-item" href="/about" @click="showNav = !showNav">
             <strong>About</strong>
           </Link>
 
-          <Link class="navbar-item" href="/contact">
+          <Link class="navbar-item" href="/contact" @click="showNav = !showNav">
             <strong>Contact</strong>
           </Link>
         </div>
@@ -57,16 +63,22 @@
                 <Link
                   class="button button-empty is-rounded login-button"
                   href="/login"
+                  @click="showNav = !showNav"
                   ><strong>Login</strong>
                 </Link>
                 <Link
                   class="button button-filled is-rounded signup-button"
                   href="/register"
+                  @click="showNav = !showNav"
                   ><strong>Join</strong>
                 </Link>
               </div>
               <div v-if="user">
-                <Link class="button button-filled is-rounded" href="/logout">
+                <Link
+                  class="button button-filled is-rounded"
+                  href="/logout"
+                  @click="showNav = !showNav"
+                >
                   <strong>Logout</strong>
                 </Link>
               </div>
@@ -79,20 +91,23 @@
 </template>
 
 <script>
-import { computed } from 'vue';
+import { ref, computed } from 'vue';
 import { usePage } from '@inertiajs/inertia-vue3';
 
 export default {
   setup() {
+    let showNav = ref(false);
+
     const user = computed(() => usePage().props.value.auth.user);
 
-    return { user };
+    return { showNav, user };
   },
 };
 </script>
 
 <style lang="scss">
 @import '@/_variables.scss';
+@import '@/Components/_button.scss';
 
 nav {
   text-align: center;
@@ -101,7 +116,7 @@ nav {
 .brand-name {
   font-size: 1.3rem;
   font-family: $font-family-russo-one;
-  color: #fff;
+  color: $white-chocolate;
 
   @media only screen and (min-width: 768px) {
     font-size: 1.4rem;
@@ -117,13 +132,29 @@ a.navbar-link {
   color: black;
 
   @media only screen and (min-width: 1088px) {
-    color: #fff;
+    color: $white-chocolate;
   }
 }
 
 a.navbar-item:hover,
 a.navbar-link:hover {
-  color: $secondary-site-color;
+  color: $tertiary-site-color;
+
+  @media only screen and (min-width: 1088px) {
+    color: whitesmoke;
+  }
+}
+
+a.navbar-item:active,
+a.navbar-link:active,
+a.navbar-item:focus,
+a.navbar-link:focus {
+  color: $tertiary-site-color;
+  background-color: white;
+
+  @media only screen and (min-width: 1088px) {
+    color: $white-chocolate;
+  }
 }
 
 .navbar {

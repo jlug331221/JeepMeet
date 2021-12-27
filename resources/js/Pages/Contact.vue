@@ -31,7 +31,7 @@
 
                   <small
                     v-if="formFields.hasErrors && $page.props.errors.first_name"
-                    class="form-test errors-text"
+                    class="errors-text"
                     v-text="$page.props.errors.first_name"
                   ></small>
                 </div>
@@ -71,7 +71,7 @@
 
               <small
                 v-if="formFields.hasErrors && $page.props.errors.email"
-                class="form-test errors-text"
+                class="errors-text"
               >
                 {{ $page.props.errors.email }}
               </small>

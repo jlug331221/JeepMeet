@@ -7,15 +7,16 @@
 // Variables
 @import 'variables';
 
+// Oruga
+@import '~@oruga-ui/oruga-next/src/scss/oruga.scss';
+
 // Bulma utilities
 @import "~bulma/sass/utilities/_all";
+
 
 // Bulma CSS Framework
 @import '~bulma/bulma.sass';
 
-// Buefy Core CSS - Recent update from ^0.9.3 -> ^0.9.4 caused scss compilation issues
-// @import "~buefy/src/scss/buefy";
-@import "~buefy/dist/buefy.min.css";
 
 // Font Awesome
 @import '~@fortawesome/fontawesome-free/scss/brands';

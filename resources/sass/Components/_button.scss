@@ -13,6 +13,13 @@
   color: #000;
 }
 
+.button-filled:focus {
+  border-color: $tertiary-site-color;
+  border-width: 2px;
+  background-color: $tertiary-site-color;
+  color: $white-chocolate;
+}
+
 .button-empty {
   text-transform: uppercase;
   border-color: $tertiary-site-color;
@@ -30,5 +37,16 @@
 
   @media only screen and (min-width: 1088px) {
     color: $secondary-site-color;
+  }
+}
+
+.button-empty:focus {
+  border-color: $tertiary-site-color;
+  border-width: 2px;
+  background-color: transparent;
+  color: $tertiary-site-color;
+
+  @media only screen and (min-width: 1088px) {
+    color: $white-chocolate;
   }
 }
