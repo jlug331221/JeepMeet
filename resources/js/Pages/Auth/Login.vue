@@ -17,11 +17,11 @@
       @enderror -->
 
       <section
-        class="section is-medium has-text-left whitesmoke-section login-box"
+        class="section is-medium has-text-left whitesmoke-section login-box box"
       >
         <h2 class="title is-2">Login</h2>
 
-        <form @submit.prevent="login()">
+        <form @submit.prevent="login()" :disabled="formFields.processing">
           <div class="field">
             <div class="control has-icons-left">
               <input
@@ -81,11 +81,32 @@
             <div class="control">
               <button
                 class="button button-filled is-rounded login-submit"
+                v-show="!loadingSpinner"
                 v-on:click="login()"
+                :disabled="
+                  formFields.username === '' || formFields.password === ''
+                "
               >
                 Submit
               </button>
+
+              <button
+                v-show="loadingSpinner"
+                class="button button-filled is-rounded is-loading"
+              ></button>
             </div>
+          </div>
+
+          <div v-show="formFields.hasErrors" class="mt-4">
+            <ul>
+              <li
+                class="errors-text"
+                v-for="error in $page.props.errors"
+                :key="error"
+              >
+                {{ error }}
+              </li>
+            </ul>
           </div>
         </form>
       </section>
@@ -104,6 +125,8 @@ export default {
     errors: Object,
   },
   setup(props) {
+    let loadingSpinner = ref(false);
+
     const formFields = useForm({
       username: '',
       password: '',
@@ -111,11 +134,24 @@ export default {
     });
 
     function login() {
-      formFields.post('/login');
+      loadingSpinner.value = true;
+
+      formFields.post('/login', {
+        preserveScroll: true,
+        onSuccess: () => {
+          formFields.reset();
+
+          loadingSpinner.value = false;
+        },
+        onError: () => {
+          loadingSpinner.value = false;
+        },
+      });
     }
 
     return {
       formFields,
+      loadingSpinner,
       login,
     };
   },
@@ -137,5 +173,9 @@ export default {
   @media only screen and (min-width: 1088px) {
     font-size: 0.8rem;
   }
+}
+
+.box {
+  border-radius: 2px;
 }
 </style>

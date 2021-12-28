@@ -3,7 +3,7 @@
 
   <div class="columns is-mobile is-centered">
     <div class="column is-three-quarters-mobile is-half-tablet is-half-desktop">
-      <section class="section is-medium has-text-left whitesmoke-section">
+      <section class="section is-medium has-text-left whitesmoke-section box">
         <h2 class="title is-2">Join Now</h2>
 
         <form
@@ -428,9 +428,10 @@
             </o-select>
           </o-field>
 
-          <div v-show="!loadingSpinner" class="field register-form-buttons">
+          <div class="field register-form-buttons">
             <div class="control">
               <button
+                v-show="!loadingSpinner"
                 class="button button-filled is-rounded mr-2"
                 :disabled="submitButtonDisabled()"
                 @click="registerUser()"
@@ -439,21 +440,22 @@
               </button>
 
               <button
+                v-show="!loadingSpinner"
                 class="button is-rounded"
                 @click="clearForm()"
                 :disabled="!formFields.isDirty"
               >
                 Clear
               </button>
+
+              <button
+                v-show="loadingSpinner"
+                class="button button-filled is-rounded is-loading"
+              ></button>
             </div>
           </div>
 
-          <button
-            v-show="loadingSpinner"
-            class="button button-filled is-rounded is-loading"
-          ></button>
-
-          <div v-show="formFields.hasErrors" class="mt-2">
+          <div v-show="formFields.hasErrors" class="mt-4">
             <ul>
               <li
                 class="errors-text"
@@ -581,12 +583,7 @@ export default {
   margin-top: 2rem;
 }
 
-.register-password.control.has-icons-left .icon,
-.register-password.control.has-icons-right .icon {
-  pointer-events: visible !important;
-}
-
-.register-notification {
-  margin-top: 2rem;
+.box {
+  border-radius: 2px;
 }
 </style>

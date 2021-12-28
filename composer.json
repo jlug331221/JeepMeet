@@ -11,12 +11,12 @@
         "php": "^7.3|^8.0",
         "fideloper/proxy": "^4.0",
         "fruitcake/laravel-cors": "^2.0",
-        "inertiajs/inertia-laravel": "^0.4.5",
+        "inertiajs/inertia-laravel": "^0.4.3",
         "laravel/framework": "^8.0",
         "laravel/sanctum": "^2.8",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
-        "tightenco/ziggy": "^1.4"
+        "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

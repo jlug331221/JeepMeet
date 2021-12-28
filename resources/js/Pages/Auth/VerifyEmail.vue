@@ -27,8 +27,9 @@
                 A fresh verification link has been sent to your email address.
               </div>
 
-              Before proceeding to your profile, please check your email for a
-              verification link. If you did not receive the email
+              Thanks for signing up! Before getting started, could you verify
+              your email address by clicking on the link we just emailed to you?
+              If you didn't receive the email, we will gladly send you another.
 
               <form
                 @submit.prevent="submit()"
@@ -36,7 +37,7 @@
                 :disabled="form.processing"
               >
                 <button
-                  class="button is-link is-light mt-2"
+                  class="button is-link is-light mt-4"
                   v-on:click="submit()"
                 >
                   Click here to request another
@@ -44,9 +45,9 @@
               </form>
 
               <Link
-                :href="route('logout')"
+                href="/logout"
                 method="post"
-                class="button button-empty is-rounded"
+                class="button button-empty is-rounded mt-4"
                 >Logout</Link
               >
             </div>

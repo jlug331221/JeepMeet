@@ -31,10 +31,7 @@
           v-show="$page.props.flash.status"
           class="notification is-info flash-notification"
         >
-          <button
-            v-on:click="hideSuccessNotification()"
-            class="delete"
-          ></button>
+          <button v-on:click="hideStatusNotification()" class="delete"></button>
           {{ $page.props.flash.status }}
         </div>
 
@@ -75,9 +72,14 @@ export default {
       props.flash.error = '';
     }
 
+    function hideStatusNotification() {
+      props.flash.status = '';
+    }
+
     return {
       hideSuccessNotification,
       hideErrorNotification,
+      hideStatusNotification,
     };
   },
 };

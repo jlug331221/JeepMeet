@@ -29,11 +29,14 @@
         :class="{ 'is-active': showNav }"
       >
         <div class="navbar-start">
-          <div v-if="user">
-            <Link class="navbar-item" href="/home" @click="showNav = !showNav">
-              <strong>Profile</strong>
-            </Link>
-          </div>
+          <Link
+            v-if="user"
+            class="navbar-item"
+            href="/home"
+            @click="showNav = !showNav"
+          >
+            <strong>Dashboard</strong>
+          </Link>
 
           <Link class="navbar-item" href="/events" @click="showNav = !showNav">
             <strong>Events</strong>
@@ -67,7 +70,7 @@
                   ><strong>Login</strong>
                 </Link>
                 <Link
-                  class="button button-filled is-rounded signup-button"
+                  class="button button-filled is-rounded button-filled-hover"
                   href="/register"
                   @click="showNav = !showNav"
                   ><strong>Join</strong>
@@ -75,7 +78,7 @@
               </div>
               <div v-if="user">
                 <Link
-                  class="button button-filled is-rounded"
+                  class="button button-filled is-rounded button-filled-hover"
                   href="/logout"
                   @click="showNav = !showNav"
                 >
@@ -196,7 +199,7 @@ nav .login-button:hover {
   }
 }
 
-nav .signup-button:hover {
+nav .button-filled-hover:hover {
   @media only screen and (min-width: 1088px) {
     color: $white-chocolate;
     border-color: $tertiary-site-color;
