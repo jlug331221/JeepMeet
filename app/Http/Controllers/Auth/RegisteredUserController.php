@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\User;
 
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\Rules;
 
 use Inertia\Inertia;
@@ -23,7 +23,9 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Auth/Register');
+        return Inertia::render('Auth/Register', [
+            'csrf_token' => csrf_token(),
+        ]);
     }
 
     /**
@@ -60,7 +62,7 @@ class RegisteredUserController extends Controller
             'last_name'        => ['required', 'string', 'max:50'],
             'username'         => ['required', 'string', 'max:50', 'unique:users'],
             'email'            => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password'         => ['required', 'string', 'min:8', 'confirmed'],
+            'password'         => ['required', 'confirmed', Rules\Password::defaults()],
             'location_country' => ['required', 'string']
         ]);
 
@@ -70,6 +72,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('home');
     }
 }

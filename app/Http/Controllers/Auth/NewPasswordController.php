@@ -25,6 +25,7 @@ class NewPasswordController extends Controller
         return Inertia::render('Auth/ResetPassword', [
             'email' => $request->email,
             'token' => $request->route('token'),
+            'csrf_token' => csrf_token(),
         ]);
     }
 

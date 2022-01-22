@@ -2,12 +2,12 @@
 
 namespace App;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
 
@@ -40,10 +40,10 @@ class User extends Authenticatable
     ];
 
     /**
-    * Get the threads for a particular user.
-    *
-    * @return App\Models\Thread
-    */
+     * Get the threads for a particular user.
+     *
+     * @return App\Models\Thread
+     */
     public function threads()
     {
         return $this->hasMany('App\Models\Thread');

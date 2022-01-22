@@ -1,4 +1,6 @@
 <template>
+  <Head title="Home" />
+
   <h1 class="title has-text-centered mt-4">You are logged in and verified!!</h1>
 </template>
 

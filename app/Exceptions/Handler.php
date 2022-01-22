@@ -52,7 +52,7 @@ class Handler extends ExceptionHandler
     {
         $response = parent::render($request, $exception);
 
-        if ($response->status() === 419) {
+        if ($exception instanceof \Illuminate\Session\TokenMismatchException) {
             return back()->with([
                 'status' => 'The page expired, please try again.',
             ]);

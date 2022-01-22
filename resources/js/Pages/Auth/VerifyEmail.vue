@@ -19,14 +19,6 @@
 
           <div class="card-content">
             <div class="content">
-              <div
-                class="notification is-info is-light"
-                role="alert"
-                v-if="verificationLinkSent"
-              >
-                A fresh verification link has been sent to your email address.
-              </div>
-
               Thanks for signing up! Before getting started, could you verify
               your email address by clicking on the link we just emailed to you?
               If you didn't receive the email, we will gladly send you another.
@@ -39,17 +31,26 @@
                 <button
                   class="button is-link is-light mt-4"
                   v-on:click="submit()"
+                  v-show="!form.processing"
                 >
                   Click here to request another
                 </button>
+
+                <button
+                  v-show="form.processing"
+                  class="button is-rounded is-link is-light is-loading mt-4"
+                ></button>
               </form>
 
               <Link
                 href="/logout"
                 method="post"
+                as="button"
                 class="button button-empty is-rounded mt-4"
                 >Logout</Link
               >
+
+              <Errors :errors="$page.props.errors" />
             </div>
           </div>
         </div>
@@ -61,19 +62,16 @@
 <script>
 import { useForm } from '@inertiajs/inertia-vue3';
 import Layout from '../../Shared/Layout';
-import { computed } from 'vue';
+import Errors from '../../components/Errors';
 
 export default {
   layout: Layout,
+  components: { Errors },
   props: {
     status: String,
   },
   setup(props) {
     const form = useForm({});
-
-    let verificationLinkSent = computed(() => {
-      return props.status === 'verification-link-sent';
-    });
 
     function submit() {
       form.post(route('verification.send'));
@@ -82,7 +80,6 @@ export default {
     return {
       form,
       submit,
-      verificationLinkSent,
     };
   },
 };

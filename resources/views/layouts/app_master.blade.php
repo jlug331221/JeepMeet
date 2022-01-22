@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- CSRF Token -->
+  <!-- CSRF Token - Inertia (via axios) handles token -->
   {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
 
   <!-- Title is handled on the Vue side -->

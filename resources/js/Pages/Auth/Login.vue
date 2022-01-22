@@ -3,21 +3,8 @@
 
   <div class="columns is-mobile is-centered">
     <div class="column is-three-quarters-mobile is-half-tablet is-half-desktop">
-      <!-- @error('username')
-      <div
-        class="
-          mt-4
-          login-error-notification
-          is-danger is-light
-        "
-      >
-        <button class="delete handle-delete-of-button"></button>
-        {{ $message }}
-      </div>
-      @enderror -->
-
       <section
-        class="section is-medium has-text-left whitesmoke-section login-box box"
+        class="section is-medium has-text-left whitesmoke-section box login-box"
       >
         <h2 class="title is-2">Login</h2>
 
@@ -40,23 +27,7 @@
             </div>
           </div>
 
-          <div class="field">
-            <div class="control has-icons-left">
-              <input
-                v-model="formFields.password"
-                type="password"
-                id="password-input"
-                class="input"
-                placeholder="Password"
-                name="password"
-                required
-              />
-
-              <span class="icon is-small is-left">
-                <i class="fas fa-lock"></i>
-              </span>
-            </div>
-          </div>
+          <PasswordInput v-model:password="formFields.password" />
 
           <div class="field">
             <div class="control">
@@ -82,7 +53,6 @@
               <button
                 class="button button-filled is-rounded login-submit"
                 v-show="!loadingSpinner"
-                v-on:click="login()"
                 :disabled="
                   formFields.username === '' || formFields.password === ''
                 "
@@ -96,19 +66,9 @@
               ></button>
             </div>
           </div>
-
-          <div v-show="formFields.hasErrors" class="mt-4">
-            <ul>
-              <li
-                class="errors-text"
-                v-for="error in $page.props.errors"
-                :key="error"
-              >
-                {{ error }}
-              </li>
-            </ul>
-          </div>
         </form>
+
+        <Errors :errors="$page.props.errors" />
       </section>
     </div>
   </div>
@@ -117,12 +77,16 @@
 <script>
 import { useForm } from '@inertiajs/inertia-vue3';
 import Layout from '../../Shared/Layout';
+import Errors from '../../components/Errors';
+import PasswordInput from '../../components/PasswordInput';
 import { ref } from 'vue';
 
 export default {
   layout: Layout,
+  components: { Errors, PasswordInput },
   props: {
     errors: Object,
+    csrf_token: String,
   },
   setup(props) {
     let loadingSpinner = ref(false);
@@ -137,6 +101,7 @@ export default {
       loadingSpinner.value = true;
 
       formFields.post('/login', {
+        _token: props.csrf_token,
         preserveScroll: true,
         onSuccess: () => {
           formFields.reset();
@@ -161,10 +126,8 @@ export default {
 <style lang="scss">
 @import '@/_variables.scss';
 
-.login-box a,
-.checkbox.login-checkbox {
+.login-box a {
   font-size: 0.7rem;
-  text-align: left;
 
   @media only screen and (min-width: 768px) {
     font-size: 0.75rem;
@@ -173,9 +136,5 @@ export default {
   @media only screen and (min-width: 1088px) {
     font-size: 0.8rem;
   }
-}
-
-.box {
-  border-radius: 2px;
 }
 </style>

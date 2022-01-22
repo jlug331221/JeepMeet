@@ -63,39 +63,18 @@
             ></o-input>
           </o-field>
 
-          <o-field>
-            <o-input
-              placeholder="Password"
-              iconPack="fas"
-              icon="lock"
-              v-model="formFields.password"
-              name="password"
-              type="password"
-              class="register-password"
-              password-reveal
-              required
-            ></o-input>
-          </o-field>
+          <PasswordInput v-model:password="formFields.password" />
 
-          <o-field>
-            <o-input
-              placeholder="Confirm Password"
-              iconPack="fas"
-              icon="lock"
-              v-model="formFields.password_confirmation"
-              name="passwordConfirmation"
-              type="password"
-              class="register-password"
-              password-reveal
-              required
-            ></o-input>
-          </o-field>
+          <PasswordInput
+            v-model:password="formFields.password_confirmation"
+            placeholder="Confirm Password"
+          />
 
           <o-field label="Country">
             <o-select
               validationMessage="Please select a country"
               v-model="formFields.location_country"
-              name="locationCountry"
+              name="location_country"
               iconPack="fas"
               icon="globe-americas"
               expanded
@@ -369,7 +348,7 @@
             <o-select
               validationMessage="Please select a state"
               v-model="formFields.location_state_province"
-              name="locationState"
+              name="location_state"
               iconPack="fas"
               icon="map-marker-alt"
               expanded
@@ -434,7 +413,6 @@
                 v-show="!loadingSpinner"
                 class="button button-filled is-rounded mr-2"
                 :disabled="submitButtonDisabled()"
-                @click="registerUser()"
               >
                 Join
               </button>
@@ -454,19 +432,9 @@
               ></button>
             </div>
           </div>
-
-          <div v-show="formFields.hasErrors" class="mt-4">
-            <ul>
-              <li
-                class="errors-text"
-                v-for="error in $page.props.errors"
-                :key="error"
-              >
-                {{ error }}
-              </li>
-            </ul>
-          </div>
         </form>
+
+        <Errors :errors="$page.props.errors" />
       </section>
     </div>
   </div>
@@ -475,12 +443,16 @@
 <script>
 import { useForm } from '@inertiajs/inertia-vue3';
 import Layout from '../../Shared/Layout';
+import Errors from '../../components/Errors';
+import PasswordInput from '../../components/PasswordInput';
 import { ref } from 'vue';
 
 export default {
   layout: Layout,
+  components: { Errors, PasswordInput },
   props: {
     errors: Object,
+    csrf_token: String,
   },
   setup(props) {
     const formFields = useForm({
@@ -520,6 +492,7 @@ export default {
       loadingSpinner.value = true;
 
       formFields.post('/register', {
+        _token: props.csrf_token,
         preserveScroll: true,
         onSuccess: () => {
           formFields.reset();

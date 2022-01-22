@@ -79,7 +79,9 @@
               <div v-if="user">
                 <Link
                   class="button button-filled is-rounded button-filled-hover"
-                  href="/logout"
+                  :href="route('logout')"
+                  method="post"
+                  as="button"
                   @click="showNav = !showNav"
                 >
                   <strong>Logout</strong>
@@ -119,7 +121,7 @@ nav {
 .brand-name {
   font-size: 1.3rem;
   font-family: $font-family-russo-one;
-  color: $white-chocolate;
+  color: #fff;
 
   @media only screen and (min-width: 768px) {
     font-size: 1.4rem;

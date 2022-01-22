@@ -4,19 +4,17 @@
 // Brand Font
 @import url('https://fonts.googleapis.com/css?family=Russo+One');
 
+// Bulma utilities
+@import "~bulma/sass/utilities/_all";
+
 // Variables
 @import 'variables';
 
 // Oruga
 @import '~@oruga-ui/oruga-next/src/scss/oruga.scss';
 
-// Bulma utilities
-@import "~bulma/sass/utilities/_all";
-
-
 // Bulma CSS Framework
 @import '~bulma/bulma.sass';
-
 
 // Font Awesome
 @import '~@fortawesome/fontawesome-free/scss/brands';
