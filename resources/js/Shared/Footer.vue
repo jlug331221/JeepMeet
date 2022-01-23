@@ -2,8 +2,8 @@
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
-        <small>&copy;</small>&nbsp;<span class="footer-brand">JeepMeet</span>
-        2018-{{ currentYear }}.&nbsp;All rights reserved.
+        <small>&copy;</small>&nbsp;2018-{{ currentYear }}&nbsp;
+        <span class="footer-brand">JeepMeet</span>.&nbsp;All rights reserved.
       </p>
 
       <p><a href="#">Legal Notice</a></p>
